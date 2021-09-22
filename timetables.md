@@ -24,9 +24,9 @@ El máster contempla un 50% de no presencialidad y las clases de teoría (Grupos
 
 [meet]: https://meet.google.com/bhv-togn-ynm
 
-Nos comunican que las clases comenzarán el Lunes 05/10/2020 de forma telemática.
+Nos comunican que las clases comenzarán el Lunes 27/09/2021.
  
-* [Calendario Google de SYTWS](https://calendar.google.com/calendar/b/1?cid=dWxsLmVkdS5lc19oM2FiN3AzcmxmYW1qY25zbmhsdDZ1aGI0MEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t) (Por si lo quieres añadir a tu Google Calendar)
+* [Calendario Google de SYTWS](https://calendar.google.com/calendar/u/1?cid=dWxsLmVkdS5lc19oM2FiN3AzcmxmYW1qY25zbmhsdDZ1aGI0MEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t) (Por si lo quieres añadir a tu Google Calendar)
 
 {% include embeded-calendar-iframe.html %}
 
