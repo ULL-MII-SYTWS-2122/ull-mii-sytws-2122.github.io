@@ -115,13 +115,8 @@ Convierta el repo asignado en un meta repo que contiene todas las prácticas que
         async>
 </script>
             </details>
-            
-            <details>
-                <summary>
-                   <h2>Comment with Disqus</h2> 
-                </summary>   
-                
-            </details>
+
+
         </section>
     
     </div>
