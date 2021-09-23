@@ -20,7 +20,7 @@ En el caso de las tutorías, estamos utilizando las herramientas de chat y meet 
 
 ### Sesiones virtuales/clases 
 
-Realizamos las clases mediante videoconferencias (Google Meet). Las de teoría serán grabadas y publicadas en el campus virtual. Los vídeos son compartidos via Google Drive, el Campus (Kaltura) y Youtube.
+Realizamos las clases mediante videoconferencias (Google Meet). Las de teoría serán grabadas y publicadas en el campus virtual.
 
 ### Inclusión de documentación sobre cada tema
 
