@@ -107,7 +107,7 @@ Convierta el repo asignado en un meta repo que contiene todas las prácticas que
                         <details>
                 <summary><h2>Comment with GitHub Utterances</h2></summary>
                 <script src="https://utteranc.es/client.js"
-        repo="ULL-MII-SYTWS-1920/ull-mii-sytws-1920.github.io"
+        repo="ULL-MII-SYTWS/ull-mii-sytws.github.io"
         issue-term="pathname"
         label="SYTWS"
         theme="dark-blue"
