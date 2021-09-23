@@ -2,7 +2,7 @@
 
 cd ../website && \
 #git init . && \
-#git remote add origin git@github.com:ULL-MII-SYTWS-2021/ull-mii-sytws-2021.github.io.git && \
+#git remote add origin git@github.com:ULL-MII-SYTWS-2122/ULL-MII-SYTWS-2122.github.io.git && \
 #touch .nojekyll && \
 git add . && \
 git ci -am 'new build' && \
