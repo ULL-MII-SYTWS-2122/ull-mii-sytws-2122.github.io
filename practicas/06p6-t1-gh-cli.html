@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=06da52f3b87ead0bb4dcb63794a881519f1db84e">
+    <link rel="stylesheet" href="/assets/css/style.css?v=a44f6534682fbe8c7d55b28dcc431ebdcd76c5e3">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -54,7 +54,7 @@
             
 <div id="title">
         <h1>Sistemas y Tecnologías Web: Servidor</h1>
-        <p> Master de II. ULL. 1er cuatrimestre. 2020/2021</p>
+        <p> Master de II. ULL. 1er cuatrimestre</p>
         <hr>
         <span class="credits left">Organization <a href="https://github.com/ULL-MII-SYTWS-2122" target="_blank">ULL-MII-SYTWS-2122</a></span>
         <span class="credits left"> &nbsp; Classroom <a href="https://classroom.github.com/classrooms/90842007-ull-mii-sytws-2122" target="_blank">ULL-MII-SYTWS-2122</a></span>
@@ -67,7 +67,7 @@
 
 <div id="title">
     <h1>Sistemas y Tecnologías Web: Servidor</h1>
-    <p> Master de II. ULL. 1er cuatrimestre. 2020/2021</p>
+    <p> Master de II. ULL. 1er cuatrimestre</p>
     <hr>
     <span class="credits left">Organization <a href="https://github.com/ULL-MII-SYTWS"
             target="_blank">ULL-MII-SYTWS</a></span>
