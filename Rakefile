@@ -9,7 +9,7 @@ task :serve do
 end
 
 desc "sytws: serve raw html from ../website"
-task :rawserve do
+task :rawserve => [:b] do
   sh "http-server ../website -p 8000"
 end
 
