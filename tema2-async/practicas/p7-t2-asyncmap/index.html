@@ -101,7 +101,7 @@ date: 0000-01-04
 
 <h1 id="descripción-de-la-práctica-p7-t2-asyncmap">Descripción de la Práctica p7-t2-asyncmap</h1>
 
-<p>Escriba un programa Node.js que usando <code class="language-plaintext highlighter-rouge">fs.readFile</code> lea <strong>en paralelo</strong> un conjunto de ficheros pasados en vía de comandos y produzca como salida la concatenación de los mismos en el orden especificado. Evite usar <code class="language-plaintext highlighter-rouge">fs.readFileSync</code>:</p>
+<p>Escriba un programa Node.js que usando <code class="language-plaintext highlighter-rouge">fs.readFile</code> lea <strong>en paralelo</strong> un conjunto de ficheros pasados en vía de comandos y produzca como salida la concatenación de los mismos en el orden especificado. Evite usar <code class="language-plaintext highlighter-rouge">fs.readFileSync</code> y use <code class="language-plaintext highlighter-rouge">fs.readFile(path[, options], callback)</code>:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>$ concat -f one.txt -f two.txt -f three.txt -o salida.txt
