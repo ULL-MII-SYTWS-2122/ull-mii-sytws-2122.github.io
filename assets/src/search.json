@@ -13,7 +13,7 @@
       },
     
       {
-        "title": "Clase Virtual del Miércoles 29/09/2021 (Semana A)",
+        "title": "Clase Virtual del Miércoles 29/09/2021 (Semana C)",
         "excerpt": "\n\nlayout: post\ntitle:  “Clase Virtual del Miércoles 29/09/2021”\ncategories: Clases\nvisible: true\n—\n\n",
         "content": "\n\nlayout: post\ntitle:  “Clase Virtual del Miércoles 29/09/2021”\ncategories: Clases\nvisible: true\n—\n\nClase del Miércoles 29/09/2021 (Semana C)\n\nEsta clase es asíncrona.\n\nRecuerden rellenar el custionario GitHub-Alu e ir haciendo las prácticas pendientes:\n\n \n  Descripción de la Práctica pb-gh-campus-expert\n  \n \n  Descripción de la Práctica p01-t1-iaas\n  \n \n  Descripción de la Práctica p2-t1-vscode\n  \n \n  Descripción de la Práctica p2-t1-c3-filesystem\n  \n \n  Descripción de la Práctica p7-t2-asyncmap\n  \n\n\nComo ven, he añadido un ejercicio para ver como se manejan con la asincronía que consiste en escribir una función asyncmap que ejecute funciones asínconras en paralelo\n\nMas adelante, en la clase presencial discutiremos las  soluciones a las prácticas ya los ejercicios. Sin tiene cualquier duda me envían un email o via https://chat.google.com\n",
         "url": "/clases/2021/09/29/leccion.html"
@@ -245,14 +245,14 @@
   {
     "title": "Categories",
     "excerpt": "\n",
-    "content": "\n\n  \n    \n    \n    \n\n    Clases\n    \n    \n      \n      \n      \n        \n          Clase Virtual del Miércoles 29/09/2021 (Semana A)\n        \n      \n    \n      \n      \n      \n        \n          Clase del Lunes 27/09/2021\n        \n      \n    \n  \n\n\n",
+    "content": "\n\n  \n    \n    \n    \n\n    Clases\n    \n    \n      \n      \n      \n        \n          Clase Virtual del Miércoles 29/09/2021 (Semana C)\n        \n      \n    \n      \n      \n      \n        \n          Clase del Lunes 27/09/2021\n        \n      \n    \n  \n\n\n",
     "url": "/categories/"
   },
   
   {
     "title": "Clases",
     "excerpt": "\n",
-    "content": "Clases\n\n\n  \n     \n     \n     \n       \n        \n\n Classes Durante el mes de September\n\n\n        \n Clase Virtual del Miércoles 29/09/2021 (Semana A) (Clase en el repo) \n      \n     \n  \n     \n     \n     \n       \n        \n Clase del Lunes 27/09/2021 (Clase en el repo) \n      \n     \n  \n\n",
+    "content": "Clases\n\n\n  \n     \n     \n     \n       \n        \n\n Classes Durante el mes de September\n\n\n        \n Clase Virtual del Miércoles 29/09/2021 (Semana C) (Clase en el repo) \n      \n     \n  \n     \n     \n     \n       \n        \n Clase del Lunes 27/09/2021 (Clase en el repo) \n      \n     \n  \n\n",
     "url": "/clases.html"
   },
   
