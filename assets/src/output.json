@@ -1,6 +1,36 @@
 
     
     {
+      "title": "Clase Virtual del Miércoles 29/09/2021 (Semana A)",
+      "date": "September 29, 2021",
+
+      "excerpt": "<hr />
+<p>layout: post
+title:  “Clase Virtual del Miércoles 29/09/2021”
+categories: Clases
+visible: true
+—</p>
+
+",
+       "categories"  : [
+         "Clases"
+        
+        
+        ],
+      
+      
+      "url": "/clases/2021/09/29/leccion.html",
+       "tags"  : [
+        
+        ]
+      
+      
+    }
+
+    ,
+
+    
+    {
       "title": "Clase del Lunes 27/09/2021",
       "date": "September 27, 2021",
 
