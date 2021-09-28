@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=7c92d1d005c567a644b03c2791d504dbae42f994">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b8ce00c091656a56b2875e0c46b6aca37e27cc6d">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -98,7 +98,7 @@
             <div class="container">
                 <h1 id="descripción-de-la-práctica-p7-t2-asyncmap">Descripción de la Práctica p7-t2-asyncmap</h1>
 
-<p>Escriba un programa Node.js que usando <code class="language-plaintext highlighter-rouge">fs.readFile</code> lea  un conjunto de ficheros pasados en vía de comandos y produzca como salida la concatenación de los mismos en el orden especificado. Evite usar <code class="language-plaintext highlighter-rouge">fs.readFileSync</code>:</p>
+<p>Escriba un programa Node.js que usando <code class="language-plaintext highlighter-rouge">fs.readFile</code> lea <strong>en paralelo</strong> un conjunto de ficheros pasados en vía de comandos y produzca como salida la concatenación de los mismos en el orden especificado. Evite usar <code class="language-plaintext highlighter-rouge">fs.readFileSync</code>:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>$ concat -f one.txt -f two.txt -f three.txt -o salida.txt
