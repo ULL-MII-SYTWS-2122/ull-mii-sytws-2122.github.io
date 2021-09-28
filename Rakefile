@@ -8,7 +8,7 @@ task :serve do
   sh "bundle exec jekyll serve --future --watch --port 8080 --host 0.0.0.0"
 end
 
-desc "sytws: serve raw html"
+desc "sytws: serve raw html from ../website"
 task :rawserve do
   sh "http-server ../website -p 8000"
 end
