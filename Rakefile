@@ -23,38 +23,18 @@ task :lsd do
   sh "bundle exec jekyll serve --future --drafts --watch --incremental --port 8080"
 end
 
-desc "local: pull and bundle exec jekyll serve --watch --incremental"
-task :pls do
-  sh "git pull origin masqter"
-  sh "bundle exec jekyll serve --future --watch --incremental --port 8080"
-end
-
-desc "sytws: pull and bundle exec jekyll serve -H 10.6.128.216 -P 8080"
-task :pjs do
-  sh "git pull origin master"
-  sh "bundle exec jekyll serve --future -H 10.6.128.216 -P 8080"
-end
-
 desc "build"
 task :b do
   sh "bundle exec jekyll build --future  -d ../website"
 end
 
+desc "build and watch"
+task :bw do
+  sh "bundle exec jekyll build --watch --future  -d ../website"
+end
+
 task :pushhtml => [ :b ] do
   sh "./scripts/build-and-push.sh"
-end
-
-desc "sytws: pull and build"
-task :pb do
-  sh "git pull origin master"
-  sh "bundle exec jekyll build --future"
-end
-
-desc "sytws: pull and build and run with static-server"
-task :pbss do
-  sh "git pull origin master"
-  sh "bundle exec jekyll build"
-  sh "cd _site &&  http-server -p 8080 -a 10.6.128.216"
 end
 
 desc "sytws: build and run with http-server -p 8080 -a 10.6.128.216"
@@ -66,7 +46,7 @@ end
 require 'html-proofer'
 desc "test links in the build web site"
 task :test do
-  sh "git pull origin master"
+  sh "git pull origin main"
   sh "bundle exec jekyll build"
   options = { 
     :assume_extension => true, 
