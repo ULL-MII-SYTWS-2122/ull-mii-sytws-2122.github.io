@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=36e9eaf0e10edd9875d54a117b290bee7008fef0">
+    <link rel="stylesheet" href="/assets/css/style.css?v=d44bf77cdbf04155dc576f192232e7c69c1e132f">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -93,22 +93,59 @@
             <h2 >Table of Contents</h2>
             
             <ul id="sytwstoc">
-  <li><a href="#descripción-de-la-práctica-p6-t1-gh-cli">Descripción de la Práctica p6-t1-gh-cli</a></li>
+  <li><a href="#descripción-de-la-práctica-p6-t1-gh-cli">Descripción de la Práctica p6-t1-gh-cli</a>
+    <ul>
+      <li><a href="#gh-alias">gh alias</a>
+        <ul>
+          <li><a href="#gh-create-repo">gh create-repo</a></li>
+          <li><a href="#gh-delete-repo">gh delete-repo</a></li>
+        </ul>
+      </li>
+      <li><a href="#extension">Extension</a></li>
+    </ul>
+  </li>
 </ul>
           
 
             <div class="container">
                 <h1 id="descripción-de-la-práctica-p6-t1-gh-cli">Descripción de la Práctica p6-t1-gh-cli</h1>
 
+<h2 id="gh-alias">gh alias</h2>
+
+<h3 id="gh-create-repo">gh create-repo</h3>
+
 <p>Using <code class="language-plaintext highlighter-rouge">gh api</code> and <code class="language-plaintext highlighter-rouge">gh alias --shell</code> add to <code class="language-plaintext highlighter-rouge">gh</code> 
 an extension <code class="language-plaintext highlighter-rouge">gh create-repo</code> that creates the repo inside the given organization:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>gh create-repo prueba-repo ULL-MII-SYTWS-2022
+2
+</pre></td><td class="rouge-code"><pre>$ gh create-repo tuturepo ULL-ESIT-PL-2021
+$ gh repo view ULL-ESIT-PL-2021/tuturepo -w
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>You can use the REST API or GraphQL</p>
+<p><img src="/assets/images/create-repo.png" alt="" /></p>
 
+<p>Use the GitHub REST API</p>
+
+<h3 id="gh-delete-repo">gh delete-repo</h3>
+
+<p>The same but with delete:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>$ gh delete-repo tuturepo ULL-ESIT-PL-2021
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Then, after issuing the command and refreshing the former page we get:</p>
+
+<p><img src="/assets/images/delete-repo.png" alt="" /></p>
+
+<ul>
+  <li>GitHub API doc for <a href="https://docs.github.com/es/rest/reference/repos#delete-a-repository">Delete repository</a></li>
+</ul>
+
+<h2 id="extension">Extension</h2>
+
+<p>Write and publish a gh extension <code class="language-plaintext highlighter-rouge">gh-repo-delete [org/repo]</code> that deletes the specified remote repo.</p>
 
             </div>
                         
