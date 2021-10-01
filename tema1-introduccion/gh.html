@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=636719830eb2df5245ea80509cf7c94d79305710">
+    <link rel="stylesheet" href="/assets/css/style.css?v=eb9c47457c3c9e46c677c1e7e55676625d09cd9b">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -88,7 +88,14 @@
             <h2 >Table of Contents</h2>
            
             <ul id="sytwstoc">
-  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#introduction">Introduction</a>
+    <ul>
+      <li><a href="#what-is">What is</a></li>
+      <li><a href="#version">Version</a></li>
+      <li><a href="#help">Help</a></li>
+      <li><a href="#installation">Installation</a></li>
+    </ul>
+  </li>
   <li><a href="#introduction-to-gh-api">Introduction to <code class="language-plaintext highlighter-rouge">gh api</code></a>
     <ul>
       <li><a href="#authentication-token">Authentication Token</a></li>
@@ -103,6 +110,7 @@
     </ul>
   </li>
   <li><a href="#graphql-example">GraphQL Example</a></li>
+  <li><a href="#extensions">Extensions</a></li>
   <li><a href="#running-manually-github-workflows-with-gh">Running Manually GitHub Workflows with gh</a></li>
   <li><a href="#references">References</a></li>
 </ul>
@@ -111,7 +119,21 @@
             <div class="container">
                 <h2 id="introduction">Introduction</h2>
 
+<h3 id="what-is">What is</h3>
+
 <p><a href="https://cli.github.com/manual/">gh</a> pretends to facilitate the access to GitHub from the command line. It brings pull requests, issues, and other GitHub concepts to the terminal next to where you are already working with git and your code.</p>
+
+<h3 id="version">Version</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>➜  apuntes git:(main) gh --version
+gh version 2.0.0 (2021-08-23)
+https://github.com/cli/cli/releases/tag/v2.0.0
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="help">Help</h3>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -159,13 +181,21 @@
 44
 45
 46
-</pre></td><td class="rouge-code"><pre>➜ gh help
+47
+48
+49
+50
+51
+52
+53
+</pre></td><td class="rouge-code"><pre>➜  apuntes git:(main) ✗ gh help
 Work seamlessly with GitHub from the command line.
 
 USAGE
   gh &lt;command&gt; &lt;subcommand&gt; [flags]
 
 CORE COMMANDS
+  browse:     Open the repository in the browser
   gist:       Manage gists
   issue:      Manage issues
   pr:         Manage pull requests
@@ -183,9 +213,15 @@ ADDITIONAL COMMANDS
   auth:       Login, logout, and refresh your authentication
   completion: Generate shell completion scripts
   config:     Manage configuration for gh
+  extension:  Manage gh extensions
   help:       Help about any command
   secret:     Manage GitHub secrets
   ssh-key:    Manage SSH keys
+
+EXTENSION COMMANDS
+  clone-org
+  gp
+  project
 
 FLAGS
   --help      Show help for command
@@ -206,6 +242,8 @@ LEARN MORE
 FEEDBACK
   Open an issue using 'gh issue create -R github.com/cli/cli'
 </pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="installation">Installation</h3>
 
 <p>To install it, see  the <a href="https://github.com/cli/cli#installation">installation instructions</a>.</p>
 
@@ -773,6 +811,13 @@ The <a href="https://docs.github.com/en/free-pro-team@latest/v4/object/issueconn
 
 [Descripción de la práctica gh-cli](/practicas/p6-t1-gh-cli)
 -->
+
+<h2 id="extensions">Extensions</h2>
+
+<ul>
+  <li><a href="https://github.com/topics/gh-extension">gh-extension</a> list</li>
+  <li><a href="https://github.com/matt-bartel/gh-clone-org">matt-bartel/gh-clone-org</a></li>
+</ul>
 
 <h2 id="running-manually-github-workflows-with-gh">Running Manually GitHub Workflows with gh</h2>
 
