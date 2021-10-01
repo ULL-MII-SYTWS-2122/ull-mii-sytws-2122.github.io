@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=8664377d4262c85006b3048cfdd68bde49761665">
+    <link rel="stylesheet" href="/assets/css/style.css?v=a1ae675a19b4933a3bece5053e57e06f71908ff1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -112,11 +112,11 @@
   <li><a href="#graphql-example">GraphQL Example</a></li>
   <li><a href="#extensions">Extensions</a>
     <ul>
-      <li><a href="#gh-clone-org">gh-clone-org</a></li>
+      <li><a href="#example-of-use-gh-clone-org">Example of use: gh-clone-org</a></li>
     </ul>
   </li>
   <li><a href="#running-manually-github-workflows-with-gh">Running Manually GitHub Workflows with gh</a></li>
-  <li><a href="#práctica">Práctica</a></li>
+  <li><a href="#prácticas">Prácticas</a></li>
   <li><a href="#references">References</a></li>
 </ul>
         
@@ -819,11 +819,30 @@ The <a href="https://docs.github.com/en/free-pro-team@latest/v4/object/issueconn
 
 <h2 id="extensions">Extensions</h2>
 
+<p>GitHub CLI extensions are repositories that provide additional gh commands.</p>
+
+<p>The name of the extension repository must start with “gh-“ and it must contain an executable of the same name. All arguments passed to the gh <extname> invocation will be forwarded to the gh-<extname> executable of the extension.</extname></extname></p>
+
 <ul>
+  <li>CORE COMMANDS
+    <ul>
+      <li>create:     Create a new extension</li>
+      <li>install:    Install a gh extension from a repository</li>
+      <li>list:       List installed extension commands</li>
+      <li>remove:     Remove an installed extension</li>
+      <li>upgrade:    Upgrade installed extensions</li>
+    </ul>
+  </li>
+</ul>
+
+<p>See also:</p>
+
+<ul>
+  <li><a href="https://docs.github.com/es/github-cli/github-cli/creating-github-cli-extensions">Creating GitHub CLI extensions</a></li>
   <li><a href="https://github.com/topics/gh-extension">gh-extension</a> list</li>
 </ul>
 
-<h3 id="gh-clone-org">gh-clone-org</h3>
+<h3 id="example-of-use-gh-clone-org">Example of use: gh-clone-org</h3>
 
 <ul>
   <li><a href="https://github.com/matt-bartel/gh-clone-org">matt-bartel/gh-clone-org</a></li>
@@ -853,7 +872,7 @@ ULL-MII-SYTWS-2122/set-up-Pmolmar
   <li><a href="gh-workflows">Running Manually GitHub Workflows with gh</a></li>
 </ul>
 
-<h2 id="práctica">Práctica</h2>
+<h2 id="prácticas">Prácticas</h2>
 
 <ul>
   <li><a href="/practicas/06p6-t1-gh-cli">GitHub cli: alias and extensions</a></li>
