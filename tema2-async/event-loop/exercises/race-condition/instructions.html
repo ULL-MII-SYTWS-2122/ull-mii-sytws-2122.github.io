@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=5491272d0b716c38a54bcc3cc2a0c4c7723c4307">
+    <link rel="stylesheet" href="/assets/css/style.css?v=f43d79f59e7b9cc24133013c2bacb1b246c25c22">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -155,14 +155,14 @@
 
   <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
     <span class="kd">let</span> <span class="nx">image</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
-        <span class="nx">url</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">https://elementscpa.com/wp-content/uploads/2017/08/elementscpa-business-infinity-loop-tal-e1504182065499.png</span><span class="dl">"</span><span class="p">,</span> 
-        <span class="c1">//url = "infinity-loop.png", </span>
+        <span class="c1">//url = "https://elementscpa.com/wp-content/uploads/2017/08/elementscpa-business-infinity-loop-tal-e1504182065499.png", </span>
+        <span class="nx">url</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">infinity-loop.png</span><span class="dl">"</span><span class="p">,</span> 
         <span class="nx">container</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">holder-div</span><span class="dl">"</span><span class="p">);</span>
 
     <span class="nx">image</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">url</span><span class="p">;</span> <span class="c1">// I suppose the "load" process starts here</span>
 
-    <span class="c1">//let waitFor = 0;</span>
-    <span class="kd">let</span> <span class="nx">waitFor</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">waitFor</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="c1">//let waitFor = 2000;</span>
     <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
       <span class="c1">// The onload event occurs when an object has been loaded</span>
       <span class="c1">// We only append it to the container when the load has finished</span>
@@ -219,6 +219,11 @@
 </pre></td><td class="rouge-code"><pre>➜  race-condition git:(curso2021) ✗ ls ~/campus-virtual/2021/sytws2021/apuntes/tema2-async/event-loop/exercises/race-condition
 index.html          infinity-loop.png   instructions.md     not-race-example.js race-example.js
 </pre></td></tr></tbody></table></code></pre></div></div>
+
+<figure class="image">
+    <img src="/assets/images/event-loop.png" alt="&lt;i&gt;There’s an endless loop, when JavaScript engine waits for tasks, executes them and then sleeps waiting for more tasks&lt;/i&gt;" style="" />
+    <figcaption><i>There’s an endless loop, when JavaScript engine waits for tasks, executes them and then sleeps waiting for more tasks</i></figcaption>
+</figure>
 
 <h3 id="references">References</h3>
 
