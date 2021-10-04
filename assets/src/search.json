@@ -7,22 +7,22 @@
     
       {
         "title": "Clase del Lunes 27/09/2021",
-        "excerpt": "Clase del Lunes 27/09/2021\n\n",
-        "content": "Clase del Lunes 27/09/2021\n\n\n  Meet de la clase\n  URL de los apuntes\n  Adaptación a la Docencia y Evaluación No Presencial\n  Presentación de la Asignatura SYTWS\n  Prácticas\n    \n      gi: Práctica github campus expert\n      se: Práctica set-up\n      vs: Práctica vscode\n    \n  \n  Algunas Preguntas sobre como funciona el bucle de eventos JS\n\n\n",
+        "excerpt": "\n\n  Meet de la clase\n  URL de los apuntes\n  Adaptación a la Docencia y Evaluación No Presencial\n  Presentación de la Asignatura SYTWS\n  Prácticas\n    \n      gi: Práctica github campus expert\n      se: Práctica set-up\n      vs: Práctica vscode\n    \n  \n  Algunas Preguntas sobre como funciona el bucle de eventos JS\n\n",
+        "content": "\n\n  Meet de la clase\n  URL de los apuntes\n  Adaptación a la Docencia y Evaluación No Presencial\n  Presentación de la Asignatura SYTWS\n  Prácticas\n    \n      gi: Práctica github campus expert\n      se: Práctica set-up\n      vs: Práctica vscode\n    \n  \n  Algunas Preguntas sobre como funciona el bucle de eventos JS\n\n\n",
         "url": "/clases/2021/09/27/leccion.html"
       },
     
       {
         "title": "Clase Virtual del Miércoles 29/09/2021 (Semana C)",
-        "excerpt": "Clase del Miércoles 29/09/2021 (Semana C)\n\n",
-        "content": "Clase del Miércoles 29/09/2021 (Semana C)\n\nEsta clase es asíncrona.\n\nRecuerden rellenar el custionario GitHub-Alu e ir haciendo las prácticas pendientes:\n\n \n  Descripción de la Práctica github campus expert\n  \n \n  Descripción de la Práctica set-up\n  \n \n  Descripción de la Práctica vscode\n  \n \n  Descripción de la Práctica filesystem\n  \n \n  Descripción de la Práctica asyncmap\n  \n\n\nComo ven, he añadido un ejercicio para ver como se manejan con la asincronía que consiste en escribir una función asyncmap que ejecute funciones asínconras en paralelo\n\nMas adelante, en la clase presencial discutiremos las  soluciones a las prácticas ya los ejercicios. Sin tiene cualquier duda me envían un email o via https://chat.google.com\n",
+        "excerpt": "Esta clase es asíncrona.\n\n",
+        "content": "Esta clase es asíncrona.\n\nRecuerden rellenar el custionario GitHub-Alu e ir haciendo las prácticas pendientes:\n\n \n  Descripción de la Práctica github campus expert\n  \n \n  Descripción de la Práctica set-up\n  \n \n  Descripción de la Práctica vscode\n  \n \n  Descripción de la Práctica filesystem\n  \n \n  Descripción de la Práctica asyncmap\n  \n\n\nComo ven, he añadido un ejercicio para ver como se manejan con la asincronía que consiste en escribir una función asyncmap que ejecute funciones asínconras en paralelo\n\nMas adelante, en la clase presencial discutiremos las  soluciones a las prácticas ya los ejercicios. Sin tiene cualquier duda me envían un email o via https://chat.google.com\n",
         "url": "/clases/2021/09/29/leccion.html"
       },
     
       {
         "title": "Clase  del Lunes 04/10/2021 (Semana A)",
-        "excerpt": "Clase  del Lunes 04/10/2021 (Semana A)\n\n",
-        "content": "Clase  del Lunes 04/10/2021 (Semana A)\n\nCuestionario\n\nRecuerden rellenar el cuestionario GitHub-Alu e ir haciendo las prácticas pendientes:\n\n \n  Descripción de la Práctica github campus expert\n  \n \n  Descripción de la Práctica set-up\n  \n \n  Descripción de la Práctica vscode\n  \n \n  Descripción de la Práctica filesystem\n  \n \n  Descripción de la Práctica asyncmap\n  \n\n\nGitPod\n\n\n  Apuntes de GitPod\n\n\nAsync JS\n\n\n  Loading an image with some delay\n  \n    See folder tema2-async/event-loop/exercises/race-condition/ in this notes repo\n  \n  Entre todos buscamos una solución al ejercicio para ver como se manejan con la asincronía que consiste en escribir una función asyncmap que ejecute funciones asínconras en paralelo\n\n\n",
+        "excerpt": "Cuestionario\n\n",
+        "content": "Cuestionario\n\nRecuerden rellenar el cuestionario GitHub-Alu e ir haciendo las prácticas pendientes:\n\n \n  Descripción de la Práctica github campus expert\n  \n \n  Descripción de la Práctica set-up\n  \n \n  Descripción de la Práctica vscode\n  \n \n  Descripción de la Práctica filesystem\n  \n \n  Descripción de la Práctica asyncmap\n  \n\n\nGitPod\n\n\n  Apuntes de GitPod\n\n\nAsync JS\n\n\n  Loading an image with some delay\n  \n    See folder tema2-async/event-loop/exercises/race-condition/ in this notes repo\n  \n  Entre todos buscamos una solución al ejercicio para ver como se manejan con la asincronía que consiste en escribir una función asyncmap que ejecute funciones asínconras en paralelo\n\n\n",
         "url": "/clases/2021/10/04/leccion.html"
       },
     

@@ -4,7 +4,7 @@
       "title": "Clase  del Lunes 04/10/2021 (Semana A)",
       "date": "October 04, 2021",
 
-      "excerpt": "<h1 id="clase--del-lunes-04102021-semana-a">Clase  del Lunes 04/10/2021 (Semana A)</h1>
+      "excerpt": "<h2 id="cuestionario">Cuestionario</h2>
 
 ",
        "categories"  : [
@@ -29,7 +29,7 @@
       "title": "Clase Virtual del Miércoles 29/09/2021 (Semana C)",
       "date": "September 29, 2021",
 
-      "excerpt": "<h1 id="clase-del-miércoles-29092021-semana-c">Clase del Miércoles 29/09/2021 (Semana C)</h1>
+      "excerpt": "<p>Esta clase es asíncrona.</p>
 
 ",
        "categories"  : [
@@ -54,8 +54,21 @@
       "title": "Clase del Lunes 27/09/2021",
       "date": "September 27, 2021",
 
-      "excerpt": "<h1 id="clase-del-lunes-27092021">Clase del Lunes 27/09/2021</h1>
-
+      "excerpt": "
+<ul>
+  <li><a href="https://meet.google.com/bhv-togn-ynm">Meet de la clase</a></li>
+  <li><a href="https://ull-mii-sytws.github.io/">URL de los apuntes</a></li>
+  <li><a href="/covid19">Adaptación a la Docencia y Evaluación No Presencial</a></li>
+  <li><a href="/tema0-presentacion/">Presentación de la Asignatura SYTWS</a></li>
+  <li><a href="/practicas">Prácticas</a>
+    <ul>
+      <li><a href="/tema0-presentacion/practicas/pb-gh-campus-expert/">gi: Práctica github campus expert</a></li>
+      <li><a href="/tema1-introduccion/practicas/p01-t1-iaas/">se: Práctica set-up</a></li>
+      <li><a href="/tema1-introduccion/practicas/p2-t1-vscode/">vs: Práctica vscode</a></li>
+    </ul>
+  </li>
+  <li><a href="/tema2-async/event-loop/index.html#unas-preguntas">Algunas Preguntas sobre como funciona el bucle de eventos JS</a></li>
+</ul>
 ",
        "categories"  : [
          "Clases"
