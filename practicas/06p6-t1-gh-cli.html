@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=466085b62086e76ae243426e1b0e8ebb64d1db7c">
+    <link rel="stylesheet" href="/assets/css/style.css?v=f0a45caf408f71289b1205d67febcf2d0b623227">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -93,38 +93,34 @@
             <h2 >Table of Contents</h2>
             
             <ul id="sytwstoc">
-  <li><a href="#descripción-de-la-práctica-p6-t1-gh-cli">Descripción de la Práctica p6-t1-gh-cli</a>
+  <li><a href="#gh-alias">gh alias</a>
     <ul>
-      <li><a href="#gh-alias">gh alias</a>
-        <ul>
-          <li><a href="#gh-create-repo">gh create-repo</a></li>
-          <li><a href="#gh-delete-repo">gh delete-repo</a></li>
-        </ul>
-      </li>
-      <li><a href="#extension">Extension</a></li>
+      <li><a href="#gh-create-repo">gh create-repo</a></li>
+      <li><a href="#gh-delete-repo">gh delete-repo</a></li>
     </ul>
   </li>
+  <li><a href="#gh-org-list">gh org-list</a></li>
+  <li><a href="#extension">Extension</a></li>
+  <li><a href="#references">References</a></li>
 </ul>
           
 
             <div class="container"> 
-                <h1> 06p6 T1 Gh Cli </h1>
-                <h1 id="descripción-de-la-práctica-p6-t1-gh-cli">Descripción de la Práctica p6-t1-gh-cli</h1>
-
-<h2 id="gh-alias">gh alias</h2>
+                <h1> Descripción de la Práctica gh cli </h1>
+                <h2 id="gh-alias">gh alias</h2>
 
 <h3 id="gh-create-repo">gh create-repo</h3>
 
-<p>Using <code class="language-plaintext highlighter-rouge">gh api</code> and <code class="language-plaintext highlighter-rouge">gh alias --shell</code> add to <code class="language-plaintext highlighter-rouge">gh</code> 
-an extension <code class="language-plaintext highlighter-rouge">gh create-repo</code> that creates the repo inside the given organization:</p>
+<p>Using <code class="language-plaintext highlighter-rouge">gh api</code> and <code class="language-plaintext highlighter-rouge">gh alias --shell</code> (do not use the existing <code class="language-plaintext highlighter-rouge">gh repo create</code>) add to <code class="language-plaintext highlighter-rouge">gh</code> 
+an extension <code class="language-plaintext highlighter-rouge">gh repo-create</code> that creates the repo inside the given organization:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
-</pre></td><td class="rouge-code"><pre>$ gh create-repo tuturepo ULL-ESIT-PL-2021
+</pre></td><td class="rouge-code"><pre>$ gh repo-create ULL-ESIT-PL-2021/tuturepo
 $ gh repo view ULL-ESIT-PL-2021/tuturepo -w
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p><img src="/assets/images/create-repo.png" alt="" /></p>
+<p><img src="/assets/images/create-repo.png" alt="image of create-repo.png" /></p>
 
 <p>Use the GitHub REST API</p>
 
@@ -133,20 +129,65 @@ $ gh repo view ULL-ESIT-PL-2021/tuturepo -w
 <p>The same but with delete:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>$ gh delete-repo tuturepo ULL-ESIT-PL-2021
+</pre></td><td class="rouge-code"><pre>$ gh repo-delete ULL-ESIT-PL-2021/tuturepo
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Then, after issuing the command and refreshing the former page we get:</p>
 
-<p><img src="/assets/images/delete-repo.png" alt="" /></p>
+<p><img src="/assets/images/delete-repo.png" alt="image of delete-repo.png" /></p>
 
-<ul>
-  <li>GitHub API doc for <a href="https://docs.github.com/es/rest/reference/repos#delete-a-repository">Delete repository</a></li>
-</ul>
+<p>See the GitHub API doc for <a href="https://docs.github.com/es/rest/reference/repos#delete-a-repository">Delete repository</a></p>
+
+<h2 id="gh-org-list">gh org-list</h2>
+
+<p>Escriba un alias que muestre todas las organizaciones tanto aquellas en que sea miembro público como privado de las mismas:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre>[~/.../gh-learning/gh-clone-org(master)]$ gh org-list | tail -8
+GeneticsJS
+tfm-y-pce-mfp-2021
+MDCCVRP
+cooking-lifeboold
+ULL-MII-SYTWS-2122
+ULL-ESIT-DMSI-2121
+ULL-MFP-AET-2122
+ULL-ESIT-PL-2122
+[~/.../gh-learning/gh-clone-org(master)]$ gh org-list | wc
+      65      65    1279
+[~/.../gh-learning/gh-clone-org(master)]$ gh org-list | grep 1819
+ULL-ESIT-PL-1819
+ULL-ESIT-DSI-1819
+ULL-MII-CA-1819
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="extension">Extension</h2>
 
 <p>Write and publish a gh extension <code class="language-plaintext highlighter-rouge">gh-repo-delete [org/repo]</code> that deletes the specified remote repo.</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li><a href="/tema1-introduccion/gh.html">Apuntes de gh</a></li>
+  <li>GitHub API doc for <a href="https://docs.github.com/es/rest/reference/repos#delete-a-repository">Delete repository</a></li>
+  <li>See an example of extension at <a href="https://github.com/crguezl/gh-clone-org">crguezl/gh-clone-org</a></li>
+  <li>GitHub docs for <a href="https://docs.github.com/es/github-cli/github-cli/creating-github-cli-extensions">Creating GitHub CLI extensions</a></li>
+  <li>Here is a list of repos with the topic <code class="language-plaintext highlighter-rouge">gh-extension</code>: <a href="https://github.com/topics/gh-extension">gh-extension</a> list</li>
+</ul>
+
 
             </div>
 

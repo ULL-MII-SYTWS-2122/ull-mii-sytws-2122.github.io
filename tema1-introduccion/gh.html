@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=466085b62086e76ae243426e1b0e8ebb64d1db7c">
+    <link rel="stylesheet" href="/assets/css/style.css?v=f0a45caf408f71289b1205d67febcf2d0b623227">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -106,6 +106,7 @@
   <li><a href="#introduction-to-gh-alias">Introduction to <code class="language-plaintext highlighter-rouge">gh alias</code></a>
     <ul>
       <li><a href="#simple-examples">Simple Examples</a></li>
+      <li><a href="#example-search-for-members-of-an-organization">Example search for members of an organization</a></li>
       <li><a href="#example-search-for-repos-inside-an-organization">Example: Search for repos inside an organization</a></li>
     </ul>
   </li>
@@ -475,6 +476,36 @@ you have installed git on Windows in some other way, shell aliases may not work 
   $ gh alias set --shell igrep 'gh issue list --label="$1" | grep $2'
   $ gh igrep epic foo
   #=&gt; gh issue list --label="epic" | grep "foo"
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="example-search-for-members-of-an-organization">Example search for members of an organization</h3>
+
+<p>Este request nos da la informacion sobre los miembros de una org:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>gh alias set org-members api --paginate "/orgs/$1/members"
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Por ejemplo:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre>➜  bash-learning git:(master) ✗ gh org-members ULL-MII-SYTWS-2122 | jq '.[].url'
+"https://api.github.com/users/alu0100898293"
+"https://api.github.com/users/alu0101102726"
+"https://api.github.com/users/crguezl"
+"https://api.github.com/users/PaulaExposito"
+"https://api.github.com/users/Pmolmar"
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>A partir de este alias podemos construir sub-alias:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>✗ gh alias set my-orgs-names --shell "gh my-orgs --jq '.[].organization.login'"
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="example-search-for-repos-inside-an-organization">Example: Search for repos inside an organization</h3>
@@ -859,7 +890,7 @@ The <a href="https://docs.github.com/en/free-pro-team@latest/v4/object/issueconn
 6
 7
 8
-</pre></td><td class="rouge-code"><pre>[/tmp/chuchu]$ gh clone-org -s set-up -y -n
+</pre></td><td class="rouge-code"><pre>[/tmp/chuchu]$rm  gh clone-org -s set-up -y -n
 Retrieving the list of repositories: search/repositories?q=org%3AULL-MII-SYTWS-2122%20set-up
 This would have cloned the following 5 repositories to /tmp/chuchu:
 ULL-MII-SYTWS-2122/set-up-alu0100898293
