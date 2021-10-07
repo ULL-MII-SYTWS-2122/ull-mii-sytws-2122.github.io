@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=290f2d95b0759970b59c49e7d1cbd380dea336dd">
+    <link rel="stylesheet" href="/assets/css/style.css?v=4d9f81808748c0345be502b9f489afbd0ec3440a">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -323,6 +323,42 @@ Julio Cesar
         async>
 </script>
             
+
+
+
+            <br/><hr>
+
+            <h2>Search</h2>
+
+
+
+<form id="search-form" action="">
+  <label class="label" for="search">Search term (accepts a regex):</label>
+  <br/>
+  <input class="input" id="search" type="text" name="search" autofocus placeholder="e.g. Promise" autocomplete="off">
+  
+  <ul class="list  list--results" id="list">
+  </ul>
+</form>
+
+<script type="text/javascript" src="/assets/src/fetch.js"></script>
+<script type="text/javascript" src="/assets/src/search.js"></script>
+
+
+<script type="text/javascript">
+
+  const search = new JekyllSearch(
+    '/assets/src/search.json',
+    '#search',
+    '#list',
+    ''
+  );
+  search.init(); 
+  
+</script>
+
+<noscript>Please enable JavaScript to use the search form.</noscript>
+
 
 
 

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=290f2d95b0759970b59c49e7d1cbd380dea336dd">
+    <link rel="stylesheet" href="/assets/css/style.css?v=4d9f81808748c0345be502b9f489afbd0ec3440a">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -90,6 +90,7 @@
             <ul id="sytwstoc">
   <li><a href="#">Clases</a>
     <ul>
+      <li><a href="#"><a href="/clases/2021/10/06/leccion.html">Clase Virtual del Miércoles 06/10/2021 (Semana A)</a></a></li>
       <li><a href="#"><a href="/clases/2021/10/04/leccion.html">Clase  del Lunes 04/10/2021 (Semana A)</a></a></li>
       <li><a href="#"><a href="/clases/2021/09/29/leccion.html">Clase Virtual del Miércoles 29/09/2021 (Semana C)</a></a></li>
       <li><a href="#"><a href="/clases/2021/09/27/leccion.html">Clase del Lunes 27/09/2021</a></a></li>
@@ -109,6 +110,14 @@
 
     <h3 class="category-head">Clases</h3>
     <a name="Clases"></a>
+    
+      
+      
+      
+        <article class="archive-item">
+          <h4><a href="/clases/2021/10/06/leccion.html">Clase Virtual del Miércoles 06/10/2021 (Semana A)</a></h4>
+        </article>
+      
     
       
       
@@ -151,6 +160,42 @@
         async>
 </script>
             
+
+
+
+            <br/><hr>
+
+            <h2>Search</h2>
+
+
+
+<form id="search-form" action="">
+  <label class="label" for="search">Search term (accepts a regex):</label>
+  <br/>
+  <input class="input" id="search" type="text" name="search" autofocus placeholder="e.g. Promise" autocomplete="off">
+  
+  <ul class="list  list--results" id="list">
+  </ul>
+</form>
+
+<script type="text/javascript" src="/assets/src/fetch.js"></script>
+<script type="text/javascript" src="/assets/src/search.js"></script>
+
+
+<script type="text/javascript">
+
+  const search = new JekyllSearch(
+    '/assets/src/search.json',
+    '#search',
+    '#list',
+    ''
+  );
+  search.init(); 
+  
+</script>
+
+<noscript>Please enable JavaScript to use the search form.</noscript>
+
 
 
 
