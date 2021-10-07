@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=a5973d167007b2133826bcf9e624e7beb7280a5b">
+    <link rel="stylesheet" href="/assets/css/style.css?v=cb1a59ea54884901f6f580369e314ab9b1c3bb90">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -436,7 +436,36 @@ File change watcher-fortifying-code.js
 
 
             </div>
-                        
+
+
+            <style>
+    /*
+    hr { display: block; 
+      
+    margin-before: 0.5em; 
+    margin-after: 0.5em; 
+    margin-start: auto; 
+    margin-end: auto;
+   
+    overflow: hidden;
+    color:  white;
+    background-color: #ffcc00;
+    height: 15px;
+    border-top: 1px solid white;
+    border-style: inset; 
+    border-width: 1px;}
+*/
+    hr { 
+        display: block; 
+        height: 1px;
+        border: 0; 
+        border-top: 1px solid #ffcc00; /* #ccc; */
+        margin: 1em 0; 
+        padding: 0; }
+</style>
+<br/><hr>
+
+            
 <h2>Comment with GitHub Utterances</h2>
             
 <script src="https://utteranc.es/client.js"
@@ -450,6 +479,46 @@ File change watcher-fortifying-code.js
             
 
 
+
+<br/><hr>
+
+<h2>Search in this notes</h2>
+
+
+
+<form id="search-form" action="">
+  <label class="label" for="search">Search term (accepts a regex):</label>
+  <br/>
+  <input class="input" id="search" type="text" name="search" autofocus placeholder="e.g. Promise" autocomplete="off">
+  
+  <ul class="list  list--results" id="list">
+  </ul>
+</form>
+
+<script type="text/javascript" src="/assets/src/fetch.js"></script>
+<script type="text/javascript" src="/assets/src/search.js"></script>
+
+
+<script type="text/javascript">
+
+  const search = new JekyllSearch(
+    '/assets/src/search.json',
+    '#search',
+    '#list',
+    ''
+  );
+  search.init(); 
+  
+</script>
+
+<noscript>Please enable JavaScript to use the search form.</noscript>
+
+
+
+
+
+ 
+            
         </section>
     
     </div>
