@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=f0a45caf408f71289b1205d67febcf2d0b623227">
+    <link rel="stylesheet" href="/assets/css/style.css?v=2688db5812b862a0ad75dcfa4ee3f4cda8d1c7d7">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -480,7 +480,7 @@ you have installed git on Windows in some other way, shell aliases may not work 
 
 <h3 id="example-search-for-members-of-an-organization">Example search for members of an organization</h3>
 
-<p>Este request nos da la informacion sobre los miembros de una org:</p>
+<p>Este request nos da un JSON con informacion sobre los miembros de una org:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>gh alias set org-members api --paginate "/orgs/$1/members"
@@ -494,12 +494,32 @@ you have installed git on Windows in some other way, shell aliases may not work 
 4
 5
 6
-</pre></td><td class="rouge-code"><pre>➜  bash-learning git:(master) ✗ gh org-members ULL-MII-SYTWS-2122 | jq '.[].url'
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre>✗ gh org-members ULL-MII-SYTWS-2122 | jq '.[] | .url, .id, .login'
 "https://api.github.com/users/alu0100898293"
+22496375
+"alu0100898293"
 "https://api.github.com/users/alu0101102726"
+37936358
+"alu0101102726"
 "https://api.github.com/users/crguezl"
+1142554
+"crguezl"
 "https://api.github.com/users/PaulaExposito"
+56047765
+"PaulaExposito"
 "https://api.github.com/users/Pmolmar"
+45513418
+"Pmolmar"
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>A partir de este alias podemos construir sub-alias:</p>
