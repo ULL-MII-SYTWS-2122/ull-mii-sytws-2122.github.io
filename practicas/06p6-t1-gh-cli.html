@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=a121816347ad4e7f31fbb89b3b853caa91e6b348">
+    <link rel="stylesheet" href="/assets/css/style.css?v=baad611a2b781145c218a67def34f162a52578d2">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -97,9 +97,11 @@
     <ul>
       <li><a href="#gh-create-repo">gh create-repo</a></li>
       <li><a href="#gh-delete-repo">gh delete-repo</a></li>
+      <li><a href="#gh-my-orgs-names">gh my-orgs-names</a></li>
+      <li><a href="#gh-org-members">gh-org-members</a></li>
+      <li><a href="#gh-user-repos">gh-user-repos</a></li>
     </ul>
   </li>
-  <li><a href="#gh-org-list">gh org-list</a></li>
   <li><a href="#extension">Extension</a></li>
   <li><a href="#references">References</a></li>
 </ul>
@@ -138,7 +140,7 @@ $ gh repo view ULL-ESIT-PL-2021/tuturepo -w
 
 <p>See the GitHub API doc for <a href="https://docs.github.com/es/rest/reference/repos#delete-a-repository">Delete repository</a></p>
 
-<h2 id="gh-org-list">gh org-list</h2>
+<h3 id="gh-my-orgs-names">gh my-orgs-names</h3>
 
 <p>Escriba un alias que muestre todas las organizaciones tanto aquellas en que sea miembro público como privado de las mismas:</p>
 
@@ -157,7 +159,7 @@ $ gh repo view ULL-ESIT-PL-2021/tuturepo -w
 13
 14
 15
-</pre></td><td class="rouge-code"><pre>[~/.../gh-learning/gh-clone-org(master)]$ gh org-list | tail -8
+</pre></td><td class="rouge-code"><pre>[~/.../gh-learning/gh-clone-org(master)]$ gh my-orgs-names | tail -8
 GeneticsJS
 tfm-y-pce-mfp-2021
 MDCCVRP
@@ -166,17 +168,83 @@ ULL-MII-SYTWS-2122
 ULL-ESIT-DMSI-2121
 ULL-MFP-AET-2122
 ULL-ESIT-PL-2122
-[~/.../gh-learning/gh-clone-org(master)]$ gh org-list | wc
+[~/.../gh-learning/gh-clone-org(master)]$ gh my-orgs-names | wc
       65      65    1279
-[~/.../gh-learning/gh-clone-org(master)]$ gh org-list | grep 1819
+[~/.../gh-learning/gh-clone-org(master)]$ gh my-orgs-names | grep 1819
 ULL-ESIT-PL-1819
 ULL-ESIT-DSI-1819
 ULL-MII-CA-1819
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<h3 id="gh-org-members">gh-org-members</h3>
+
+<p>Escriba un alias que reciba como argumento una organización y escriba los miembros de la misma:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre>$ gh org-members ULL-MII-SYTWS-2122 --jq '.[] | .login, .repos_url'
+alu0100898293
+https://api.github.com/users/alu0100898293/repos
+alu0101102726
+https://api.github.com/users/alu0101102726/repos
+crguezl
+https://api.github.com/users/crguezl/repos
+PaulaExposito
+https://api.github.com/users/PaulaExposito/repos
+Pmolmar
+https://api.github.com/users/Pmolmar/repos
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Ahora con la información obtenida podemos ver los repos de un miembro fácilmente:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre>[~/.../gh-learning/gh-clone-org(master)]$ gh  api https://api.github.com/users/alu0100898293/repos -q '.[].name'
+alu0100898293.github.io
+eval-tareas-iniciales-NicolasHernandezGonzalez
+express-start
+prct01
+prueba
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="gh-user-repos">gh-user-repos</h3>
+
+<p>Añada un alias <code class="language-plaintext highlighter-rouge">gh-user-repos</code> que nos de los repos de un usuario:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>9:14 apuntes1920$ gh user-repos Pmolmar --jq '.[] | .name, .created_at' | pcre2grep -M '.+\n2021'
+Pmolmar
+2021-08-27T12:30:12Z
+pmolmar.github.io
+2021-08-27T12:31:13Z
+SYTW-C
+2021-09-30T17:57:17Z
+</pre></td></tr></tbody></table></code></pre></div></div>
+
 <h2 id="extension">Extension</h2>
 
-<p>Write and publish a gh extension <code class="language-plaintext highlighter-rouge">gh-repo-delete [org/repo]</code> that deletes the specified remote repo.</p>
+<p>Write and publish a gh extension. Choose your own idea.</p>
+
+<p>Suggestion. It may be <code class="language-plaintext highlighter-rouge">gh-repo-delete [org/repo]</code> that deletes the specified remote repo or something similar.</p>
 
 <h2 id="references">References</h2>
 
