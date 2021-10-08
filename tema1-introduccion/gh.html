@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=6ff453b984ce7b69eec3fed8fe8e692f6bb80b47">
+    <link rel="stylesheet" href="/assets/css/style.css?v=224fc8b8e7c423acd0640cebcbfd62e95dd318cc">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -110,7 +110,12 @@
       <li><a href="#example-search-for-repos-inside-an-organization">Example: Search for repos inside an organization</a></li>
     </ul>
   </li>
-  <li><a href="#graphql-example">GraphQL Example</a></li>
+  <li><a href="#graphql-example">GraphQL Example</a>
+    <ul>
+      <li><a href="#example-number-of-repos-in-an-organization">Example: Number of repos in an Organization</a></li>
+      <li><a href="#example-1">Example</a></li>
+    </ul>
+  </li>
   <li><a href="#extensions">Extensions</a>
     <ul>
       <li><a href="#example-of-an-extension-gh-clone-org">Example of an extension: gh-clone-org</a></li>
@@ -671,6 +676,33 @@ gh api <span class="nt">--paginate</span> /search/repositories?q<span class="o">
 
 <p><strong>GraphQL</strong> is a query language for web services APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more.</p>
 
+<h3 id="example-number-of-repos-in-an-organization">Example: Number of repos in an Organization</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>gh api graphql --paginate --field query=@org-num-repos.gql --jq .data.organization.repositories.totalCount
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>These are the contents of the file <code class="language-plaintext highlighter-rouge">org-num-repos.gql</code>:</p>
+
+<pre><code class="language-GraphQL">query {
+  organization(login: "ULL-MII-SYTWS-2122") {
+    repositories {
+      totalCount
+    }
+  }
+}
+</code></pre>
+
+<p>Execution:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>✗ source org-num-repos.bash 
+17
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="example-1">Example</h3>
+
 <p>Follows an example of query using GraphQL.</p>
 
 <p>We can set the GraphQL query in a separated file:</p>
@@ -808,6 +840,8 @@ The <a href="https://docs.github.com/en/free-pro-team@latest/v4/object/issueconn
 
 <p>For GraphQL requests, all fields other than “query” and “operationName” are interpreted as GraphQL variables.</p>
 
+<p>Execution:</p>
+
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -834,7 +868,7 @@ The <a href="https://docs.github.com/en/free-pro-team@latest/v4/object/issueconn
 24
 25
 26
-</pre></td><td class="rouge-code"><pre>➜  bin git:(master) gh api graphql --paginate -F query=@gh-api-example.graphql | jq .
+</pre></td><td class="rouge-code"><pre>➜  gh api graphql --paginate -F query=@gh-api-example.graphql | jq .
 {
   "data": {
     "repository": {
