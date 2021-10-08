@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=ecb26a3c4e763a4e161129af905c1a3ec5f42071">
+    <link rel="stylesheet" href="/assets/css/style.css?v=233d347b9f91e999377d9496a5d4f0624a0a9d6b">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -770,7 +770,7 @@ query($number_of_repos:Int!){
 
 <h3 id="example-getting-issues">Example: Getting issues</h3>
 
-<p>Follows an example of query using GraphQL.</p>
+<p>Follows an example of query using GraphQL (see <a href="https://docs.github.com/en/graphql/guides/forming-calls-with-graphql#example-query">The Example query in GitHub Docs</a>).</p>
 
 <p>We can set the GraphQL query in a separated file:</p>
 
@@ -832,7 +832,15 @@ query($number_of_repos:Int!){
 </pre></td><td class="rouge-code"><pre>repository(owner:"ULL-MII-SYTWS-2021", name:"p01-t1-iaas-alu0101040882") 
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>To begin the query, we want to find a <a href="https://docs.github.com/en/free-pro-team@latest/v4/object/repository">repository object</a>. The <code class="language-plaintext highlighter-rouge">schema</code> validation indicates this object requires an <code class="language-plaintext highlighter-rouge">owner</code> and a <code class="language-plaintext highlighter-rouge">name</code> argument. A <code class="language-plaintext highlighter-rouge">schema</code> defines a <strong>GraphQL API’s type system</strong>. It describes the complete set of possible data (objects, fields, relationships, everything) that a client can access</p>
+<p>To begin the query, we want to find a <a href="https://docs.github.com/en/free-pro-team@latest/v4/object/repository">repository object</a>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">schema</code> validation indicates this object requires</p>
+<ul>
+  <li>an <code class="language-plaintext highlighter-rouge">owner</code></li>
+  <li>and a <code class="language-plaintext highlighter-rouge">name</code> argument.</li>
+</ul>
+
+<p>A <code class="language-plaintext highlighter-rouge">schema</code> defines a <strong>GraphQL API’s type system</strong>. It describes the complete set of possible data (objects, fields, relationships, everything) that a client can access</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>issues(last:2, states:OPEN) {
