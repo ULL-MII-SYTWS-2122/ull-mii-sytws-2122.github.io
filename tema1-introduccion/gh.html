@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=224fc8b8e7c423acd0640cebcbfd62e95dd318cc">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ecb26a3c4e763a4e161129af905c1a3ec5f42071">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -110,10 +110,11 @@
       <li><a href="#example-search-for-repos-inside-an-organization">Example: Search for repos inside an organization</a></li>
     </ul>
   </li>
-  <li><a href="#graphql-example">GraphQL Example</a>
+  <li><a href="#graphql-examples">GraphQL Examples</a>
     <ul>
       <li><a href="#example-number-of-repos-in-an-organization">Example: Number of repos in an Organization</a></li>
-      <li><a href="#example-1">Example</a></li>
+      <li><a href="#getting-my-repos">Getting my repos</a></li>
+      <li><a href="#example-getting-issues">Example: Getting issues</a></li>
     </ul>
   </li>
   <li><a href="#extensions">Extensions</a>
@@ -672,7 +673,7 @@ gh api <span class="nt">--paginate</span> /search/repositories?q<span class="o">
 ...
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<h2 id="graphql-example">GraphQL Example</h2>
+<h2 id="graphql-examples">GraphQL Examples</h2>
 
 <p><strong>GraphQL</strong> is a query language for web services APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more.</p>
 
@@ -701,7 +702,73 @@ gh api <span class="nt">--paginate</span> /search/repositories?q<span class="o">
 17
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<h3 id="example-1">Example</h3>
+<h3 id="getting-my-repos">Getting my repos</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>➜  graphql-learning git:(main) ✗ gh config set pager cat
+➜  graphql-learning git:(main) ✗ cat my-repos.bash
+gh api graphql --paginate -F number_of_repos=3 --field query=@my-repos.gql
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>In this example <code class="language-plaintext highlighter-rouge">$number_of_repos</code> is a variable that is set to <code class="language-plaintext highlighter-rouge">3</code> inside the command using the option <code class="language-plaintext highlighter-rouge">-F number_of_repos=3</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre>➜  graphql-learning git:(main) ✗ cat my-repos.gql 
+
+query($number_of_repos:Int!){
+  viewer {
+    name
+     repositories(last: $number_of_repos) {
+       nodes {
+         name
+       }
+     }
+   }
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Here is the output of an execution:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>➜  graphql-learning git:(main) ✗ gh api graphql --paginate -F number_of_repos=3 --field query=@my-repos.gql
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<pre><code class="language-GraphQL">{
+  "data": {
+    "viewer": {
+      "name": "Casiano Rodriguez-Leon",
+      "repositories": {
+        "nodes": [
+          {
+            "name": "asyncmap-crguezl"
+          },
+          {
+            "name": "gh-clone-org"
+          },
+          {
+            "name": "learning-graphql-with-gh"
+          }
+        ]
+      }
+    }
+  }
+}
+</code></pre>
+
+<h3 id="example-getting-issues">Example: Getting issues</h3>
 
 <p>Follows an example of query using GraphQL.</p>
 
