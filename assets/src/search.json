@@ -22,7 +22,7 @@
       {
         "title": "Clase  del Lunes 04/10/2021 (Semana A)",
         "excerpt": "Cuestionario\n\n",
-        "content": "Cuestionario\n\nRecuerden rellenar el cuestionario GitHub-Alu e ir haciendo las prácticas pendientes:\n\n \n  Descripción de la Práctica github campus expert\n  \n \n  Descripción de la Práctica set-up\n  \n \n  Descripción de la Práctica vscode\n  \n \n  Descripción de la Práctica filesystem\n  \n \n  Descripción de la Práctica asyncmap\n  \n \n  Descripción de la Práctica gh cli\n  \n\n\nGitPod\n\n\n  Apuntes de GitPod\n\n\nGitHub Cli\n\ngh pretends to facilitate the access to GitHub from the command line. It brings pull requests, issues, and other GitHub concepts to the terminal next to where you are already working with git and your code.\n\ngh\n\nAsync JS\n\n\n  Loading an image with some delay\n  \n    See folder tema2-async/event-loop/exercises/race-condition/ in this notes repo\n  \n  Entre todos buscamos una solución al ejercicio para ver como nos manejamos con la asincronía que consiste en escribir una función asyncmap que ejecute funciones asíncronas en paralelo\n\n\n",
+        "content": "Cuestionario\n\nRecuerden rellenar el cuestionario GitHub-Alu e ir haciendo las prácticas pendientes:\n\n \n  Descripción de la Práctica github campus expert\n  \n \n  Descripción de la Práctica set-up\n  \n \n  Descripción de la Práctica vscode\n  \n \n  Descripción de la Práctica filesystem\n  \n \n  Descripción de la Práctica asyncmap\n  \n \n  Descripción de la Práctica gh cli\n  \n\n\nGitPod\n\n\n  Apuntes de GitPod\n\n\n",
         "url": "/clases/2021/10/04/leccion.html"
       },
     
@@ -31,6 +31,13 @@
         "excerpt": "Esta clase es asíncrona.\n\n",
         "content": "Esta clase es asíncrona.\n\nRecuerden ir haciendo las prácticas pendientes:\n\n \n  Descripción de la Práctica github campus expert\n  \n \n  Descripción de la Práctica set-up\n  \n \n  Descripción de la Práctica vscode\n  \n \n  Descripción de la Práctica filesystem\n  \n \n  Descripción de la Práctica asyncmap\n  \n \n  Descripción de la Práctica gh cli\n  \n\n\nHemos añadido ejercicios sobre GitHUb Cli y sobre las APIs REST y GraphQL de GitHub.\n\nMas adelante, en la clase presencial discutiremos las  soluciones a las prácticas ya los ejercicios. Si tienen cualquier duda me envían un email o via https://chat.google.com\n",
         "url": "/clases/2021/10/06/leccion.html"
+      },
+    
+      {
+        "title": "Clase  del Lunes 11/10/2021 (Semana B)",
+        "excerpt": "Prácticas Publicadas\n\n",
+        "content": "Prácticas Publicadas\n\n \n  Descripción de la Práctica github campus expert\n  \n \n  Descripción de la Práctica set-up\n  \n \n  Descripción de la Práctica vscode\n  \n \n  Descripción de la Práctica filesystem\n  \n \n  Descripción de la Práctica asyncmap\n  \n \n  Descripción de la Práctica gh cli\n  \n\n\nAsync JS\n\n\n  Loading an image with some delay\n  \n    See folder tema2-async/event-loop/exercises/race-condition/ in this notes repo\n  \n  Entre todos buscamos una solución al ejercicio para ver como nos manejamos con la asincronía que consiste en escribir una función asyncmap que ejecute funciones asíncronas en paralelo\n\n\nGitPod\n\n\n  Apuntes de GitPod\n\n\nGitHub Cli\n\ngh pretends to facilitate the access to GitHub from the command line. It brings pull requests, issues, and other GitHub concepts to the terminal next to where you are already working with git and your code.\n\ngh\n\n",
+        "url": "/clases/2021/10/11/leccion.html"
       },
     
   
@@ -280,21 +287,21 @@
   {
     "title": "Sistemas y Tecnologías Web: Servidor",
     "excerpt": "\n",
-    "content": "Temas\n\n\n\n\nLa Asignatura SYTWS \n\nComputación Asíncrona y Distribuída\n\nNode.JS\n\nServicios y Aplicaciones Web\n\nIntroducción a Docker\n\n\n\n\nClases\n\n\n  \n     \n     \n     \n       \n        \n\n Classes Durante el mes de October\n\n\n        \n Clase Virtual del Miércoles 06/10/2021 (Semana A) (Clase en el repo) \n      \n     \n  \n     \n     \n     \n       \n        \n Clase  del Lunes 04/10/2021 (Semana A) (Clase en el repo) \n      \n     \n  \n     \n     \n     \n       \n        \n\n Classes Durante el mes de September\n\n\n        \n Clase Virtual del Miércoles 29/09/2021 (Semana C) (Clase en el repo) \n      \n     \n  \n     \n     \n     \n       \n        \n Clase del Lunes 27/09/2021 (Clase en el repo) \n      \n     \n  \n\n\nPrácticas Publicadas\n\n \n  Descripción de la Práctica github campus expert\n  \n \n  Descripción de la Práctica set-up\n  \n \n  Descripción de la Práctica vscode\n  \n \n  Descripción de la Práctica filesystem\n  \n \n  Descripción de la Práctica asyncmap\n  \n \n  Descripción de la Práctica gh cli\n  \n\n\nHorarios y Calendarios\n\n\n\nBibliografía\n\nRecursos\n\n\n",
+    "content": "Temas\n\n\n\n\nLa Asignatura SYTWS \n\nComputación Asíncrona y Distribuída\n\nNode.JS\n\nServicios y Aplicaciones Web\n\nIntroducción a Docker\n\n\n\n\nClases\n\n\n  \n     \n     \n     \n       \n        \n\n Classes Durante el mes de October\n\n\n        \n Clase  del Lunes 11/10/2021 (Semana B) (Clase en el repo) \n      \n     \n  \n     \n     \n     \n       \n        \n Clase Virtual del Miércoles 06/10/2021 (Semana A) (Clase en el repo) \n      \n     \n  \n     \n     \n     \n       \n        \n Clase  del Lunes 04/10/2021 (Semana A) (Clase en el repo) \n      \n     \n  \n     \n     \n     \n       \n        \n\n Classes Durante el mes de September\n\n\n        \n Clase Virtual del Miércoles 29/09/2021 (Semana C) (Clase en el repo) \n      \n     \n  \n     \n     \n     \n       \n        \n Clase del Lunes 27/09/2021 (Clase en el repo) \n      \n     \n  \n\n\nPrácticas Publicadas\n\n \n  Descripción de la Práctica github campus expert\n  \n \n  Descripción de la Práctica set-up\n  \n \n  Descripción de la Práctica vscode\n  \n \n  Descripción de la Práctica filesystem\n  \n \n  Descripción de la Práctica asyncmap\n  \n \n  Descripción de la Práctica gh cli\n  \n\n\nHorarios y Calendarios\n\n\n\nBibliografía\n\nRecursos\n\n\n",
     "url": "/index.html"
   },
   
   {
     "title": "Categories",
     "excerpt": "\n",
-    "content": "\n\n  \n    \n    \n    \n\n    Clases\n    \n    \n      \n      \n      \n        \n          Clase Virtual del Miércoles 06/10/2021 (Semana A)\n        \n      \n    \n      \n      \n      \n        \n          Clase  del Lunes 04/10/2021 (Semana A)\n        \n      \n    \n      \n      \n      \n        \n          Clase Virtual del Miércoles 29/09/2021 (Semana C)\n        \n      \n    \n      \n      \n      \n        \n          Clase del Lunes 27/09/2021\n        \n      \n    \n  \n\n\n",
+    "content": "\n\n  \n    \n    \n    \n\n    Clases\n    \n    \n      \n      \n      \n        \n          Clase  del Lunes 11/10/2021 (Semana B)\n        \n      \n    \n      \n      \n      \n        \n          Clase Virtual del Miércoles 06/10/2021 (Semana A)\n        \n      \n    \n      \n      \n      \n        \n          Clase  del Lunes 04/10/2021 (Semana A)\n        \n      \n    \n      \n      \n      \n        \n          Clase Virtual del Miércoles 29/09/2021 (Semana C)\n        \n      \n    \n      \n      \n      \n        \n          Clase del Lunes 27/09/2021\n        \n      \n    \n  \n\n\n",
     "url": "/categories/"
   },
   
   {
     "title": "Clases",
     "excerpt": "\n",
-    "content": "Clases\n\n\n  \n     \n     \n     \n       \n        \n\n Classes Durante el mes de October\n\n\n        \n Clase Virtual del Miércoles 06/10/2021 (Semana A) (Clase en el repo) \n      \n     \n  \n     \n     \n     \n       \n        \n Clase  del Lunes 04/10/2021 (Semana A) (Clase en el repo) \n      \n     \n  \n     \n     \n     \n       \n        \n\n Classes Durante el mes de September\n\n\n        \n Clase Virtual del Miércoles 29/09/2021 (Semana C) (Clase en el repo) \n      \n     \n  \n     \n     \n     \n       \n        \n Clase del Lunes 27/09/2021 (Clase en el repo) \n      \n     \n  \n\n",
+    "content": "Clases\n\n\n  \n     \n     \n     \n       \n        \n\n Classes Durante el mes de October\n\n\n        \n Clase  del Lunes 11/10/2021 (Semana B) (Clase en el repo) \n      \n     \n  \n     \n     \n     \n       \n        \n Clase Virtual del Miércoles 06/10/2021 (Semana A) (Clase en el repo) \n      \n     \n  \n     \n     \n     \n       \n        \n Clase  del Lunes 04/10/2021 (Semana A) (Clase en el repo) \n      \n     \n  \n     \n     \n     \n       \n        \n\n Classes Durante el mes de September\n\n\n        \n Clase Virtual del Miércoles 29/09/2021 (Semana C) (Clase en el repo) \n      \n     \n  \n     \n     \n     \n       \n        \n Clase del Lunes 27/09/2021 (Clase en el repo) \n      \n     \n  \n\n",
     "url": "/clases.html"
   },
   
