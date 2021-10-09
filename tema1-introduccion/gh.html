@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=233d347b9f91e999377d9496a5d4f0624a0a9d6b">
+    <link rel="stylesheet" href="/assets/css/style.css?v=a368715e752579ef2891da1125bd8e8155f56d46">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -115,6 +115,7 @@
       <li><a href="#example-number-of-repos-in-an-organization">Example: Number of repos in an Organization</a></li>
       <li><a href="#getting-my-repos">Getting my repos</a></li>
       <li><a href="#example-getting-issues">Example: Getting issues</a></li>
+      <li><a href="#mutation-example">Mutation Example</a></li>
     </ul>
   </li>
   <li><a href="#extensions">Extensions</a>
@@ -977,6 +978,72 @@ The <a href="https://docs.github.com/en/free-pro-team@latest/v4/object/issueconn
 [Descripción de la práctica gh-cli](/practicas/p6-t1-gh-cli)
 -->
 
+<h3 id="mutation-example">Mutation Example</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+</pre></td><td class="rouge-code"><pre>➜  graphql-learning git:(main) cat findissueid.bash 
+gh api graphql --paginate --field query=@findissueid.gql
+➜  graphql-learning git:(main) cat findissueid.gql 
+query FindIssueID {
+  repository(owner:"crguezl", name:"learning-graphql-with-gh") {
+    issue(number:2) {
+      id
+    }
+  }
+}
+➜  graphql-learning git:(main) cat viewissue.bash 
+gh issue -R crguezl/learning-graphql-with-gh view $@%                                                
+➜  graphql-learning git:(main) cat addreactiontoissue.bash 
+#!/bin/bash
+# See
+# https://docs.github.com/en/graphql/guides/forming-calls-with-graphql#example-mutation 
+# and
+# https://docs.github.com/en/enterprise-server@3.0/graphql/guides/forming-calls-with-graphql
+# for a list of supported emojis
+gh api graphql --paginate --field query=@addreactiontoissue.gql 
+➜  graphql-learning git:(main) cat addreactiontoissue.gql 
+mutation AddReactionToIssue {
+  addReaction(input:{subjectId:"I_kwDOGLyMF84838wt",content:ROCKET}) {
+    reaction {
+      content
+    }
+    subject {
+      id
+    }
+  }
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
 <h2 id="extensions">Extensions</h2>
 
 <p>GitHub CLI extensions are repositories that provide additional gh commands.</p>
@@ -1044,6 +1111,7 @@ ULL-MII-SYTWS-2122/set-up-Pmolmar
 <h2 id="references">References</h2>
 
 <ul>
+  <li><a href="https://github.com/crguezl/learning-graphql-with-gh">Repo crguezl/learning-graphql-with-gh</a></li>
   <li><a href="https://cli.github.com/manual/">gh manual</a></li>
   <li><a href="https://docs.github.com/en/rest">GitHub REST API</a></li>
   <li><a href="https://docs.github.com/en/rest/guides/getting-started-with-the-rest-api">Getting started with the REST API</a></li>
