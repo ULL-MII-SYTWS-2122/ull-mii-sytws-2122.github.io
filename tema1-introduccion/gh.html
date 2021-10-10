@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=5bf793b14193806d157f8e95d43ae08a72977101">
+    <link rel="stylesheet" href="/assets/css/style.css?v=a368715e752579ef2891da1125bd8e8155f56d46">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -437,19 +437,35 @@ get-repos:  api /orgs/$1/repos
 <h3 id="templates-for-the-output">Templates for the output</h3>
 
 <p>The option <code class="language-plaintext highlighter-rouge">-t, --template string</code>of <code class="language-plaintext highlighter-rouge">gh api</code>
-allows to format the response using a <a href="https://pkg.go.dev/text/template">Go template</a>:</p>
+allows to format the response using a <a href="https://pkg.go.dev/text/template">Go template</a>.</p>
+
+<p>Here is an example of template:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
-</pre></td><td class="rouge-code"><pre>➜  gh-learning git:(master) ✗ cat  template
- \n ()\n
-➜  gh-learning git:(master) ✗ gh api repos/crguezl/learning-bash/issues --template "$(cat template)"
- issue de prueba
-👍  blah ... (bug, documentation, duplicate, enhancement, help wanted, good first issue, invalid, question)
+</pre></td><td class="rouge-code"><pre>➜  gh-learning git:(master) ✗ cat template.gotemplate
+Title: 
+Labels: ()
+Body: 
+
 </pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>and let us use it:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>➜  gh-learning git:(master) ✗ gh api repos/crguezl/learning-bash/issues --template "$(cat template.gotemplate)"
+Title: issue de prueba
+Labels: (bug, documentation, duplicate, enhancement, help wanted, good first issue, invalid, question)
+Body: 👍  blah ...
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">Labels</code> appear in yellow.</p>
 
 <h2 id="introduction-to-gh-alias">Introduction to <code class="language-plaintext highlighter-rouge">gh alias</code></h2>
 
