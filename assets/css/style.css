@@ -275,7 +275,7 @@ section #title .credits.right { float: right; }
 @media print, screen and (max-width: 480px) { #header { margin-top: -20px; }
   section { margin-top: 40px; }
   nav { display: none; } }
-body { padding: 0px 0 20px 0px; margin: 0px; font: 14px/1.5 "OpenSansRegular", "Helvetica Neue", Helvetica, Arial, sans-serif; color: black; font-weight: normal; background: white; background-attachment: fixed !important; background: #fff0f5; }
+body { padding: 0px 0 20px 0px; margin: 0px; font: 14px/1.5 "OpenSansRegular", "Helvetica Neue", Helvetica, Arial, sans-serif; color: black; font-weight: normal; background: white; background-attachment: fixed !important; background: #ffffff; }
 
 h1, h2, h3, h4, h5, h6 { color: #460505; margin: 0 0 10px; font-family: 'OpenSansRegular', "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: normal; }
 
