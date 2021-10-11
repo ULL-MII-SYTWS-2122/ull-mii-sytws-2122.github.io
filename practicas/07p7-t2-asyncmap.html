@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=45990cbcadec5b651927dfc3375a3ab55e052612">
+    <link rel="stylesheet" href="/assets/css/style.css?v=50d63e26ff7dff3f4907299a86afcfd76b56a595">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -93,20 +93,26 @@
             <h2 >Table of Contents</h2>
             
             <ul id="sytwstoc">
-  <li><a href="#descripción-de-la-práctica-p7-t2-asyncmap">Descripción de la Práctica p7-t2-asyncmap</a></li>
+  <li><a href="#descripción-de-la-práctica">Descripción de la Práctica</a></li>
+  <li><a href="#commander">commander</a></li>
+  <li><a href="#requisitos">Requisitos</a></li>
+  <li><a href="#versiones-usadas-en-este-texto">Versiones usadas en este texto</a></li>
+  <li><a href="#referencias">Referencias</a></li>
 </ul>
           
 
             <div class="container"> 
-                <h1> 07p7 T2 Asyncmap </h1>
+                <h1> AsyncMap </h1>
                 
-<h1 id="descripción-de-la-práctica-p7-t2-asyncmap">Descripción de la Práctica p7-t2-asyncmap</h1>
+<h2 id="descripción-de-la-práctica">Descripción de la Práctica</h2>
 
 <p>Escriba un programa Node.js que usando <code class="language-plaintext highlighter-rouge">fs.readFile</code> lea <strong>en paralelo</strong> un conjunto de ficheros pasados en vía de comandos y produzca como salida la concatenación de los mismos en el orden especificado. Evite usar <code class="language-plaintext highlighter-rouge">fs.readFileSync</code> y use <code class="language-plaintext highlighter-rouge">fs.readFile(path[, options], callback)</code>:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>$ concat -f one.txt -f two.txt -f three.txt -o salida.txt
 </pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="commander">commander</h2>
 
 <p>Con <a href="https://www.npmjs.com/package/commander?activeTab=readme">commander</a> es posible indicar una opción que se puede repetir</p>
 
@@ -131,6 +137,7 @@
 </pre></td><td class="rouge-code"><pre>$ node repeatable-option-commander.js -c a -c b -c c
 [ 'a', 'b', 'c' ]
 </pre></td></tr></tbody></table></code></pre></div></div>
+<h2 id="requisitos">Requisitos</h2>
 
 <ol>
   <li>Lea la sección <a href="/tema2-async/async-js">The Async Module</a> de los apuntes y encuentre una solución usando <code class="language-plaintext highlighter-rouge">Async</code>. Considere la posibilidad de excepciones debidas a que alguno de los ficheros no exista</li>
@@ -142,6 +149,27 @@
 </pre></td><td class="rouge-code"><pre>  <span class="nx">asyncMap</span><span class="p">(</span><span class="nx">inputs</span><span class="p">,</span> <span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="nx">cb</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="nx">cb</span><span class="p">),</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">contents</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="p">...</span> <span class="p">});</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<h2 id="versiones-usadas-en-este-texto">Versiones usadas en este texto</h2>
+
+<p>Versiones usadas de los módulos en los ejemplos:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="err">➜</span><span class="w">  </span><span class="err">daniel-alu</span><span class="mi">0101040882</span><span class="w"> </span><span class="err">git:(main)</span><span class="w"> </span><span class="err">✗</span><span class="w"> </span><span class="err">jq</span><span class="w"> </span><span class="err">'.dependencies'</span><span class="w"> </span><span class="err">package.json</span><span class="w"> 
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"async"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^3.2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"commander"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^6.2.0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="referencias">Referencias</h2>
+
+<ul>
+  <li>Sección <a href="/tema2-async/async-js">The Async Module</a></li>
+</ul>
 
             </div>
 
