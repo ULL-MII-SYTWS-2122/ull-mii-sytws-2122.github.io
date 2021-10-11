@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=07245e34b52890ccab4be199bc9a31175f3f89a7">
+    <link rel="stylesheet" href="/assets/css/style.css?v=64aeac90714c3ca6ccd7b413af29746bdccf8e03">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -88,24 +88,19 @@
             <h2 >Table of Contents</h2>
            
             <ul id="sytwstoc">
-  <li><a href="#race-conditions">Race Conditions</a>
+  <li><a href="#loading-an-image-with-some-delay">Loading an image with some delay</a>
     <ul>
-      <li><a href="#loading-an-image-with-some-delay">Loading an image with some delay</a>
-        <ul>
-          <li><a href="#experiment">Experiment</a></li>
-          <li><a href="#references">References</a></li>
-        </ul>
-      </li>
-      <li><a href="#manually-interleaving-promises">Manually Interleaving Promises</a></li>
+      <li><a href="#experiment">Experiment</a></li>
+      <li><a href="#comentarios">Comentarios</a></li>
+      <li><a href="#references">References</a></li>
     </ul>
   </li>
+  <li><a href="#manually-interleaving-promises">Manually Interleaving Promises</a></li>
 </ul>
         
             <h1> Race Conditions </h1>
             <div class="container">
-                <h1 id="race-conditions">Race Conditions</h1>
-
-<h2 id="loading-an-image-with-some-delay">Loading an image with some delay</h2>
+                <h2 id="loading-an-image-with-some-delay">Loading an image with some delay</h2>
 
 <p>Consider this file <code class="language-plaintext highlighter-rouge">index.html</code>:</p>
 
@@ -144,6 +139,7 @@
 33
 34
 35
+36
 </pre></td><td class="rouge-code"><pre><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
 <span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;head&gt;</span>
@@ -174,6 +170,7 @@
         <span class="nx">container</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">image</span><span class="p">)</span>
       <span class="p">});</span>
     <span class="p">},</span> <span class="nx">waitFor</span><span class="p">);</span>
+
   <span class="nt">&lt;/script&gt;</span>
   <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.infoq.com/presentations/javascript-concurrency-parallelism"</span><span class="nt">&gt;</span>Concurrency and Parallel Computing in JavaScript (Recorded at: StrangeLoop) by Stephan Herhut on Mar 05, 2014 <span class="nt">&lt;/a&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
@@ -224,6 +221,12 @@ index.html          infinity-loop.png   instructions.md     not-race-example.js 
     <img src="/assets/images/event-loop.png" alt="&lt;i&gt;There’s an endless loop, when JavaScript engine waits for tasks, executes them and then sleeps waiting for more tasks&lt;/i&gt;" style="" />
     <figcaption><i>There’s an endless loop, when JavaScript engine waits for tasks, executes them and then sleeps waiting for more tasks</i></figcaption>
 </figure>
+
+<h3 id="comentarios">Comentarios</h3>
+
+<ul>
+  <li><a href="comments">Comentarios</a></li>
+</ul>
 
 <h3 id="references">References</h3>
 
@@ -430,34 +433,7 @@ when <code class="language-plaintext highlighter-rouge">adder</code> and <code c
                 
             </div>
   
-            <style>
-    /*
-    hr { display: block; 
-      
-    margin-before: 0.5em; 
-    margin-after: 0.5em; 
-    margin-start: auto; 
-    margin-end: auto;
-   
-    overflow: hidden;
-    color:  white;
-    background-color: #ffcc00;
-    height: 15px;
-    border-top: 1px solid white;
-    border-style: inset; 
-    border-width: 1px;}
-*/
-    hr { 
-        display: block; 
-        height: 1px;
-        border: 0; 
-        border-top: 1px solid #ffcc00; /* #ccc; */
-        margin: 1em 0; 
-        padding: 0; }
-</style>
-<br/><hr>
-
-            
+                        
 <h2>Comment with GitHub Utterances</h2>
             
 <script src="https://utteranc.es/client.js"
@@ -469,43 +445,6 @@ when <code class="language-plaintext highlighter-rouge">adder</code> and <code c
         async>
 </script>
             
-
-
-
-<br/><hr>
-
-<h2>Search in this notes</h2>
-
-
-
-<form id="search-form" action="">
-  <label class="label" for="search">Search term (accepts a regex):</label>
-  <br/>
-  <input class="input" id="search" type="text" name="search" autofocus placeholder="e.g. Promise" autocomplete="off">
-  
-  <ul class="list  list--results" id="list">
-  </ul>
-</form>
-
-<script type="text/javascript" src="/assets/src/fetch.js"></script>
-<script type="text/javascript" src="/assets/src/search.js"></script>
-
-
-<script type="text/javascript">
-
-  const search = new JekyllSearch(
-    '/assets/src/search.json',
-    '#search',
-    '#list',
-    ''
-  );
-  search.init(); 
-  
-</script>
-
-<noscript>Please enable JavaScript to use the search form.</noscript>
-
-
 
 
 
