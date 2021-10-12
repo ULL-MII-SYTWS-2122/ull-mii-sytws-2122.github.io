@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=afccba9bee662c313e5f64f87227d072cbcacfec">
+    <link rel="stylesheet" href="/assets/css/style.css?v=c47753f304c665e5ebd47144b2da3cd3023ff284">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -88,18 +88,33 @@
             <h2 >Table of Contents</h2>
            
             <ul id="sytwstoc">
-  <li><a href="#descripción-de-la-práctica-p8-t2-async-serialize">Descripción de la Práctica p8-t2-async-serialize</a>
+  <li><a href="#introducción">Introducción</a></li>
+  <li><a href="#javascript-is-single-thread-but-the-browser-isnt">JavaScript is Single Thread but the Browser Isn’t</a></li>
+  <li><a href="#escriba-una-función-loadscripts">Escriba una función <code class="language-plaintext highlighter-rouge">loadScripts</code></a></li>
+  <li><a href="#serialización-de-callbacks">Serialización de Callbacks</a>
     <ul>
-      <li><a href="#observaciones">Observaciones</a></li>
-      <li><a href="#referencias">Referencias</a></li>
-      <li><a href="#soluciones">Soluciones</a></li>
+      <li><a href="#ejemplos-de-prueba">Ejemplos de prueba</a></li>
     </ul>
   </li>
+  <li><a href="#usando-el-módulo-npm-async-en-el-navegador">Usando el Módulo npm Async en el Navegador</a></li>
+  <li><a href="#bundlers">Bundlers</a>
+    <ul>
+      <li><a href="#webpack">Webpack</a></li>
+      <li><a href="#webpackconfigjs">webpack.config.js</a></li>
+      <li><a href="#packaging-all-modules-in-a-single-js-file">Packaging all modules in a single JS file</a></li>
+      <li><a href="#webpack-loaders">Webpack Loaders</a></li>
+      <li><a href="#debugging-con-webpack">Debugging con Webpack</a></li>
+    </ul>
+  </li>
+  <li><a href="#escriba-su-solución-como-un-módulo-es6">Escriba su solución como un módulo es6</a></li>
+  <li><a href="#referencias">Referencias</a></li>
 </ul>
         
             <h1>  </h1>
             <div class="container">
-                <h1 id="descripción-de-la-práctica-p8-t2-async-serialize">Descripción de la Práctica p8-t2-async-serialize</h1>
+                <h2 id="introducción">Introducción</h2>
+
+<p>Encontrará parte del material de esta práctica en el <a href="https://github.com/ULL-ESIT-PL/async-js-series-webpack">Repo ULL-ESIT-PL/async-js-series-webpack</a>.</p>
 
 <p>Se dispone de una función <code class="language-plaintext highlighter-rouge">loadScript</code> que permite la carga de un script:</p>
 
@@ -123,7 +138,16 @@
       <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Que puede ser usada para cargar varios scripts. Supongamos que el segundo script usa funciones definidas en el primero. Tenemos que asegurarnos que el segundo script sólo se carga una vez terminada la carga del primero. En este ejemplo de uso cargamos tres scripts <a href="https://github.com/ULL-ESIT-PL/async-js-series-webpack/blob/master/script-1.js">script-1.js</a>, <a href="https://github.com/ULL-ESIT-PL/async-js-series-webpack/blob/master/script-2.js">script-2.js</a> y <a href="https://github.com/ULL-ESIT-PL/async-js-series-webpack/blob/master/script-3.js">script-3.js</a>:</p>
+<p>Que puede ser usada para cargar varios scripts. Supongamos que el segundo script usa funciones definidas en el primero. Tenemos que asegurarnos que el segundo script sólo se carga una vez terminada la carga del primero.</p>
+
+<p>En este ejemplo de uso <a href="https://github.com/ULL-ESIT-PL/async-js-series-webpack/blob/master/load-script.html">load-script.html</a> cargamos tres scripts,</p>
+<ol>
+  <li><a href="https://github.com/ULL-ESIT-PL/async-js-series-webpack/blob/master/script-1.js">script-1.js</a>,</li>
+  <li><a href="https://github.com/ULL-ESIT-PL/async-js-series-webpack/blob/master/script-2.js">script-2.js</a> y</li>
+  <li><a href="https://github.com/ULL-ESIT-PL/async-js-series-webpack/blob/master/script-3.js">script-3.js</a>:</li>
+</ol>
+
+<p>cada uno de los scripts cargados usa el código del anterior. Es necesario anidar las callbacks:</p>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -237,29 +261,15 @@
 <span class="nt">&lt;/html&gt;</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Puede ver este código en funcionamiento visitando <a href="https://ull-esit-pl.github.io/async-js-series-webpack/load-script.html">https://ull-esit-pl.github.io/async-js-series-webpack/load-script.html</a>. Si lo hace, recuerde abrir las herramientas de desarrollador para ver los mensajes en la cónsola.
-Puede encontrar mas detalles sobre este ejercicio en el tutorial del profesor en <a href="https://github.com/ULL-ESIT-PL/async-js-series-webpack">https://github.com/ULL-ESIT-PL/async-js-series-webpack</a>.</p>
+<p>Puede ver este código en funcionamiento visitando <a href="https://ull-esit-pl.github.io/async-js-series-webpack/load-script.html">https://ull-esit-pl.github.io/async-js-series-webpack/load-script.html</a>. Si lo hace, recuerde abrir las herramientas de desarrollador para ver los mensajes en la cónsola. Juegue con el debugger para entender el funcionamiento.</p>
 
-<ol>
-  <li>
-    <p>Escriba una función <code class="language-plaintext highlighter-rouge">loadScripts</code></p>
+<p>Puede encontrar mas detalles sobre este ejercicio en el tutorial del profesor en <a href="https://github.com/ULL-ESIT-PL/async-js-series-webpack">https://github.com/ULL-ESIT-PL/async-js-series-webpack</a>.</p>
 
-    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="rouge-code"><pre> <span class="nx">loadScripts</span><span class="p">(</span>
-   <span class="p">[</span><span class="dl">'</span><span class="s1">script-1.js</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">script-2.js</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">script-3.js</span><span class="dl">'</span><span class="p">],</span> 
-   <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">results</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">out</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">results</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">s</span> <span class="o">=&gt;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">src</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="dl">"</span><span class="s2">&lt;br/&gt;</span><span class="dl">"</span><span class="p">)</span>
- <span class="p">)</span>
-</pre></td></tr></tbody></table></code></pre></div>    </div>
+<h2 id="javascript-is-single-thread-but-the-browser-isnt">JavaScript is Single Thread but the Browser Isn’t</h2>
 
-    <p>que carga los scripts especificados en el array en secuencia y llama a la callback pasada como último argumento bien con un error si lo hubo o con el array de resultados (los scripts).</p>
-  </li>
-  <li>
-    <p>Escriba su propia versión de la función <code class="language-plaintext highlighter-rouge">series</code> (con la misma interfaz que su equivalente de Async.js) que resuelva el problema de la secuencialización de las callbacks:</p>
+<p>Un detalle importante en este código ocurre en la asignación <code class="language-plaintext highlighter-rouge">script.src = src;</code></p>
 
-    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -267,24 +277,91 @@ Puede encontrar mas detalles sobre este ejercicio en el tutorial del profesor en
 6
 7
 8
-</pre></td><td class="rouge-code"><pre> <span class="nx">series</span><span class="p">(</span>
-     <span class="p">[</span>
-         <span class="nx">cb</span> <span class="o">=&gt;</span> <span class="nx">loadScript</span><span class="p">(</span><span class="dl">'</span><span class="s1">script-1.js</span><span class="dl">'</span><span class="p">,</span> <span class="nx">cb</span><span class="p">),</span>
-         <span class="nx">cb</span> <span class="o">=&gt;</span> <span class="nx">loadScript</span><span class="p">(</span><span class="dl">'</span><span class="s1">script-2.js</span><span class="dl">'</span><span class="p">,</span> <span class="nx">cb</span><span class="p">),</span>
-         <span class="nx">cb</span> <span class="o">=&gt;</span> <span class="nx">loadScript</span><span class="p">(</span><span class="dl">'</span><span class="s1">script-3.js</span><span class="dl">'</span><span class="p">,</span> <span class="nx">cb</span><span class="p">)</span>
-     <span class="p">],</span>
-     <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">results</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">p</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">results</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">s</span> <span class="o">=&gt;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">src</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="dl">"</span><span class="s2">&lt;br/&gt;</span><span class="dl">"</span><span class="p">)</span>
- <span class="p">);</span>
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-  <li>
-    <p>Deje su solución al reto <code class="language-plaintext highlighter-rouge">#number</code> en un fichero <code class="language-plaintext highlighter-rouge">reto-#number.html</code></p>
-  </li>
-</ol>
+9
+</pre></td><td class="rouge-code"><pre>      <span class="kd">function</span> <span class="nx">loadScript</span><span class="p">(</span><span class="nx">src</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">script</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">script</span><span class="dl">'</span><span class="p">);</span>
+      
+        <span class="nx">script</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">script</span><span class="p">);</span>
+        <span class="nx">script</span><span class="p">.</span><span class="nx">onerror</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">callback</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">`Script load error for </span><span class="p">${</span><span class="nx">src</span><span class="p">}</span><span class="s2">`</span><span class="p">));</span>
+        <span class="nx">script</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">src</span><span class="p">;</span> <span class="cm">/* Fires the concurrent load of the script */</span>
 
-<h2 id="observaciones">Observaciones</h2>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">script</span><span class="p">);</span>
+      <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Si hace las pruebas de funcionamiento con scripts de similar tamaño la probabilidad de que su algoritmo produzca una salida que respeta el orden especificado es alta, incluso si su algoritmo es erróneo.</p>
+<p>Tan pronto como el intérprete JS la ejecuta, el browser lanza una thread para la carga de la imagen.
+Mientras, el intérprete JS continúa su ejecución secuencial con la línea <code class="language-plaintext highlighter-rouge">document.head.append(script);</code> etc.</p>
+
+<p>Cuando la thread de carga de la imagen termina, la correspondiente estructura de datos con la callback (<code class="language-plaintext highlighter-rouge">onload</code>si todo fue bien u <code class="language-plaintext highlighter-rouge">onerror</code> si no se pudo cargar el script) y sus parámetros es insertada en la Callback Queue al final de la misma (es una cola FIFO).</p>
+
+<p><img src="/assets/images/event-loop.png" alt="" /></p>
+
+<h2 id="escriba-una-función-loadscripts">Escriba una función <code class="language-plaintext highlighter-rouge">loadScripts</code></h2>
+
+<p>Escriba una función <code class="language-plaintext highlighter-rouge">loadScripts([ array-of-urls ], callback)</code> que se llama así:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre><span class="kd">let</span> <span class="nx">out</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">p</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">loadScript</span><span class="p">(</span><span class="nx">src</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">...</span>
+<span class="p">}</span>
+      
+<span class="kd">function</span> <span class="nx">loadScripts</span><span class="p">(</span><span class="nx">scripts</span><span class="p">,</span> <span class="nx">cb</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">...</span>
+<span class="p">}</span>
+
+<span class="nx">loadScripts</span><span class="p">(</span>
+<span class="p">[</span><span class="dl">'</span><span class="s1">script-1.js</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">script-2.js</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">script-3.js</span><span class="dl">'</span><span class="p">],</span> 
+<span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">results</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">out</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">results</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">s</span> <span class="o">=&gt;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">src</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="dl">"</span><span class="s2">&lt;br/&gt;</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>y que carga los scripts especificados en el array <strong>en secuencia</strong> y llama a la callback pasada como último argumento bien con un error si lo hubo o con el array de argumentos pasados como resultados a las callbacks (en este ejemplo los objetos DOM del tipo <code class="language-plaintext highlighter-rouge">script</code> creados).</p>
+
+<h2 id="serialización-de-callbacks">Serialización de Callbacks</h2>
+
+<p>Generalize la solución anterior para que secuencialice cualquier array de funciones asíncronas.
+Esto es, debe funcionar tal como lo hace la función <code class="language-plaintext highlighter-rouge">series</code>  del módulo <a href="/assets/temas/introduccion-a-javascript/async-js">Async.js</a>).</p>
+
+<p>Estudie el módulo <a href="/assets/temas/introduccion-a-javascript/async-js">Async.js</a> y resuma en el informe lo aprendido.</p>
+
+<p>Esta es la forma de uso de la función <code class="language-plaintext highlighter-rouge">series</code>:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="nx">series</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="nx">cb</span> <span class="o">=&gt;</span> <span class="nx">loadScript</span><span class="p">(</span><span class="dl">'</span><span class="s1">script-1.js</span><span class="dl">'</span><span class="p">,</span> <span class="nx">cb</span><span class="p">),</span>
+        <span class="nx">cb</span> <span class="o">=&gt;</span> <span class="nx">loadScript</span><span class="p">(</span><span class="dl">'</span><span class="s1">script-2.js</span><span class="dl">'</span><span class="p">,</span> <span class="nx">cb</span><span class="p">),</span>
+        <span class="nx">cb</span> <span class="o">=&gt;</span> <span class="nx">loadScript</span><span class="p">(</span><span class="dl">'</span><span class="s1">script-3.js</span><span class="dl">'</span><span class="p">,</span> <span class="nx">cb</span><span class="p">)</span>
+    <span class="p">],</span>
+    <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">results</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">p</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">results</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">s</span> <span class="o">=&gt;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">src</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="dl">"</span><span class="s2">&lt;br/&gt;</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="ejemplos-de-prueba">Ejemplos de prueba</h3>
+
+<p>Si hace las pruebas de funcionamiento con scripts de similar tamaño la probabilidad de que su algoritmo produzca una salida que respeta el orden especificado es alta, <strong>incluso si su algoritmo es erróneo</strong>.</p>
 
 <p>Puede simular que los scripts son de distinto tamaño <strong>retrasando la iniciación de las cargas</strong> con un <code class="language-plaintext highlighter-rouge">setTimeout</code> que espere por un número aleatorio de milisegundos:</p>
 
@@ -322,28 +399,511 @@ Puede encontrar mas detalles sobre este ejercicio en el tutorial del profesor en
       <span class="p">}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<h2 id="usando-el-módulo-npm-async-en-el-navegador">Usando el Módulo npm Async en el Navegador</h2>
+
+<p>En el repo  <a href="https://github.com/ULL-ESIT-PL/async-js-series-webpack">ULL-ESIT-PL/async-js-series-webpack</a> encontrara el fichero <code class="language-plaintext highlighter-rouge">dist/index.html</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>➜  load-script-seq git:(master) ✗ cat dist/index.html 
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+ <span class="nt">&lt;head&gt;</span>
+   <span class="nt">&lt;title&gt;</span>Getting Started<span class="nt">&lt;/title&gt;</span>
+ <span class="nt">&lt;/head&gt;</span>
+ <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"out"</span><span class="nt">&gt;&lt;/p&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"main.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+ <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Este fichero contiene en su <code class="language-plaintext highlighter-rouge">body</code> además del párrafo vacío  <code class="language-plaintext highlighter-rouge">&lt;p id="out"&gt;&lt;/p&gt;</code> 
+la carga de un script <code class="language-plaintext highlighter-rouge">main.js</code>. El fichero <code class="language-plaintext highlighter-rouge">main.js</code> se genera mediante el empaquetador
+<a href="https://webpack.js.org/guides/getting-started/">webpack</a> a partir de este otro fichero <code class="language-plaintext highlighter-rouge">src/index.js</code>
+que importa  la función <code class="language-plaintext highlighter-rouge">series</code> del módulo <a href="/assets/temas/introduccion-a-javascript/async-js">Async</a> usando sintáxis es6:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>➜  load-script-seq git:(master) ✗ cat src/index.js 
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+</pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="p">{</span> <span class="nx">series</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">async-es</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">loadScript</span><span class="p">(</span><span class="nx">src</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">script</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">script</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">script</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">src</span><span class="p">;</span>
+
+    <span class="nx">script</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">script</span><span class="p">);</span>
+    <span class="nx">script</span><span class="p">.</span><span class="nx">onerror</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">callback</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">`Script load error for </span><span class="p">${</span><span class="nx">src</span><span class="p">}</span><span class="s2">`</span><span class="p">));</span>
+
+    <span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">script</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">p</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">p</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="nx">series</span><span class="p">(</span>
+  <span class="p">[</span>
+     <span class="nx">cb</span> <span class="o">=&gt;</span> <span class="nx">loadScript</span><span class="p">(</span><span class="dl">'</span><span class="s1">script-1.js</span><span class="dl">'</span><span class="p">,</span> <span class="nx">cb</span><span class="p">),</span>
+     <span class="nx">cb</span> <span class="o">=&gt;</span> <span class="nx">loadScript</span><span class="p">(</span><span class="dl">'</span><span class="s1">script-2.js</span><span class="dl">'</span><span class="p">,</span> <span class="nx">cb</span><span class="p">),</span>
+     <span class="nx">cb</span> <span class="o">=&gt;</span> <span class="nx">loadScript</span><span class="p">(</span><span class="dl">'</span><span class="s1">script-3.js</span><span class="dl">'</span><span class="p">,</span> <span class="nx">cb</span><span class="p">)</span>
+   <span class="p">],</span>
+   <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">results</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">p</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">results</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">s</span> <span class="o">=&gt;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">src</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="dl">"</span><span class="s2">&lt;br/&gt;</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Puede ver el resultado de la ejecución en el <a href="https://ull-esit-pl.github.io/async-js-series-webpack/">despliegue en <code class="language-plaintext highlighter-rouge">gh-pages</code></a>. Abriendo la ventana del desarrollador verá los mensajes en la cónsola.</p>
+
+<p>También puede verlo en local ejecutando <code class="language-plaintext highlighter-rouge">npx webpack serve</code> o bien <code class="language-plaintext highlighter-rouge">npm run start:dev</code> que ejecuta un servidor con el resultado de la compilación en el puerto 9000:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre>  load-script-seq git:(master) ✗ npm run start:dev
+
+&gt; sol@1.0.1 start:dev /Users/casianorodriguezleon/campus-virtual/2021/learning/asyncjs-learning/load-script-seq
+&gt; webpack serve
+
+ℹ ｢wds｣: Project is running at http://localhost:9000/
+  ...
+ℹ ｢wdm｣: Compiled successfully.
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><img src="/assets/images/webpack-async.png" alt="" /></p>
+
+<h2 id="bundlers">Bundlers</h2>
+
+<p>Cuando instalamos la dependencia del módulo <a href="/assets/temas/introduccion-a-javascript/async-js">Async</a> este acaba en el directorio <code class="language-plaintext highlighter-rouge">node_modules/</code>. 
+Para usarlo desde el navegador es conveniente usar un <em>bundler</em>. 
+Un bundler en JavaScript es una herramienta que pone todo el código y  sus dependencias juntas en unos pocos archivos. Hay muchos de ellos en estos días, siendo los más populares <a href="http://browserify.org/">Browserify</a>, <a href="https://webpack.js.org">Webpack</a>, <a href="https://rollupjs.org/guide/en/">Rollup</a>,
+<a href="https://parceljs.org/">Parcel</a> … Históricamente, JavaScript no ha tenido un estándar para requerir dependencias de su código y de ahí la necesidad de los <em>bundlers</em>.</p>
+
+<h3 id="webpack">Webpack</h3>
+
+<p>Siga el tutorial <a href="https://webpack.js.org/guides/getting-started/">Getting Started with Webpack</a> y familiarícese con webpack. Resuma lo aprendido en el informe.</p>
+
+<p>En el repo <a href="https://github.com/ULL-ESIT-PL/async-js-series-webpack">ULL-ESIT-PL/async-js-series-webpack</a> hemos usado Webpack para procesar la solución que usa el módulo Async:</p>
+
+<p>Si ejecutamos webpack con <code class="language-plaintext highlighter-rouge">npm run build</code> o bien <code class="language-plaintext highlighter-rouge">npx webpack</code>, este pasa a copiar los scripts de ejemplos <code class="language-plaintext highlighter-rouge">script-*.js</code>, <code class="language-plaintext highlighter-rouge">load-script.html</code> etc. a la carpeta <code class="language-plaintext highlighter-rouge">dist</code> y a compilar el fichero <code class="language-plaintext highlighter-rouge">./src/index.js</code> empaquetándolo con sus dependencias en el fichero <code class="language-plaintext highlighter-rouge">dist/main.js</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td><td class="rouge-code"><pre>➜  load-script-seq git:(master) ✗ npm run build
+
+&gt; sol@1.0.1 build /Users/casianorodriguezleon/campus-virtual/2021/learning/asyncjs-learning/load-script-seq
+&gt; webpack
+
+assets by path *.js 67.7 KiB
+  asset main.js 67.5 KiB [emitted] (name: main)
+  asset script-3.js 66 bytes [emitted] [from: script-3.js] [copied]
+  asset script-2.js 61 bytes [emitted] [from: script-2.js] [copied]
+  asset script-1.js 52 bytes [emitted] [from: script-1.js] [copied]
+asset favicon.ico 15.1 KiB [emitted] [from: favicon.ico] [copied]
+asset load-script.html 1.72 KiB [compared for emit] [from: load-script.html] [copied]
+orphan modules 159 KiB [orphan] 85 modules
+runtime modules 670 bytes 3 modules
+cacheable modules 16.3 KiB
+  modules by path ./node_modules/async-es/internal/*.js 7.81 KiB 13 modules
+  modules by path ./node_modules/async-es/*.js 7.89 KiB
+    ./node_modules/async-es/series.js 2.58 KiB [built] [code generated]
+    ./node_modules/async-es/asyncify.js 3.21 KiB [built] [code generated]
+    ./node_modules/async-es/eachOfSeries.js 955 bytes [built] [code generated]
+    ./node_modules/async-es/eachOfLimit.js 1.16 KiB [built] [code generated]
+  ./src/index.js 572 bytes [built] [code generated]
+webpack 5.26.3 compiled successfully in 322 ms
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Los ficheros resultantes quedan en la carpeta <code class="language-plaintext highlighter-rouge">dist</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre>➜  load-script-seq git:(master) ✗ tree dist 
+dist
+├── favicon.ico
+├── index.html
+├── load-script.html
+├── main.js
+├── script-1.js
+├── script-2.js
+└── script-3.js
+
+0 directories, 7 files
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="webpackconfigjs">webpack.config.js</h3>
+
+<p>Todo este proceso ha sido gobernado por el fichero de configuración <code class="language-plaintext highlighter-rouge">webpack.config.js</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>➜  load-script-seq git:(master) ✗ cat webpack.config.js 
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">path</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">CopyPlugin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">copy-webpack-plugin</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">entry</span><span class="p">:</span>  <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="dl">'</span><span class="s1">.</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">src</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">index.js</span><span class="dl">'</span><span class="p">),</span> <span class="c1">// /Users/casianorodriguezleon/campus-virtual/2021/learning/asyncjs-learning/load-script-seq/src/index.js'</span>
+  <span class="na">mode</span><span class="p">:</span> <span class="dl">'</span><span class="s1">development</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">output</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">filename</span><span class="p">:</span> <span class="dl">'</span><span class="s1">main.js</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">path</span><span class="p">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="dl">'</span><span class="s1">dist</span><span class="dl">'</span><span class="p">),</span> <span class="c1">// __dirname contains the path of the folder where this file resides</span>
+    <span class="na">clean</span><span class="p">:</span> <span class="kc">true</span> <span class="c1">// clean the dist/ folder before each build</span>
+  <span class="p">},</span>
+  <span class="na">devServer</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">contentBase</span><span class="p">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="dl">'</span><span class="s1">dist</span><span class="dl">'</span><span class="p">),</span>
+    <span class="na">compress</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">port</span><span class="p">:</span> <span class="mi">9000</span>
+  <span class="p">},</span>
+  <span class="na">plugins</span><span class="p">:</span> <span class="p">[</span>
+    <span class="k">new</span> <span class="nx">CopyPlugin</span><span class="p">({</span> <span class="na">patterns</span><span class="p">:</span> <span class="p">[</span> <span class="c1">// to: by default is compiler.options.output	which is 'dist/'</span>
+      <span class="p">{</span> <span class="na">from</span><span class="p">:</span> <span class="dl">"</span><span class="s2">index.html</span><span class="dl">"</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="na">from</span><span class="p">:</span> <span class="dl">'</span><span class="s1">script-*.js</span><span class="dl">'</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="na">from</span><span class="p">:</span> <span class="dl">"</span><span class="s2">favicon.ico</span><span class="dl">"</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="na">from</span><span class="p">:</span> <span class="dl">"</span><span class="s2">load-script.html</span><span class="dl">"</span><span class="p">}</span>
+    <span class="p">]}),</span>
+  <span class="p">],</span>
+  <span class="na">devtool</span><span class="p">:</span> <span class="dl">'</span><span class="s1">eval-cheap-module-source-map</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// The devtool option controls if and how source maps are generated.</span>
+  <span class="na">module</span><span class="p">:</span> <span class="p">{</span> <span class="c1">// Determines how the different types of modules within a project will be treated</span>
+    <span class="na">rules</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span> <span class="c1">// A loader is a node module that exports a function</span>
+        <span class="c1">// This function is called when a resource should be transformed by the loader</span>
+        <span class="na">test</span><span class="p">:</span> <span class="sr">/</span><span class="se">\.</span><span class="sr">js$/</span><span class="p">,</span> <span class="c1">// Include all modules that pass test assertion</span>
+        <span class="na">enforce</span><span class="p">:</span> <span class="dl">'</span><span class="s1">pre</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// Specifies the category of the loader. No value means normal loader.</span>
+        <span class="na">use</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">source-map-loader</span><span class="dl">'</span><span class="p">],</span> 
+      <span class="p">},</span>
+    <span class="p">],</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="packaging-all-modules-in-a-single-js-file">Packaging all modules in a single JS file</h3>
+
+<p>When you run webpack from the command line,</p>
+
+<ol>
+  <li>Looks for the <code class="language-plaintext highlighter-rouge">entry</code> in your <code class="language-plaintext highlighter-rouge">webpack.config.js</code> file: <code class="language-plaintext highlighter-rouge">src/index.js</code> and</li>
+  <li>
+    <p>Builds a dependency graph analyzing the dependencies</p>
+
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="p">{</span> <span class="nx">series</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">async-es</span><span class="dl">"</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+
+    <ul>
+      <li>Our project may have installed dependencies in the <code class="language-plaintext highlighter-rouge">node_modules</code> folder that should not be included in our client-side JavaScript production bundle</li>
+      <li>Example: <code class="language-plaintext highlighter-rouge">devDependencies</code> that are used for testing and building.</li>
+      <li>Example: Dependencies used only by   our backend like express</li>
+    </ul>
+  </li>
+  <li>Every time webpack finds a new module it runs the module through the <em>loader</em> defined in the webpack config file</li>
+  <li>It also removes the <em>dead code</em> that is not used (for example functions that are never called)</li>
+  <li>It traverses the dependency graph, pasting the code together and applying the plugins as defined in the config file,</li>
+  <li>Finally it spits out the bundle to the path defined in the output section of the webpack config: <code class="language-plaintext highlighter-rouge">dist/main.js</code></li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>➜  load-script-seq git:(master) ✗ sed -ne '1,13p' dist/main.js 
+</pre></td></tr></tbody></table></code></pre></div></div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="cm">/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */</span>
+<span class="cm">/******/</span> <span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="c1">// webpackBootstrap</span>
+<span class="cm">/******/</span>        <span class="dl">"</span><span class="s2">use strict</span><span class="dl">"</span><span class="p">;</span>
+<span class="cm">/******/</span>        <span class="kd">var</span> <span class="nx">__webpack_modules__</span> <span class="o">=</span> <span class="p">({</span>
+
+<span class="cm">/***/</span> <span class="dl">"</span><span class="s2">./node_modules/async-es/asyncify.js</span><span class="dl">"</span><span class="p">:</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="webpack-loaders">Webpack Loaders</h3>
+
+<p>Webpack enables use of <a href="https://webpack.js.org/concepts/loaders">loaders</a> to preprocess files.</p>
+
+<p>Loaders are transformations that are applied to the source code of a module. They allow you to pre-process files as you <code class="language-plaintext highlighter-rouge">import</code> or <em>load</em> them.</p>
+
+<p>Loaders are activated by using <code class="language-plaintext highlighter-rouge">loadername!</code> prefixes in <code class="language-plaintext highlighter-rouge">require()</code> statements. For example:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">html-loader!./file.html</span><span class="dl">'</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>or are automatically applied via regex from your webpack configuration like <a href="#webpackconfigjs">above</a></p>
+
+<p>Loaders can</p>
+
+<ul>
+  <li>transform files from a different language (like TypeScript) to JavaScript or</li>
+  <li>load inline images as data URLs.</li>
+  <li>Loaders even allow you to do things like <code class="language-plaintext highlighter-rouge">import</code> CSS files directly from your JavaScript modules</li>
+</ul>
+
+<p>It’s good to keep in mind that webpack’s loaders are always evaluated from right to left and from bottom to top (when using separate definitions).</p>
+
+<p>The right-to-left rule is easier to remember when you think about loaders as functions. You can read definition</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nx">use</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">style-loader</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">css-loader</span><span class="dl">"</span><span class="p">]</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>as <code class="language-plaintext highlighter-rouge">style(css(input))</code> based on this rule.</p>
+
+<p>Example:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">test</span><span class="p">:</span> <span class="sr">/</span><span class="se">\.</span><span class="sr">css$/</span><span class="p">,</span>
+  <span class="na">use</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">style-loader</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">css-loader</span><span class="dl">"</span><span class="p">],</span>
+<span class="p">};</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">enforce</code> field can be used to push processing either before or after other loaders (It can be either <code class="language-plaintext highlighter-rouge">pre</code> or <code class="language-plaintext highlighter-rouge">post</code>).</p>
+
+<p>Linting is a good example because we want the build to fail before it does anything else:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="p">{</span>
+  <span class="nl">test</span><span class="p">:</span> <span class="sr">/</span><span class="se">\.</span><span class="sr">js$/</span><span class="p">,</span>
+  <span class="nx">enforce</span><span class="p">:</span> <span class="dl">"</span><span class="s2">pre</span><span class="dl">"</span><span class="p">,</span> 
+  <span class="nx">use</span><span class="p">:</span> <span class="dl">"</span><span class="s2">eslint-loader</span><span class="dl">"</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="debugging-con-webpack">Debugging con Webpack</h3>
+
+<p>En Webpack cuando estamos aplicando una serie de loaders o de transformaciones a nuestro código, el código generado dista mucho del original: El debugging se convierte en un problema.  Para facilitar la depuración es conveniente  configurar <code class="language-plaintext highlighter-rouge">/webpack.config.js</code> con  la opción <code class="language-plaintext highlighter-rouge">devtool</code> puesta a <code class="language-plaintext highlighter-rouge">eval-cheap-module-source-map</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre>```js
++  devtool: 'eval-cheap-module-source-map',
++  module: {
++    rules: [
++      {
++        test: /\.js$/,
++        enforce: 'pre',
++        use: ['source-map-loader'],
++      },
++    ],
++  },
+};    ```
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Un <em>source map</em> es una correspondencia que se realiza entre el código original y el código transformado. Véase <a href="https://webpack.js.org/loaders/source-map-loader/">source-map-loader</a></p>
+
+<p><img src="/assets/images/debugging-webpack.png" alt="" /></p>
+
+<p>Véase el vídeo Webpack dev server y source maps: tutorial práctico:</p>
+
+<!-- Courtesy of embedresponsively.com //-->
+
+<div class="responsive-video-container">
+    <iframe src="https://www.youtube-nocookie.com/embed/bZD8qcJIEIE" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+  </div>
+
+<h2 id="escriba-su-solución-como-un-módulo-es6">Escriba su solución como un módulo es6</h2>
+
+<p>Reescriba su solución al apartado <a href="#serialización-de-callbacks">Serialización de Callbacks</a> en un módulo <code class="language-plaintext highlighter-rouge">src/lib/solution.js</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>  [~/.../async/load-script-seq(private)]$ tree src
+  src
+  ├── index.js
+  └── lib
+      └── solution.js
+
+  1 directory, 2 files
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>que sea usado por <code class="language-plaintext highlighter-rouge">src/index.js</code></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="p">{</span> <span class="nx">loadScript</span><span class="p">,</span> <span class="nx">loadScripts</span><span class="p">,</span> <span class="nx">mySeries</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./lib/solution.js</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">let</span> <span class="nx">p</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">p</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Using mySeries</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">mySeries</span><span class="p">(</span>
+  <span class="p">[</span>
+      <span class="nx">cb</span> <span class="o">=&gt;</span> <span class="nx">loadScript</span><span class="p">(</span><span class="dl">'</span><span class="s1">script-1.js</span><span class="dl">'</span><span class="p">,</span> <span class="nx">cb</span><span class="p">),</span>
+      <span class="nx">cb</span> <span class="o">=&gt;</span> <span class="nx">loadScript</span><span class="p">(</span><span class="dl">'</span><span class="s1">script-2.js</span><span class="dl">'</span><span class="p">,</span> <span class="nx">cb</span><span class="p">),</span>
+      <span class="nx">cb</span> <span class="o">=&gt;</span> <span class="nx">loadScript</span><span class="p">(</span><span class="dl">'</span><span class="s1">script-3.js</span><span class="dl">'</span><span class="p">,</span> <span class="nx">cb</span><span class="p">)</span>
+  <span class="p">],</span>
+  <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">results</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">out</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">results</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">s</span> <span class="o">=&gt;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">src</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="dl">"</span><span class="s2">&lt;br/&gt;</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
 <h2 id="referencias">Referencias</h2>
 
 <ul>
   <li><a href="https://github.com/ULL-ESIT-PL/async-js-series-webpack">Repo ULL-ESIT-PL/async-js-series-webpack</a></li>
-  <li><a href="https://www.npmjs.com/package/async-es">A pure ESM version of Async</a></li>
+  <li>La sección <a href="/assets/temas/introduccion-a-javascript/async-js">The Async Module</a> de estos apuntes</li>
+  <li>npm <a href="https://www.npmjs.com/package/async-es">async-es: A pure ESM version of Async</a></li>
   <li><a href="https://webpack.js.org/guides/getting-started/">Webpack: Getting started</a></li>
   <li><a href="https://webpack.js.org/configuration/dev-server/">Webpack devserver</a></li>
+  <li>Blog <a href="https://blog.jakoblind.no/how-webpack-decides-what-to-bundle/">How webpack decides what to bundle</a> by Jakob Lind</li>
+  <li><a href="https://survivejs.com/webpack/loading/loader-definitions/">Webpack book: Loader Definitions</a></li>
 </ul>
 
-<h2 id="soluciones">Soluciones</h2>
+<!--
+## Soluciones
 
-<ul>
-  <li><a href="https://github.com/ULL-ESIT-PL/async-js-series-webpack-private/blob/private/load-scripts.html">Solución</a></li>
-  <li>
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-</pre></td><td class="rouge-code"><pre>    [~/.../load-script-seq(private)]$ pwd -P
-    /Users/casiano/local/src/javascript/learning/async/load-script-seq
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-  </li>
-  <li><code class="language-plaintext highlighter-rouge">/Volumes/2020/sytws/sytws2021/p8-t2-async-serialize-12-03-2020-09-16-48/alu0101040882</code> Daniel Labena</li>
-</ul>
+* [Solución](https://github.com/ULL-ESIT-PL/async-js-series-webpack-private/blob/private/load-scripts.html)
+* ```
+      [~/.../load-script-seq(private)]$ pwd -P
+      /Users/casiano/local/src/javascript/learning/async/load-script-seq
+  ```
+* `/Volumes/2020/sytws/sytws2021/p8-t2-async-serialize-12-03-2020-09-16-48/alu0101040882` Daniel Labena
+-->
 
 
 
