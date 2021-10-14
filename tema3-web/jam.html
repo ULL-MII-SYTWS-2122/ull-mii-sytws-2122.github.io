@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=877487a4192f053eacd5dc6328a2d46416dbf554">
+    <link rel="stylesheet" href="/assets/css/style.css?v=a52baa68b8db606aaa9f45ced6edc0c47eed0b48">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -136,7 +136,7 @@ But there’s multiple ways of using those APIs, and JavaScript, that may not be
   <li>Associated GitHub repo <a href="https://github.com/cfjedimaster/jamstack_api_approaches">https://github.com/cfjedimaster/jamstack_api_approaches</a></li>
 </ul>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -224,7 +224,7 @@ But there’s multiple ways of using those APIs, and JavaScript, that may not be
 
 <p>Consider this example using the <a href="https://developer.here.com/documentation/weather/topics/overview.html">Weather API</a> from https://developer.here.com/documentation/examples/rest/auto_weather/weather-forecast-7days-astronomy. Their API requires two specific authentication values, an <code class="language-plaintext highlighter-rouge">app_id</code> and <code class="language-plaintext highlighter-rouge">app_code</code>. If I put that in my client-side code, anyone could use it, which wouldn’t be desirable. I’m going to use a serverless proxy set up with <a href="https://www.netlify.com/docs/functions/">Netlify Functions</a> to proxy requests to HERE’s API from my client side code.</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -309,7 +309,7 @@ But there’s multiple ways of using those APIs, and JavaScript, that may not be
   <li>Also note that the API has slightly different casing going on. So for <code class="language-plaintext highlighter-rouge">moonrise</code> it’s all lowercase, but then they use <code class="language-plaintext highlighter-rouge">moonPhase</code>. There may be a good reason for that, but to me it wasn’t what I expected so I took the opportunity to reformat the data a bit as well.</li>
 </ol>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4

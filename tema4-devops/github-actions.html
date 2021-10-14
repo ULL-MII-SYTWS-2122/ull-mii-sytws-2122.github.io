@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=877487a4192f053eacd5dc6328a2d46416dbf554">
+    <link rel="stylesheet" href="/assets/css/style.css?v=a52baa68b8db606aaa9f45ced6edc0c47eed0b48">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -155,7 +155,7 @@
 
 <p>Workflows can be created inside the <code class="language-plaintext highlighter-rouge">.github/workflows</code> directory by adding a <code class="language-plaintext highlighter-rouge">.yml</code> workflow file. Here in the terminal we do:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 </pre></td><td class="rouge-code"><pre>$ mkdir -p .github/workflows
 $ touch .github/workflows/nodejs.yml
@@ -165,7 +165,7 @@ $ touch .github/workflows/nodejs.yml
 
 <p>Ejemplo:</p>
 
-<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -214,7 +214,7 @@ $ touch .github/workflows/nodejs.yml
 
 <p>Example:</p>
 
-<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -279,7 +279,7 @@ can not start until the <code class="language-plaintext highlighter-rouge">build
 
 <p>Example:</p>
 
-<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -391,7 +391,7 @@ can not start until the <code class="language-plaintext highlighter-rouge">build
 
 <p>The name of your workflow that is displayed on the Github actions page. If you omit this field, it is set to the file name.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>name: CI for scapegoat module
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -399,13 +399,13 @@ can not start until the <code class="language-plaintext highlighter-rouge">build
 
 <p>The <code class="language-plaintext highlighter-rouge">on</code> keyword defines the Github events that trigger the workflow. You can provide a single event, array or events or a configuration map that schedules a workflow.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>on: push
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>or</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>on: [pull_request, issues]
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -413,7 +413,7 @@ can not start until the <code class="language-plaintext highlighter-rouge">build
 
 <p>A workflow run is made up of one or more jobs. Jobs define the functionality that will be run in the workflow and run in parallel by default.</p>
 
-<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -465,7 +465,7 @@ can not start until the <code class="language-plaintext highlighter-rouge">build
 
 <p><strong>Env</strong> defines a map of environment variables that are available to all jobs and steps in the workflow. You can also set environment variables that are only available to a job or step.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 </pre></td><td class="rouge-code"><pre>env:
 CI: true
@@ -487,7 +487,7 @@ defined by the <code class="language-plaintext highlighter-rouge">hello_world</c
 
 <p>These input variables will be accessible to the <code class="language-plaintext highlighter-rouge">hello-world</code> action as <code class="language-plaintext highlighter-rouge">INPUT_FIRST_NAME</code>, <code class="language-plaintext highlighter-rouge">INPUT_MIDDLE_NAME</code>, and <code class="language-plaintext highlighter-rouge">INPUT_LAST_NAME</code> environment variables.</p>
 
-<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -511,7 +511,7 @@ defined by the <code class="language-plaintext highlighter-rouge">hello_world</c
 
 <p>You can use expressions to programmatically set variables in workflow files and access contexts.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>${{ &lt;expression&gt; }}
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>You can combine literals, context references, and functions using <strong>operators</strong>.</p>
@@ -520,7 +520,7 @@ defined by the <code class="language-plaintext highlighter-rouge">hello_world</c
 
 <h3 id="literal-values">literal values,</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -607,7 +607,7 @@ defined by the <code class="language-plaintext highlighter-rouge">hello_world</c
 
 <p>Example:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -628,7 +628,7 @@ because GitHub automatically evaluates the <code class="language-plaintext highl
 
 <p>Example expression in an <code class="language-plaintext highlighter-rouge">if</code> conditional</p>
 
-<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -674,7 +674,7 @@ because GitHub automatically evaluates the <code class="language-plaintext highl
 
 <p>You can use the <code class="language-plaintext highlighter-rouge">*</code> syntax to apply a filter and select matching items in a collection:</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -690,7 +690,7 @@ because GitHub automatically evaluates the <code class="language-plaintext highl
 
 <p>Here is another example:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>contains(github.event.issue.labels.*.name, 'bug')
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -701,7 +701,7 @@ has triggered the event is <code class="language-plaintext highlighter-rouge">'b
 
 <p><strong>Contexts</strong> are a way to access information about workflow runs, runner environments, jobs, and steps. Contexts use the <strong>expression syntax</strong>. See <a href="https://help.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#contexts">Context and expression syntax for GitHub Actions</a> at the GitHub Actions Reference.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>${{ &lt;context&gt; }}
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -737,7 +737,7 @@ You can access this context from any step in a job.</p>
 
 <p>Here is a more complex <a href="https://github.com/rusnasonov/vscode-hugo/blob/master/.github/workflows/build.yml">example using step information and functions</a></p>
 
-<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -794,7 +794,7 @@ You can access this context from any step in a job.</p>
 
 <p>To use a secret:</p>
 
-<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -816,7 +816,7 @@ the package. Thus, the procedure will be:</p>
   <li>
     <p>You create a token for <a href="https://docs.npmjs.com/creating-and-viewing-authentication-tokens">npm</a> with read and publish permits:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -846,7 +846,7 @@ the package. Thus, the procedure will be:</p>
   <li>Make the secret accesible to the GitHub Action via the <code class="language-plaintext highlighter-rouge">secrets</code> context</li>
 </ol>
 
-<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -892,10 +892,10 @@ the package. Thus, the procedure will be:</p>
 
 <p>To inspect the information that is accessible in each context, you can use this workflow file example.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>[~/.../scapegoat(master)]$ cat .github/workflows/debug.yml
 </pre></td></tr></tbody></table></code></pre></div></div>
-<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -981,7 +981,7 @@ it is enough to use the <code class="language-plaintext highlighter-rouge">GITHU
 
 <p>Thus, this is enough to do the job:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4

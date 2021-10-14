@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=877487a4192f053eacd5dc6328a2d46416dbf554">
+    <link rel="stylesheet" href="/assets/css/style.css?v=a52baa68b8db606aaa9f45ced6edc0c47eed0b48">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -102,7 +102,7 @@
 
 <p>Cuando al comando  <code class="language-plaintext highlighter-rouge">ssh</code> se le pasa además del destino un argumento adicional lo interpreta como un comando y lo ejecuta en la máquina de destino:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 </pre></td><td class="rouge-code"><pre>[~/local/src/CA/sol-nodejs-the-right-way/filesystem-chapter-2(master)]$ ssh dsi ls
@@ -113,7 +113,7 @@ snap
 <p>Escriba  un programa en Node.js
 que ejecute en remoto usando <code class="language-plaintext highlighter-rouge">ssh</code> el programa Node.js pasado como argumento en línea de comandos:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -129,7 +129,7 @@ para proteger la cadena de su interpretación  por la bash shell.</p>
 <p>Este programa se conecta vía <code class="language-plaintext highlighter-rouge">ssh</code> a la máquina virtual de <code class="language-plaintext highlighter-rouge">iaas.ull.es</code> del pool de la asignatura y ejecuta <code class="language-plaintext highlighter-rouge">node -e 'console.log(4*5)'</code>.
 Esto es, es equivalente a el siguiente comando:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 </pre></td><td class="rouge-code"><pre>[~/local/src/CA/sol-nodejs-the-right-way/filesystem-chapter-2(master)]$ ssh dsi "node -e 'console.log(4*5)'"
 20
@@ -140,7 +140,7 @@ Esto es, es equivalente a el siguiente comando:</p>
 
 <ol>
   <li>Cuando al intérprete de Node.js se le pasa la opción <code class="language-plaintext highlighter-rouge">-e</code>  interpreta que el programa es la cadena que sigue a la opción <code class="language-plaintext highlighter-rouge">-e</code>. Ejemplo:
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 </pre></td><td class="rouge-code"><pre> [~/campus-virtual/1819/dsi1819/introduccion(master)]$ node -e 'console.log(2+3)'
  5
@@ -153,7 +153,7 @@ que vuelquen en la consola los chunks que van llegando</li>
 </ol>
 
 <p>NOTA (para el profesor):</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -168,7 +168,7 @@ que vuelquen en la consola los chunks que van llegando</li>
 <p>Escriba  un programa en Node.js
 que ejecute en remoto usando <code class="language-plaintext highlighter-rouge">ssh</code> el programa Node.js cuyo nombre es pasado como argumento en línea de comandos.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -180,7 +180,7 @@ child process exited with code 0 and signal null
 
 <p>El fichero <code class="language-plaintext highlighter-rouge">program.js</code> se supone que está en la máquina local. Deberá transferirlo a la máquina remota (use <code class="language-plaintext highlighter-rouge">scp</code>) para su posterior ejecución. El comando <code class="language-plaintext highlighter-rouge">scp</code> permite transferir ficheros entre máquinas usando ssh:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4

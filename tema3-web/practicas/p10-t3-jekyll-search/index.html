@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=877487a4192f053eacd5dc6328a2d46416dbf554">
+    <link rel="stylesheet" href="/assets/css/style.css?v=a52baa68b8db606aaa9f45ced6edc0c47eed0b48">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -140,13 +140,13 @@
   <li>
     <p>We will be creating a JSON file in which we will store  <code class="language-plaintext highlighter-rouge">title</code>,  <code class="language-plaintext highlighter-rouge">url</code>, <code class="language-plaintext highlighter-rouge">content</code>, <code class="language-plaintext highlighter-rouge">excerpt</code>, etc., <u>at building time</u></p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 </pre></td><td class="rouge-code"><pre> $ bundle exec jekyll build
  $ head -n 30 _site/assets/src/search.json 
 </pre></td></tr></tbody></table></code></pre></div>    </div>
 
-    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -172,7 +172,7 @@
 
 <p>Para lograrlo usaremos este template Liquid: <a href="https://raw.githubusercontent.com/ULL-MII-SYTWS-1920/ull-mii-sytws-1920.github.io/master/assets/src/search.json?token=AAIW6GWXQOTDJ7VYDKDGBWK55YN74">search.json</a> (protected)</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -281,7 +281,7 @@ sitemap: false
 
 <p>Por ejemplo, supongamos que tenemos estas definiciones en el front-matter de nuestra página:</p>
 
-<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -299,7 +299,7 @@ sitemap: false
 
 <p>y que en el contenido de nuestra página tenemos algo así:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -313,7 +313,7 @@ Compara &lt; script&gt;{ {page.html}}&lt;/script&gt; con su `strip_html` &lt; sc
 
 <p>Esta es la salida que produce jekyll 4.0.0:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -348,7 +348,7 @@ Debe disponer  de un constructor al que se le pasan cuatro argumentos:</p>
   <li>La <code class="language-plaintext highlighter-rouge">url</code> del lugar en el que está el deployment (pudiera ser que el site en el que queremos buscar fuera una subcarpeta de todo el site)</li>
 </ol>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -366,7 +366,7 @@ Debe disponer  de un constructor al que se le pasan cuatro argumentos:</p>
 
 <p>Los objetos <code class="language-plaintext highlighter-rouge">JekyllSearch</code> deben disponer de un método <code class="language-plaintext highlighter-rouge">init</code> que realiza la búsqueda especificada en el elemento del DOM <code class="language-plaintext highlighter-rouge">#search</code> y añade los resultados en en el elemento del DOM <code class="language-plaintext highlighter-rouge">#list</code></p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -454,7 +454,7 @@ title: Search
       <li>En algunos casos, el navegador continuará sugiriendo valores de autocompletado incluso si el atributo autocompletar está desactivado. Este comportamiento inesperado puede resultar bastante confuso para los desarrolladores. El truco para realmente no aplicar el autocompletado es asignar un valor no válido al atributo, por ejemplo:</li>
     </ul>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>autocomplete="nope"
 </pre></td></tr></tbody></table></code></pre></div>    </div>
     <p>Dado que este valor no es válido para el atributo autocompletar, el navegador no tiene forma de reconocerlo y deja de intentar autocompletarlo.</p>
@@ -471,7 +471,7 @@ title: Search
 
 <h3 id="la-clase-jekyllsearch-fichero-searchjs">La clase JekyllSearch: Fichero search.js</h3>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -607,7 +607,7 @@ title: Search
 
 <p>If the URL of your page is <code class="language-plaintext highlighter-rouge">https://example.com/?name=Jonathan%20Smith&amp;age=18</code> you could parse out the <code class="language-plaintext highlighter-rouge">name</code> and <code class="language-plaintext highlighter-rouge">age</code> parameters using:</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 </pre></td><td class="rouge-code"><pre><span class="kd">let</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">(</span><span class="k">new</span> <span class="nx">URL</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">)).</span><span class="nx">searchParams</span><span class="p">;</span>
@@ -622,7 +622,7 @@ Such collections always reflect the current state of the document and <em>auto-u
 In contrast, <code class="language-plaintext highlighter-rouge">querySelectorAll</code> returns a static collection. 
 It’s like a fixed array of elements.</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -645,7 +645,7 @@ It’s like a fixed array of elements.</p>
 <p>The  <code class="language-plaintext highlighter-rouge">window</code> object provides access to the browser’s session history through the <code class="language-plaintext highlighter-rouge">history</code> object. 
 The <code class="language-plaintext highlighter-rouge">history.pushState(state, title, url)</code> method adds a state to the browser’s session history stack.</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -665,7 +665,7 @@ The <code class="language-plaintext highlighter-rouge">history.pushState(state, 
 
 <p>The resources downloaded through <code class="language-plaintext highlighter-rouge">fetch()</code>, similar to other resources that the browser downloads, are subject to the <a href="https://developer.mozilla.org/en/docs/Web/HTTP/Caching_FAQ">HTTP cache</a>.  </p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 </pre></td><td class="rouge-code"><pre><span class="nx">fetchedData</span><span class="p">()</span> <span class="p">{</span>
@@ -705,7 +705,7 @@ The <code class="language-plaintext highlighter-rouge">history.pushState(state, 
 <p>Esta imagen muestra los ficheros implicados en este ejercicio dentro de 
 la estructura del sitio de estos apuntes:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4

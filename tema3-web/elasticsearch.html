@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=877487a4192f053eacd5dc6328a2d46416dbf554">
+    <link rel="stylesheet" href="/assets/css/style.css?v=a52baa68b8db606aaa9f45ced6edc0c47eed0b48">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -275,7 +275,7 @@ que da capacidades de búsqueda.</p>
 <p>You can run <code class="language-plaintext highlighter-rouge">java -version</code> 
 from the command line to confirm that Java is installed and ready.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -305,7 +305,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 9.0.4+11, mixed mode)
 
 <p>Esta es la versión que he usado en mi instalación, <a href="https://www.elastic.co/es/downloads/past-releases/elasticsearch-6-4-2">la 6.4.2</a> para seguir el libro a finales de 2018 y comienzos de 2019:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 </pre></td><td class="rouge-code"><pre>$ elasticsearch --version
@@ -319,7 +319,7 @@ and run <code class="language-plaintext highlighter-rouge">bin/elasticsearch</co
 
 <p>You should see a lot of output containing something like the following (much of the output is omitted here for brevity).</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -347,7 +347,7 @@ The same instructions <a href="https://www.elastic.co/guide/en/elasticsearch/ref
 
 <p>To have Elasticsearch in the <code class="language-plaintext highlighter-rouge">PATH</code>, I have added a small script in my <code class="language-plaintext highlighter-rouge">~/.bash_profile</code>:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 </pre></td><td class="rouge-code"><pre>[~/campus-virtual/1819/ca1819/practicas(master)]$ cat ~/.bash_profile | sed -ne '/elastic/,/^$/p'
 source ~/bin/elasticsearch-set
@@ -355,7 +355,7 @@ source ~/bin/elasticsearch-set
 
 <p>With this contents:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 </pre></td><td class="rouge-code"><pre>[~/campus-virtual/1819/ca1819/practicas(master)]$ cat ~/bin/elastic-search-set
@@ -375,13 +375,13 @@ export PATH=$ES_HOME/bin:$PATH
 
 <p>To install with Homebrew, you first need to tap the Elastic Homebrew repository:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>brew tap elastic/tap
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Once you’ve tapped the Elastic Homebrew repo, you can use <code class="language-plaintext highlighter-rouge">brew install</code> to install the default distribution of Elasticsearch:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -555,7 +555,7 @@ $ elasticsearch
 
 <p>Para arreglar el <code class="language-plaintext highlighter-rouge">WARN</code>he editado el fichero de configuración <code class="language-plaintext highlighter-rouge">elasticsearch.yml</code> añadiendo la línea <code class="language-plaintext highlighter-rouge">cluster.routing.allocation.disk.watermark.high: 95%</code>:</p>
 
-<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -587,7 +587,7 @@ $ elasticsearch
   <li>
     <p><code class="language-plaintext highlighter-rouge">curl localhost:9200/_cat</code> da una serie de endpoints</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -650,7 +650,7 @@ $ elasticsearch
   <li>
     <p>Modo verboso: <code class="language-plaintext highlighter-rouge">$ curl localhost:9200/_cat/master?v</code>`</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 </pre></td><td class="rouge-code"><pre>  id                     host      ip        node
   VK6QoFsVQeGBAcAKIC3vLA 127.0.0.1 127.0.0.1 sanclemente-2.local
@@ -659,7 +659,7 @@ $ elasticsearch
   <li>
     <p>Help: <code class="language-plaintext highlighter-rouge">$ curl localhost:9200/_cat/master?help</code>`</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -672,7 +672,7 @@ $ elasticsearch
   <li>
     <p>Each of the commands accepts a query string parameter <code class="language-plaintext highlighter-rouge">h</code> which forces only those columns to appear: <code class="language-plaintext highlighter-rouge">curl localhost:9200/_cat/nodes?h=ip,port,heapPercent,name</code></p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -706,7 +706,7 @@ $ elasticsearch
 
 <p>Let us see where <code class="language-plaintext highlighter-rouge">elasticsearch</code> 6.4.2 is installed:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 </pre></td><td class="rouge-code"><pre>[~]$ which elasticsearch
 /Users/casiano/Applications/elasticsearch-6.4.2/bin/elasticsearch
@@ -715,7 +715,7 @@ $ elasticsearch
 <p>Let us execute <code class="language-plaintext highlighter-rouge">elasticsearch</code> 6.4.2 in development mode.
 The flow of output when executed is overwhelming:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -741,7 +741,7 @@ The flow of output when executed is overwhelming:</p>
 
 <p>We can see in the last line that is listening at 9200:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>[2019-12-15T11:29:14,175][INFO ][o.e.x.s.t.n.SecurityNetty4HttpServerTransport] [9jAGWs_] publish_address {127.0.0.1:9200}, bound_addresses {[::1]:9200}, {127.0.0.1:9200}
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -778,13 +778,13 @@ The flow of output when executed is overwhelming:</p>
 
 <p>To install with Homebrew, you first need to tap the Elastic Homebrew repository:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>brew tap elastic/tap
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Once you’ve tapped the Elastic Homebrew repo, you can use <code class="language-plaintext highlighter-rouge">brew install</code> to install the default distribution of Kibana:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -924,7 +924,7 @@ Or, if you don't want/need a background service you can just run:
 <p>Creamos para la versión 7.5. de Elasticsearch el index de libros de Guttenberg con el fichero que habíamos preparado en la  práctica
 anterior:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>[~/.../t3-p8-commanding-databases-marreA/esclu(master)]$ ./esclu bulk ../t1-p7-transforming-data-and-testing-continuously-marreA/data/bulk_pg.ldj -i books -t book 
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -956,7 +956,7 @@ anterior:</p>
 
 <p>Algunos ejemplos de queries:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4

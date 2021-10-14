@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=877487a4192f053eacd5dc6328a2d46416dbf554">
+    <link rel="stylesheet" href="/assets/css/style.css?v=a52baa68b8db606aaa9f45ced6edc0c47eed0b48">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -127,7 +127,7 @@
 
 <p>Se dispone de una función <code class="language-plaintext highlighter-rouge">loadScript</code> que permite la carga de un script:</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -158,7 +158,7 @@
 
 <p>cada uno de los scripts cargados usa el código del anterior. Es necesario anidar las callbacks:</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -278,7 +278,7 @@
 
 <p>Un detalle importante en este código ocurre en la asignación <code class="language-plaintext highlighter-rouge">script.src = src;</code></p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -309,7 +309,7 @@ Mientras, el intérprete JS continúa su ejecución secuencial con la línea <co
 
 <p>Escriba una función <code class="language-plaintext highlighter-rouge">loadScripts([ array-of-urls ], callback)</code> que se llama así:</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -350,7 +350,7 @@ Esto es, debe funcionar tal como lo hace la función <code class="language-plain
 
 <p>Esta es la forma de uso de la función <code class="language-plaintext highlighter-rouge">series</code>:</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -374,7 +374,7 @@ Esto es, debe funcionar tal como lo hace la función <code class="language-plain
 
 <p>Puede simular que los scripts son de distinto tamaño <strong>retrasando la iniciación de las cargas</strong> con un <code class="language-plaintext highlighter-rouge">setTimeout</code> que espere por un número aleatorio de milisegundos:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 </pre></td><td class="rouge-code"><pre>  [~/.../load-script-seq(private)]$ pwd
@@ -382,7 +382,7 @@ Esto es, debe funcionar tal como lo hace la función <code class="language-plain
 [~/.../load-script-seq(private)]$ sed -ne '12,23p' load-scripts.html
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -412,11 +412,11 @@ Esto es, debe funcionar tal como lo hace la función <code class="language-plain
 
 <p>En el repo  <a href="https://github.com/ULL-ESIT-PL/async-js-series-webpack">ULL-ESIT-PL/async-js-series-webpack</a> encontrara el fichero <code class="language-plaintext highlighter-rouge">dist/index.html</code>:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>➜  load-script-seq git:(master) ✗ cat dist/index.html 
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -443,10 +443,10 @@ la carga de un script <code class="language-plaintext highlighter-rouge">main.js
 <a href="https://webpack.js.org/guides/getting-started/">webpack</a> a partir de este otro fichero <code class="language-plaintext highlighter-rouge">src/index.js</code>
 que importa  la función <code class="language-plaintext highlighter-rouge">series</code> del módulo <a href="/assets/temas/introduccion-a-javascript/async-js">Async</a> usando sintáxis es6:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>➜  load-script-seq git:(master) ✗ cat src/index.js 
 </pre></td></tr></tbody></table></code></pre></div></div>
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -496,7 +496,7 @@ que importa  la función <code class="language-plaintext highlighter-rouge">seri
 
 <p>También puede verlo en local ejecutando <code class="language-plaintext highlighter-rouge">npx webpack serve</code> o bien <code class="language-plaintext highlighter-rouge">npm run start:dev</code> que ejecuta un servidor con el resultado de la compilación en el puerto 9000:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -531,7 +531,7 @@ Un bundler en JavaScript es una herramienta que pone todo el código y  sus depe
 
 <p>Si ejecutamos webpack con <code class="language-plaintext highlighter-rouge">npm run build</code> o bien <code class="language-plaintext highlighter-rouge">npx webpack</code>, este pasa a copiar los scripts de ejemplos <code class="language-plaintext highlighter-rouge">script-*.js</code>, <code class="language-plaintext highlighter-rouge">load-script.html</code> etc. a la carpeta <code class="language-plaintext highlighter-rouge">dist</code> y a compilar el fichero <code class="language-plaintext highlighter-rouge">./src/index.js</code> empaquetándolo con sus dependencias en el fichero <code class="language-plaintext highlighter-rouge">dist/main.js</code>:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -581,7 +581,7 @@ webpack 5.26.3 compiled successfully in 322 ms
 
 <p>Los ficheros resultantes quedan en la carpeta <code class="language-plaintext highlighter-rouge">dist</code>:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -609,10 +609,10 @@ dist
 
 <p>Todo este proceso ha sido gobernado por el fichero de configuración <code class="language-plaintext highlighter-rouge">webpack.config.js</code></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>➜  load-script-seq git:(master) ✗ cat webpack.config.js 
 </pre></td></tr></tbody></table></code></pre></div></div>
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -695,7 +695,7 @@ dist
   <li>
     <p>Builds a dependency graph analyzing the dependencies</p>
 
-    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="p">{</span> <span class="nx">series</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">async-es</span><span class="dl">"</span><span class="p">;</span>
 </pre></td></tr></tbody></table></code></pre></div>    </div>
 
@@ -711,10 +711,10 @@ dist
   <li>Finally it spits out the bundle to the path defined in the output section of the webpack config: <code class="language-plaintext highlighter-rouge">dist/main.js</code></li>
 </ol>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>➜  load-script-seq git:(master) ✗ sed -ne '1,13p' dist/main.js 
 </pre></td></tr></tbody></table></code></pre></div></div>
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -750,7 +750,7 @@ dist
 
 <p>Loaders are activated by using <code class="language-plaintext highlighter-rouge">loadername!</code> prefixes in <code class="language-plaintext highlighter-rouge">require()</code> statements. For example:</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">html-loader!./file.html</span><span class="dl">'</span><span class="p">);</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -767,14 +767,14 @@ dist
 <p>It’s good to keep in mind that webpack’s loaders are always evaluated from right to left and from bottom to top (when using separate definitions).</p>
 
 <p>The right-to-left rule is easier to remember when you think about loaders as functions. You can read definition</p>
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="nx">use</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">style-loader</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">css-loader</span><span class="dl">"</span><span class="p">]</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>as <code class="language-plaintext highlighter-rouge">style(css(input))</code> based on this rule.</p>
 
 <p>Example:</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -788,7 +788,7 @@ dist
 
 <p>Linting is a good example because we want the build to fail before it does anything else:</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -804,7 +804,7 @@ dist
 
 <p>En Webpack cuando estamos aplicando una serie de loaders o de transformaciones a nuestro código, el código generado dista mucho del original: El debugging se convierte en un problema.  Para facilitar la depuración es conveniente  configurar <code class="language-plaintext highlighter-rouge">/webpack.config.js</code> con  la opción <code class="language-plaintext highlighter-rouge">devtool</code> puesta a <code class="language-plaintext highlighter-rouge">eval-cheap-module-source-map</code></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -846,7 +846,7 @@ dist
 
 <p>Reescriba su solución al apartado <a href="#serialización-de-callbacks">Serialización de Callbacks</a> en un módulo <code class="language-plaintext highlighter-rouge">src/lib/solution.js</code></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -863,7 +863,7 @@ dist
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>que sea usado por <code class="language-plaintext highlighter-rouge">src/index.js</code></p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4

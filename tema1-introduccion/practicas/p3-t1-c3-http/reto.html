@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=877487a4192f053eacd5dc6328a2d46416dbf554">
+    <link rel="stylesheet" href="/assets/css/style.css?v=a52baa68b8db606aaa9f45ced6edc0c47eed0b48">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -121,7 +121,7 @@ it can look at this header and send the one that the client prefers.</p>
 
 <p><strong>Write a Node.js client that send requests to fetch all three formats of this resource</strong>:</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -138,7 +138,7 @@ it can look at this header and send the one that the client prefers.</p>
 <p>Use Node’s <a href="https://nodejs.org/api/http.html#http_http_request_options_callback">http.request</a> function. 
 The headers of a request can be given as an object, in the <code class="language-plaintext highlighter-rouge">headers</code> property of <code class="language-plaintext highlighter-rouge">http.request</code>’s first argument.</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -154,7 +154,7 @@ The headers of a request can be given as an object, in the <code class="language
 
 <p>Don’t forget to call the <code class="language-plaintext highlighter-rouge">end</code> method on the object returned by <code class="language-plaintext highlighter-rouge">http.request</code> in order to actually fire off the request.</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -179,7 +179,7 @@ The headers of a request can be given as an object, in the <code class="language
 <p>The following utility function reads a whole stream and calls a callback function with the result, 
 using the usual pattern of passing any errors it encounters as the first argument to the callback:</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -208,7 +208,7 @@ using the usual pattern of passing any errors it encounters as the first argumen
 <p>Make use this of this utility function inside your request callback  to read  the response and dump it
 to the console.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -232,7 +232,7 @@ in my browser.</p>
 
 <p>If it isn’t clear to you yet, think back to the urlToPath function, defined like this:</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -245,7 +245,7 @@ in my browser.</p>
 be relative—they may contain <code class="language-plaintext highlighter-rouge">../</code> to go up a directory. What happens
 when a client sends requests to URLs like the ones shown here?</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 </pre></td><td class="rouge-code"><pre>http://myhostname:8000/../.config/config/google-chrome/Default/Web%20Data

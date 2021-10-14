@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=877487a4192f053eacd5dc6328a2d46416dbf554">
+    <link rel="stylesheet" href="/assets/css/style.css?v=a52baa68b8db606aaa9f45ced6edc0c47eed0b48">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -139,7 +139,7 @@
 
 <h3 id="version">Version</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 </pre></td><td class="rouge-code"><pre>➜  apuntes git:(main) gh --version
@@ -149,7 +149,7 @@ https://github.com/cli/cli/releases/tag/v2.0.0
 
 <h3 id="help">Help</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -283,7 +283,7 @@ to generate a new token for <code class="language-plaintext highlighter-rouge">g
 
 <p>Placeholder values <code class="language-plaintext highlighter-rouge">:owner</code>, <code class="language-plaintext highlighter-rouge">:repo</code>, and <code class="language-plaintext highlighter-rouge">:branch</code> in the endpoint argument will get replaced with values from the repository of the current directory.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -325,7 +325,7 @@ to generate a new token for <code class="language-plaintext highlighter-rouge">g
 
 <p>We can pipe the output to <a href="jq">jq</a>:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 </pre></td><td class="rouge-code"><pre>$  gh api repos/:owner/:repo/issues | jq '.[0] | .title'
 "tema0-presentacion/practicas/pb-gh-campus-expert/"
@@ -333,7 +333,7 @@ to generate a new token for <code class="language-plaintext highlighter-rouge">g
 
 <p>Of course, we can explicit the repo and owner. For example:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 </pre></td><td class="rouge-code"><pre>➜ gh api repos/ULL-MII-SYTWS-2021/p01-t1-iaas-alu0101040882/issues | jq '.[0] | .user.login, .body'
@@ -344,7 +344,7 @@ to generate a new token for <code class="language-plaintext highlighter-rouge">g
 <p>Let us see an example using the <code class="language-plaintext highlighter-rouge">POST</code> method. We will start from this <code class="language-plaintext highlighter-rouge">curl</code> example 
 in the <a href="https://docs.github.com/en/free-pro-team@latest/rest/guides/getting-started-with-the-rest-api#repositories">GitHub API getting started guide</a>:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -364,7 +364,7 @@ in the <a href="https://docs.github.com/en/free-pro-team@latest/rest/guides/gett
 
 <p>and let us adapt to <code class="language-plaintext highlighter-rouge">gh api</code>. We use <code class="language-plaintext highlighter-rouge">-X</code> or <code class="language-plaintext highlighter-rouge">--method string</code>to set the HTTP method for the request (default <code class="language-plaintext highlighter-rouge">GET</code>) and <code class="language-plaintext highlighter-rouge">-f</code>to set the fields:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>➜  /tmp gh api -X POST -f name=repo-prueba-gh-api -f private=true /user/repos
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -377,7 +377,7 @@ in the <a href="https://docs.github.com/en/free-pro-team@latest/rest/guides/gett
 <p>The option <code class="language-plaintext highlighter-rouge">--paginate</code>allow us to make additional HTTP requests to fetch 
 all pages of results. Here is an example.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -391,7 +391,7 @@ co:         pr checkout
 get-repos:  api /orgs/$1/repos
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>➜ gh get-repos ULL-MII-SYTWS-2021
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -399,7 +399,7 @@ get-repos:  api /orgs/$1/repos
 
 <p>Now  we can pipe the output to <a href="jq">jq</a> to get the names of the repos:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -419,7 +419,7 @@ get-repos:  api /orgs/$1/repos
 
 <p>Let ask for the repos in the PL organization for the course 19/20:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 </pre></td><td class="rouge-code"><pre>➜ gh api /orgs/ULL-ESIT-PL-1920/repos | jq '.[] | .name' | wc
       30      30    1088
@@ -428,7 +428,7 @@ get-repos:  api /orgs/$1/repos
 
 <p>If we use <code class="language-plaintext highlighter-rouge">--paginate</code> the request takes a long time and gives us near a thousand repos:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 </pre></td><td class="rouge-code"><pre>➜ gh api --paginate /orgs/ULL-ESIT-PL-1920/repos | jq '.[] | .name' | wc
      990     990   32868
@@ -441,7 +441,7 @@ allows to format the response using a <a href="https://pkg.go.dev/text/template"
 
 <p>Here is an example of template:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -455,7 +455,7 @@ Body: {{.body}}
 
 <p>and let us use it:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -469,7 +469,7 @@ Body: 👍  blah ...
 
 <h2 id="introduction-to-gh-alias">Introduction to <code class="language-plaintext highlighter-rouge">gh alias</code></h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>➜ gh alias set &lt;alias&gt; &lt;expansion&gt; [flags]
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -491,7 +491,7 @@ you have installed git on Windows in some other way, shell aliases may not work 
 
 <h3 id="simple-examples">Simple Examples</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -523,13 +523,13 @@ you have installed git on Windows in some other way, shell aliases may not work 
 
 <p>Este request nos da un JSON con informacion sobre los miembros de una org:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>gh alias set org-members api --paginate "/orgs/$1/members"
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Por ejemplo:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -565,7 +565,7 @@ you have installed git on Windows in some other way, shell aliases may not work 
 
 <p>A partir de este alias podemos construir sub-alias:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>✗ gh alias set my-orgs-names --shell "gh my-orgs --jq '.[].organization.login'"
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -573,7 +573,7 @@ you have installed git on Windows in some other way, shell aliases may not work 
 
 <p>Let us search for repos inside our organization using GitHub API v3:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>➜ gh api '/search/repositories?q=iaas+org:ULL-MII-SYTWS-2021+in:name'
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -589,7 +589,7 @@ section of the REST API GitHub docs to know more about the API.</li>
 
 <p>Now we can use <code class="language-plaintext highlighter-rouge">gh alias set</code> to make an alias <code class="language-plaintext highlighter-rouge">get-lab</code> to get the repos:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -605,13 +605,13 @@ get-labs:  api /search/repositories?q=$2+org:$1+in:name
 
 <p>And now we can use it:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>➜ gh get-labs ULL-MII-SYTWS-2021 iaas
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Next  we can pipe the output to <a href="jq">jq</a> to get the names of the repos and the date of the last push:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -640,11 +640,11 @@ get-labs:  api /search/repositories?q=$2+org:$1+in:name
 </pre></td></tr></tbody></table></code></pre></div></div>
 <p>We can improve it by writing a script:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>➜  cat ~/bin/repos
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -676,7 +676,7 @@ gh api <span class="nt">--paginate</span> /search/repositories?q<span class="o">
 
 <p>Let us make an alias for <code class="language-plaintext highlighter-rouge">gh</code>:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 </pre></td><td class="rouge-code"><pre>➜ gh alias set --shell get-repos 'repos $1 $2'
@@ -688,7 +688,7 @@ gh api <span class="nt">--paginate</span> /search/repositories?q<span class="o">
 
 <p>Let us use our new alias:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -714,7 +714,7 @@ gh api <span class="nt">--paginate</span> /search/repositories?q<span class="o">
 
 <h3 id="example-number-of-repos-in-an-organization">Example: Number of repos in an Organization</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>gh api graphql --paginate --field query=@org-num-repos.gql --jq .data.organization.repositories.totalCount
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -731,7 +731,7 @@ gh api <span class="nt">--paginate</span> /search/repositories?q<span class="o">
 
 <p>Execution:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 </pre></td><td class="rouge-code"><pre>✗ source org-num-repos.bash 
 17
@@ -739,7 +739,7 @@ gh api <span class="nt">--paginate</span> /search/repositories?q<span class="o">
 
 <h3 id="getting-my-repos">Getting my repos</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 </pre></td><td class="rouge-code"><pre>➜  graphql-learning git:(main) ✗ gh config set pager cat
@@ -749,7 +749,7 @@ gh api graphql --paginate -F number_of_repos=3 --field query=@my-repos.gql
 
 <p>In this example <code class="language-plaintext highlighter-rouge">$number_of_repos</code> is a variable that is set to <code class="language-plaintext highlighter-rouge">3</code> inside the command using the option <code class="language-plaintext highlighter-rouge">-F number_of_repos=3</code></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -777,7 +777,7 @@ query($number_of_repos:Int!){
 
 <p>Here is the output of an execution:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>➜  graphql-learning git:(main) ✗ gh api graphql --paginate -F number_of_repos=3 --field query=@my-repos.gql
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -809,10 +809,10 @@ query($number_of_repos:Int!){
 
 <p>We can set the GraphQL query in a separated file:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>➜  bin git:(master) cat gh-api-example.graphql
 </pre></td></tr></tbody></table></code></pre></div></div>
-<div class="language-graphql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-graphql highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -857,13 +857,13 @@ query($number_of_repos:Int!){
 
 <p>Looking at the composition line by line:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>query {
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Because we want to read data from the server, not modify it, <code class="language-plaintext highlighter-rouge">query</code> is the <strong>root operation</strong>. (If you don’t specify an operation, <code class="language-plaintext highlighter-rouge">query</code> is also the default.)</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>repository(owner:"ULL-MII-SYTWS-2021", name:"p01-t1-iaas-alu0101040882") 
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -877,7 +877,7 @@ query($number_of_repos:Int!){
 
 <p>A <code class="language-plaintext highlighter-rouge">schema</code> defines a <strong>GraphQL API’s type system</strong>. It describes the complete set of possible data (objects, fields, relationships, everything) that a client can access</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>issues(last:2, states:OPEN) {
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -895,7 +895,7 @@ query($number_of_repos:Int!){
 
 <p>To find only open issues, we give the states key a value of <code class="language-plaintext highlighter-rouge">OPEN</code>.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>edges {
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -907,7 +907,7 @@ query($number_of_repos:Int!){
 
 <p>To retrieve data about individual issues, we have to access the node via edges.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre>node {
 </pre></td></tr></tbody></table></code></pre></div></div>
 
@@ -916,7 +916,7 @@ The <a href="https://docs.github.com/en/free-pro-team@latest/v4/object/issueconn
 
 <p>Now that we know we’re retrieving an <code class="language-plaintext highlighter-rouge">Issue</code> object, we can look at the <a href="https://docs.github.com/en/free-pro-team@latest/graphql/reference/objects#issue">docs for issue</a>  and specify the fields we want to return:</p>
 
-<div class="language-graphql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-graphql highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -952,7 +952,7 @@ The <a href="https://docs.github.com/en/free-pro-team@latest/v4/object/issueconn
 
 <p>Execution:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -1014,7 +1014,7 @@ The <a href="https://docs.github.com/en/free-pro-team@latest/v4/object/issueconn
 
 <h3 id="mutation-example">Mutation Example</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -1098,7 +1098,7 @@ mutation AddReactionToIssue {
 
 <p>gh extensions repos are stored in <code class="language-plaintext highlighter-rouge">~/.local/share/gh/extensions/</code></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -1134,7 +1134,7 @@ drwxr-xr-x  8 casianorodriguezleon  staff  256 17 sep 13:19 gh-project
 
 <p>How it works:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
