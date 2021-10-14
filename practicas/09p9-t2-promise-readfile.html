@@ -14,35 +14,37 @@
     <!--[if lt IE 8]>
     <link rel="stylesheet" href="/assets/css/ie.css">
     <![endif]-->
-
-    
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        
-    
+
 </head>
 
 <body>
     <div id="header">
-            <nav>
-        <li><a href="https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io-source/tree/main//practicas.md" title="Edit this page at GitHub">🐙</a>
-        </li>
-        <li><a href="/search" title="search">&#x1F50D;</a></li>
-       
-        <li><a href="/resources.html" title="resources">&#x2699</a></li>
-        <li><a href="/timetables.html" title="horarios">&#x1f5d3</a></li>
-        <li><a href="/references.html" title="bibliografia">&#x1f4da</a></li>
-        <li><a href="/practicas.html" title="prácticas">&#x270d</a></li>
-        
+        <nav>
+    <li><a href="/search" title="search">&#x1F50D;</a></li>
+    <!--
+    <li><a href="#sytwstoc" title="Table of Contents">≡</a></li>
+    -->
 
-        <li><a href="/clases.html" title="clases">👨‍🏫</a></li>
-        <li><a href="/index.html" title="Home page">&#x1f3e0</a></li>
-        <li><a href="/tema0-presentacion/" title="Tema 0: Presentación">0</a></li>
-        <li><a href="/tema1-introduccion/" title="Tema 1: introducción">1</a></li>
-        <li><a href="/tema2-async/" title="Tema 2: Async">2</a></li>
-        <li><a href="/tema3-web/" title="Tema 3: Web">3</a></li>
-        <li><a href="/tema4-devops/" title="Tema 4: Devops">4</a></li>
-        
-    </nav>
+      
+    <li><a href="/practicas/08p8-t2-async-serialize.html" title="Previous">&#x2190;</a></li>
+    
+    
+    <li><a href="https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io-source/tree/main//_practicas/09p9-t2-promise-readfile.md" title="Edit this page at GitHub">🐙</a>
+    
+    <li><a href="/references.html" title="Bibliografía">&#x1f4da</a></li>
+    <li><a href="/practicas.html" title="Prácticas">&#x270d</a></li>
+    
+    <li><a href="/clases.html" title="Clases">👨‍🏫</a></li>
+
+    <li><a href="/" title="Home page">&#x1f3e0</a></li>
+    <li><a href="/tema0-presentacion/" title="Tema 0: Presentación">0</a></li>
+    <li><a href="/tema1-introduccion/" title="Tema 1: Introducción">1</a></li>
+    <li><a href="/tema2-async/" title="Tema 2: Async">2</a></li>
+    <li><a href="/tema3-web/" title="Tema 3: Web">3</a></li>
+    <li><a href="/tema4-devops/" title="Tema 4: Devop">4</a></li>
+    
+</nav>
 
     </div>
     <!-- end header -->
@@ -51,7 +53,7 @@
     <div class="wrapper">
 
         <section>
-           
+            
 <div id="title">
         <h1>Sistemas y Tecnologías Web: Servidor</h1>
         <p> Master de II. ULL. 1er cuatrimestre</p>
@@ -83,48 +85,47 @@
 </div>
 -->    
 
+            
+            
 
-           
+
+
             <h2 >Table of Contents</h2>
-           
+            
             <ul id="sytwstoc">
-  <li><a href="#lista-de-prácticas-publicadas">Lista de Prácticas Publicadas</a></li>
+  <li><a href="#clases">Clases Asociadas con esta Práctica</a></li>
 </ul>
-        
-            <h1> Prácticas </h1>
-            <div class="container">
-                <h2 id="lista-de-prácticas-publicadas">Lista de Prácticas Publicadas</h2>
+          
 
-<ol><li> 
-  <a href="/practicas/01p01-t0-pb-gh-campus-expert.html">Descripción de la Práctica GitHub Campus Expert</a>
-  
-</li><li> 
-  <a href="/practicas/01p01-t1-iaas.html">Descripción de la Práctica Setting Up Our Development Environment</a>
-  
-</li><li> 
-  <a href="/practicas/02p2-t1-vscode.html">Descripción de la Práctica Descripción de la Práctica VSCode y GitPod</a>
-  
-</li><li> 
-  <a href="/practicas/03p2-t1-c3-file-system.html">Descripción de la Práctica File System with Node.JS</a>
-  
-</li><li> 
-  <a href="/practicas/06p6-t1-gh-cli.html">Descripción de la Práctica Descripción de la Práctica gh cli</a>
-  
-</li><li> 
-  <a href="/practicas/07p7-t2-asyncmap.html">Descripción de la Práctica AsyncMap</a>
-  
-</li><li> 
-  <a href="/practicas/08p8-t2-async-serialize.html">Descripción de la Práctica Async Serialize</a>
-  
-</li><li> 
-  <a href="/practicas/09p9-t2-promise-readfile.html">Descripción de la Práctica Práctica promise-readfile </a>
-  
-</li></ol>
-
-
+            <div class="container"> 
+                <h1> Práctica promise-readfile  </h1>
                 
+<p>Escriba un programa <code class="language-plaintext highlighter-rouge">index.js</code> que contenga una versión con promesas  <code class="language-plaintext highlighter-rouge">readFilePromise</code> de la función <a href="https://nodejs.org/api/fs.html#fs_fs_readfile_path_options_callback">fs.readFile</a> que pueda ser usada así:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nx">readFilePromise</span><span class="p">(</span><span class="nx">programName</span><span class="p">,</span> <span class="dl">'</span><span class="s1">utf8</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Data:</span><span class="se">\n</span><span class="dl">'</span><span class="o">+</span><span class="nx">data</span><span class="p">))</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Error:</span><span class="se">\n</span><span class="dl">'</span><span class="o">+</span><span class="nx">error</span><span class="p">));</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+
+
+<h2 id="clases">Clases Asociadas con esta Práctica</h2>
+
+See classes starting at 
+<a href="/clases/0000/01/09/leccion.html"> 09 January 0000</a> 
+
+
+
+
+
+
+
             </div>
-  
+
+
                         
 <h2>Comment with GitHub Utterances</h2>
             
@@ -141,14 +142,9 @@
 
 
  
-            <!-- -->
-            <!-- end bar -->
-
-            <!-- Mathjax Support  -->
-            <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
-
+            
         </section>
+    
     </div>
 
 
