@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=d7b3792df9fe9f8c8d38689639176986691d8489">
+    <link rel="stylesheet" href="/assets/css/style.css?v=846419ab126670d8925f38ed07955df3afca4f3a">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -33,7 +33,6 @@
     <li><a href="/references.html" title="Bibliografía">&#x1f4da</a></li>
     <li><a href="/practicas.html" title="Prácticas">&#x270d</a></li>
     <li><a href="/clases.html" title="Clases">👨‍🏫</a></li>
-
     <li><a href="/" title="Home page">&#x1f3e0</a></li>
     <li><a href="/tema0-presentacion/" title="Tema 0: Presentación">0</a></li>
     <li><a href="/tema1-introduccion/" title="Tema 1: Introducción">1</a></li>
