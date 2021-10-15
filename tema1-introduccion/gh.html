@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=534db8f868104b16b6f6430bd044a98f7e7e62ae">
+    <link rel="stylesheet" href="/assets/css/style.css?v=f5ecaaadaa6fb0f3cf726e9ff08956df26a0e453">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -98,7 +98,7 @@
   <li><a href="#introduction-to-gh-api">Introduction to <code class="language-plaintext highlighter-rouge">gh api</code></a>
     <ul>
       <li><a href="#authentication-token">Authentication Token</a></li>
-      <li><a href="#example">Example</a></li>
+      <li><a href="#example-issues-of-a-repo">Example: Issues of a repo</a></li>
       <li><a href="#post-example">POST Example</a></li>
       <li><a href="#pagination">Pagination</a></li>
       <li><a href="#templates-for-the-output">Templates for the output</a></li>
@@ -305,7 +305,27 @@ to generate a new token for <code class="language-plaintext highlighter-rouge">g
 $ gh auth login --with-token &lt; mytoken.txt
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<h3 id="example">Example</h3>
+<p>También es posible autenticarse con el browser usando la opción <code class="language-plaintext highlighter-rouge">-w</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>➜  graphql-examples git:(main) ✗ gh auth login -w
+
+! First copy your one-time code: F4D5-59E6
+- Press Enter to open github.com in your browser...
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Esto abre el browser, nos pide la contraseña que aparece arriba</p>
+
+<p><img src="/assets/images/gh-auth-browser-1.png" alt="" /></p>
+
+<p>y nos pide confirmar los permisos.</p>
+
+<p><img src="/assets/images/gh-auth-browser-2.png" alt="" /></p>
+
+<h3 id="example-issues-of-a-repo">Example: Issues of a repo</h3>
 
 <p>Placeholder values <code class="language-plaintext highlighter-rouge">:owner</code>, <code class="language-plaintext highlighter-rouge">:repo</code>, and <code class="language-plaintext highlighter-rouge">:branch</code> in the endpoint argument will get replaced with values from the repository of the current directory.</p>
 
@@ -349,7 +369,7 @@ $ gh auth login --with-token &lt; mytoken.txt
 ]
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>We can pipe the output to <a href="jq">jq</a>:</p>
+<p>We can pipe the output to <a href="jq">jq</a> or use the <a href="https://cli.github.com/manual/gh_api"><code class="language-plaintext highlighter-rouge">-q</code> or <code class="language-plaintext highlighter-rouge">--jq</code> option of <code class="language-plaintext highlighter-rouge">gh api</code></a>:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
