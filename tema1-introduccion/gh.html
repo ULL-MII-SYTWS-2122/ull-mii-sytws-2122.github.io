@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=88baf16f696794d9a3a9ef7234991f2383d64c80">
+    <link rel="stylesheet" href="/assets/css/style.css?v=534db8f868104b16b6f6430bd044a98f7e7e62ae">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -296,6 +296,14 @@ to generate a new token for <code class="language-plaintext highlighter-rouge">g
 <p><a href="https://github.com/settings/tokens">user -&gt; settings -&gt; developer settings -&gt; Personal access tokens</a></p>
 
 <p>o mas rápido vete a <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a></p>
+
+<p>Una vez se tiene un token:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre># authenticate against github.com by reading the token from a file
+$ gh auth login --with-token &lt; mytoken.txt
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="example">Example</h3>
 
