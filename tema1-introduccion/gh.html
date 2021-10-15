@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=846419ab126670d8925f38ed07955df3afca4f3a">
+    <link rel="stylesheet" href="/assets/css/style.css?v=93d06af884d777697872ddefbd7cceaa75f9ca68">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -25,8 +25,6 @@
     <div id="header">
             <nav>
     <ul>
-
-
         <li><a href="https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io-source/tree/main//tema1-introduccion/gh.md" title="Edit this page at GitHub">🐙</a>
         </li>
         <li><a href="/search" title="search">&#x1F50D;</a></li>
@@ -101,6 +99,7 @@
     <ul>
       <li><a href="#authentication-token">Authentication Token</a></li>
       <li><a href="#example">Example</a></li>
+      <li><a href="#post-example">POST Example</a></li>
       <li><a href="#pagination">Pagination</a></li>
       <li><a href="#templates-for-the-output">Templates for the output</a></li>
     </ul>
@@ -274,6 +273,10 @@ FEEDBACK
 
 <h2 id="introduction-to-gh-api">Introduction to <code class="language-plaintext highlighter-rouge">gh api</code></h2>
 
+<ul>
+  <li><a href="https://cli.github.com/manual/gh_api">Manual de gh api</a></li>
+</ul>
+
 <h3 id="authentication-token">Authentication Token</h3>
 
 <p>Go to <a href="https://github.com/settings/tokens">github.com/settings/tokens</a>
@@ -342,6 +345,8 @@ to generate a new token for <code class="language-plaintext highlighter-rouge">g
 "Hola @alu0101040882, \r\n\r\nVeo que alguno ya está trabajando en la práctica de
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<h3 id="post-example">POST Example</h3>
+
 <p>Let us see an example using the <code class="language-plaintext highlighter-rouge">POST</code> method. We will start from this <code class="language-plaintext highlighter-rouge">curl</code> example 
 in the <a href="https://docs.github.com/en/free-pro-team@latest/rest/guides/getting-started-with-the-rest-api#repositories">GitHub API getting started guide</a>:</p>
 
@@ -372,6 +377,12 @@ in the <a href="https://docs.github.com/en/free-pro-team@latest/rest/guides/gett
 <p>This way we have created a private repo inside the user scope:</p>
 
 <p><img src="/assets/images/gh-api-post-create-repo.png" alt="" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>➜  input-option git:(master) ✗ gh repo-delete crguezl/repo-prueba-gh-api
+➜  input-option git:(master) ✗ gh api -f name=repo-prueba-gh-api -f private=true /user/repos
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="pagination">Pagination</h3>
 
