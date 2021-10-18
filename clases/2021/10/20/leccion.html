@@ -28,10 +28,10 @@
     -->
 
       
-    <li><a href="/practicas/12p11-t2-callback-2-promise.html" title="Previous">&#x2190;</a></li>
+    <li><a href="/clases/2021/10/13/leccion.html" title="Previous">&#x2190;</a></li>
     
     
-    <li><a href="https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io-source/tree/main//_practicas/http-rest-simple-server.md" title="Edit this page at GitHub">🐙</a>
+    <li><a href="https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io-source/tree/main//_posts/2021-10-20-leccion.md" title="Edit this page at GitHub">🐙</a>
     <li><a href="/references.html" title="Bibliografía">&#x1f4da</a></li>
     <li><a href="/practicas.html" title="Prácticas">&#x270d</a></li>
     <li><a href="/clases.html" title="Clases">👨‍🏫</a></li>
@@ -93,59 +93,93 @@
             <h2 >Table of Contents</h2>
             
             <ul id="sytwstoc">
-  <li><a href="#recursos-para-hacer-esta-práctica">Recursos para hacer esta práctica</a></li>
+  <li><a href="#prácticas-publicadas">Prácticas Publicadas</a></li>
+  <li><a href="#async-js">Async JS</a></li>
+  <li><a href="#gitpod">GitPod</a></li>
+  <li><a href="#github-cli">GitHub Cli</a></li>
 </ul>
           
 
             <div class="container"> 
-                <h1> HTTP REST Simple Server </h1>
-                
-<ol>
-  <li>Siguiendo el capítulo 20 <em>Node.JS</em>  del libro Eloquent JavaScript (EJS) escriba sus propios apuntes con ejemplos y realice los ejercicios que se indican a continuación.
-  En este capítulo se introduce Node.js, la librería para el manejo de archivos (<code class="language-plaintext highlighter-rouge">fs</code>) y la librería para construir servidores HTTP. Combinando ambas se construye un servicio HTTP que permite el manejo de archivos remoto.
-    <ul>
-      <li><a href="http://eloquentjavascript.net/20_node.html">Eloquent JS: Chapter 20 HTTP</a> 3d Edition</li>
-      <li><a href="http://eloquentjavascript.net/2nd_edition/20_node.html">Eloquent JS: Chapter 20 HTTP</a> 2nd Edition</li>
-    </ul>
-  </li>
-  <li>Realice el ejercicio <em>Directory Creation</em>
-    <ul>
-      <li>Though the <code class="language-plaintext highlighter-rouge">DELETE</code> method is wired up to delete directories (using <code class="language-plaintext highlighter-rouge">fs.rmdir</code>), 
-  the file server currently does not provide any way to create a directory.  Add 
-  support for a method <code class="language-plaintext highlighter-rouge">MKCOL</code>, which should create a directory by calling <code class="language-plaintext highlighter-rouge">fs.mkdir</code></li>
-    </ul>
-  </li>
-  <li>Realice el ejercicio <em>A public space on the web</em></li>
-  <li>Instale <a href="https://insomnia.rest/">insomia</a> o <a href="https://www.getpostman.com/">postman</a> para usarlo como cliente de prueba.</li>
-  <li>Recordarles que en las tareas del campus se entrega el enlace al repositorio en GitHub</li>
-</ol>
+                <h1> Clase  del Lunes 20/10/2021 (Semana B, Presencial) </h1>
+                <h2 id="prácticas-publicadas">Prácticas Publicadas</h2>
 
-<h2 id="recursos-para-hacer-esta-práctica">Recursos para hacer esta práctica</h2>
+<ol><li> 
+  <a href="/practicas/01p01-t0-pb-gh-campus-expert.html">Descripción de la Práctica GitHub Campus Expert</a>
+  
+</li><li> 
+  <a href="/practicas/01p01-t1-iaas.html">Descripción de la Práctica Setting Up Our Development Environment</a>
+  
+</li><li> 
+  <a href="/practicas/02p2-t1-vscode.html">Descripción de la Práctica Descripción de la Práctica VSCode y GitPod</a>
+  
+</li><li> 
+  <a href="/practicas/03p2-t1-c3-file-system.html">Descripción de la Práctica File System with Node.JS</a>
+  
+</li><li> 
+  <a href="/practicas/06p6-t1-gh-cli.html">Descripción de la Práctica Descripción de la Práctica gh cli</a>
+  
+</li><li> 
+  <a href="/practicas/07p7-t2-asyncmap.html">Descripción de la Práctica AsyncMap</a>
+  
+</li><li> 
+  <a href="/practicas/08p8-t2-async-serialize.html">Descripción de la Práctica Async Serialize</a>
+  
+</li><li> 
+  <a href="/practicas/09p9-t2-promise-readfile.html">Descripción de la Práctica Práctica promise-readfile</a>
+  
+</li><li> 
+  <a href="/practicas/10p10-t2-promise-all.html">Descripción de la Práctica Your own promise-all</a>
+  
+</li><li> 
+  <a href="/practicas/11p12-t2-promise-allsettled.html">Descripción de la Práctica promise-all-settled</a>
+  
+</li><li> 
+  <a href="/practicas/12p11-t2-callback-2-promise.html">Descripción de la Práctica Callback to Promise</a>
+  
+</li><li> 
+  <a href="/tema1-introduccion/practicas/p3-t1-c3-http/">Descripción de la Práctica HTTP REST Simple Server</a>
+  
+</li></ol>
+
+<p>Nueva práctica: Async Serialize.</p>
+
+<h2 id="async-js">Async JS</h2>
 
 <ul>
-  <li><a href="https://eloquentjavascript.net/20_node.html">Eloquent JS 3d Edition</a></li>
-  <li><a href="http://eloquentjavascript.net/2nd_edition/20_node.html">Eloquent JS 2nd Edition: Chapter 20 HTTP</a></li>
-  <li><a href="https://youtu.be/gxrBEfjgRdM">Vídeo del profesor con sugerencias para la solución de la práctica</a> (2019)
-    <ul>
-      <li><a href="https://youtu.be/gxrBEfjgRdM"><img src="https://img.youtube.com/vi/gxrBEfjgRdM/sddefault.jpg" alt="https://img.youtube.com/vi/gxrBEfjgRdM/sddefault.jpg" /></a></li>
-    </ul>
-  </li>
-  <li><a href="https://github.com/ULL-MII-SYTWS-1920/eloquent-javascript-exercises">See this repo with (modified) solutions of Juan Irache to EJS exercises</a>
-    <ul>
-      <li><a href="https://github.com/ULL-MII-SYTWS-1920/eloquent-javascript-exercises/tree/master/20_3_public_space">Solutions 20_3_a_public_space</a></li>
-    </ul>
-  </li>
-  <li><a href="https://nodejs.org/es/docs/guides/anatomy-of-an-http-transaction/">Node.js docs: Anatomy of an HTTP Transaction</a></li>
-  <li><a href="https://youtu.be/nuw48-u3Yrg">How to Develop Web Application using pure Node.js (HTTP GET and POST, HTTP Server)</a> Vídeo en Youtube. 2015</li>
+  <li>Nuevos ejercicios de asíncronia.</li>
 </ul>
 
+<h2 id="gitpod">GitPod</h2>
 
+<ul>
+  <li><a href="/tema1-introduccion/gitpod">Apuntes de GitPod</a></li>
+</ul>
 
+<p>We’ll have a look at the concept of prebuilds</p>
 
+<ul>
+  <li><a href="https://www.gitpod.io/docs/config-gitpod-file">.gitpod.yml</a></li>
+  <li><a href="https://www.gitpod.io/docs/config-docker">Custom Docker Image</a></li>
+  <li><a href="https://github.com/gitpod-io/workspace-images/blob/master/full/Dockerfile">gitpod-io/workspace-images/full/Dockerfile</a></li>
+  <li><a href="https://www.gitpod.io/docs/config-start-tasks">Start Tasks</a></li>
+  <li><a href="https://www.gitpod.io/docs/vscode-extensions">VS Code Extensions</a></li>
+  <li><a href="https://www.gitpod.io/docs/config-ports">Exposing Ports</a></li>
+  <li><a href="https://www.gitpod.io/docs/prebuilds">Prebuilds</a></li>
+  <li><a href="https://www.gitpod.io/docs/environment-variables">Environment Variables</a></li>
+  <li><a href="https://www.gitpod.io/docs/checkout-location">Checkout and Workspace Location</a></li>
+  <li><a href="https://www.gitpod.io/docs/configure/browser-settings">Browser Settings</a></li>
+</ul>
 
+<h2 id="github-cli">GitHub Cli</h2>
 
+<p>How to write a gh extension.</p>
 
+<p><a href="https://cli.github.com/manual/">gh</a> pretends to facilitate the access to GitHub from the command line. It brings pull requests, issues, and other GitHub concepts to the terminal next to where you are already working with git and your code.</p>
 
+<ul>
+  <li><a href="/tema1-introduccion/gh">Apuntes de gh</a></li>
+</ul>
 
 
             </div>
