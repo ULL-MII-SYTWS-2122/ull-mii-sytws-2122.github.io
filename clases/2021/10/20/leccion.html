@@ -14,34 +14,37 @@
     <!--[if lt IE 8]>
     <link rel="stylesheet" href="/assets/css/ie.css">
     <![endif]-->
-
-    
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        
-    
+
 </head>
 
 <body>
     <div id="header">
-            <nav>
-    <ul>
-        <li><a href="https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io-source/tree/main//tema2-async-1920/rpc.md" title="Edit this page at GitHub">🐙</a>
-        </li>
-        <li><a href="/search" title="search">&#x1F50D;</a></li>
-        <li><a href="/resources.html" title="resources">&#x2699</a></li>
-        <li><a href="/timetables.html" title="horarios">&#x1f5d3</a></li>
-        <li><a href="/references.html" title="bibliografia">&#x1f4da</a></li>
-        <li><a href="/practicas.html" title="prácticas">&#x270d</a></li>
-        <li><a href="/clases.html" title="clases">👨‍🏫</a></li>
-        <li><a href="/index.html" title="Home page">&#x1f3e0</a></li>
-        <li><a href="/tema0-presentacion/" title="Tema 0: Presentación">0</a></li>
-        <li><a href="/tema1-introduccion/" title="Tema 1: introducción">1</a></li>
-        <li><a href="/tema2-async/" title="Tema 2: Async">2</a></li>
-        <li><a href="/tema3-web/" title="Tema 3: Web">3</a></li>
-        <li><a href="/tema4-devops/" title="Tema 4: Devops">4</a></li>
-        
+        <nav>
+  <ul>
+    <li><a href="/search" title="search">&#x1F50D;</a></li>
+    <!--
+    <li><a href="#sytwstoc" title="Table of Contents">≡</a></li>
+    -->
+
+      
+    <li><a href="/clases/2021/10/18/leccion.html" title="Previous">&#x2190;</a></li>
+    
+    
+    <li><a href="https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io-source/tree/main//_posts/2021-10-20-leccion.md" title="Edit this page at GitHub">🐙</a>
+    <li><a href="/references.html" title="Bibliografía">&#x1f4da</a></li>
+    <li><a href="/practicas.html" title="Prácticas">&#x270d</a></li>
+    <li><a href="/clases.html" title="Clases">👨‍🏫</a></li>
+    <li><a href="/" title="Home page">&#x1f3e0</a></li>
+    <li><a href="/tema0-presentacion/" title="Tema 0: Presentación">0</a></li>
+    <li><a href="/tema1-introduccion/" title="Tema 1: Introducción">1</a></li>
+    <li><a href="/tema2-async/" title="Tema 2: Async">2</a></li>
+    <li><a href="/tema3-web/" title="Tema 3: Web">3</a></li>
+    <li><a href="/tema4-devops/" title="Tema 4: Devop">4</a></li>
+    
+    </li>
     </ul>
-    </nav>
+</nav>
 
     </div>
     <!-- end header -->
@@ -50,7 +53,7 @@
     <div class="wrapper">
 
         <section>
-           
+            
 <div id="title">
         <h1>Sistemas y Tecnologías Web: Servidor</h1>
         <p> Master de II. ULL. 1er cuatrimestre</p>
@@ -82,38 +85,32 @@
 </div>
 -->    
 
+            
+            
 
-           
+
+
             <h2 >Table of Contents</h2>
-           
+            
             <ul id="sytwstoc">
-  <li><a href="#capítulo-4-rpc">Capítulo 4: RPC</a></li>
+  <li><a href="#async-await">Async-Await</a></li>
 </ul>
-        
-            <h1> Capítulo 4: RPC </h1>
-            <div class="container">
-                <h2 id="capítulo-4-rpc">Capítulo 4: RPC</h2>
+          
 
-<p>In gRPC a client application can directly call methods on a server application on a different machine as if it was a local object, making it easier for you to create distributed applications and services. As in many RPC systems, gRPC is based around the idea of defining a service, specifying the methods that can be called remotely with their parameters and return types.</p>
+            <div class="container"> 
+                <h1> Clase  del Miércoles 20/10/2021 (Semana C. Asíncrona) </h1>
+                <h2 id="async-await">Async-Await</h2>
 
-<p>On the server side, the server implements this interface and runs a gRPC server to handle client calls. On the client side, the client has a stub (referred to as just a client in some languages) that provides the same methods as the server.</p>
-
-<p>gRPC clients and servers can run and talk to each other in a variety of environments - from servers inside Google to your own desktop - and can be written in any of gRPC’s supported languages. 
-In addition, the latest Google APIs will have gRPC versions of their interfaces, letting you easily build Google functionality into your applications.</p>
+<p>Dentro de nuestro estudio de la asincronía te propongo la lectura y ejercicios en esta práctica:</p>
 
 <ul>
-  <li><a href="https://youtu.be/RoXT_Rkg8LA">Intro to gRPC: A Modern Toolkit for Microservice Communication</a> YouTube</li>
-  <li><a href="https://grpc.io/docs/guides/">What is gRPC?</a>
-    <ul>
-      <li><a href="https://grpc.io/docs/guides/">gRPC Documentation</a></li>
-    </ul>
-  </li>
+  <li><a href="/tema2-async/practicas/p14-t2-async-await/">Async Await</a></li>
 </ul>
 
 
-                
             </div>
-  
+
+
                         
 <h2>Comment with GitHub Utterances</h2>
             
@@ -130,14 +127,9 @@ In addition, the latest Google APIs will have gRPC versions of their interfaces,
 
 
  
-            <!-- -->
-            <!-- end bar -->
-
-            <!-- Mathjax Support  -->
-            <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
-
+            
         </section>
+    
     </div>
 
 
