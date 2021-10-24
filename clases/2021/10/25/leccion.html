@@ -14,34 +14,37 @@
     <!--[if lt IE 8]>
     <link rel="stylesheet" href="/assets/css/ie.css">
     <![endif]-->
-
-    
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        
-    
+
 </head>
 
 <body>
     <div id="header">
-            <nav>
-    <ul>
-        <li><a href="https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io-source/tree/main//vpn-ull.md" title="Edit this page at GitHub">🐙</a>
-        </li>
-        <li><a href="/search" title="search">&#x1F50D;</a></li>
-        <li><a href="/resources.html" title="resources">&#x2699</a></li>
-        <li><a href="/timetables.html" title="horarios">&#x1f5d3</a></li>
-        <li><a href="/references.html" title="bibliografia">&#x1f4da</a></li>
-        <li><a href="/practicas.html" title="prácticas">&#x270d</a></li>
-        <li><a href="/clases.html" title="clases">👨‍🏫</a></li>
-        <li><a href="/index.html" title="Home page">&#x1f3e0</a></li>
-        <li><a href="/tema0-presentacion/" title="Tema 0: Presentación">0</a></li>
-        <li><a href="/tema1-introduccion/" title="Tema 1: introducción">1</a></li>
-        <li><a href="/tema2-async/" title="Tema 2: Async">2</a></li>
-        <li><a href="/tema3-web/" title="Tema 3: Web">3</a></li>
-        <li><a href="/tema4-devops/" title="Tema 4: Devops">4</a></li>
-        
+        <nav>
+  <ul>
+    <li><a href="/search" title="search">&#x1F50D;</a></li>
+    <!--
+    <li><a href="#sytwstoc" title="Table of Contents">≡</a></li>
+    -->
+
+      
+    <li><a href="/clases/2021/10/20/leccion.html" title="Previous">&#x2190;</a></li>
+    
+    
+    <li><a href="https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io-source/tree/main//_posts/2021-10-25-leccion.md" title="Edit this page at GitHub">🐙</a>
+    <li><a href="/references.html" title="Bibliografía">&#x1f4da</a></li>
+    <li><a href="/practicas.html" title="Prácticas">&#x270d</a></li>
+    <li><a href="/clases.html" title="Clases">👨‍🏫</a></li>
+    <li><a href="/" title="Home page">&#x1f3e0</a></li>
+    <li><a href="/tema0-presentacion/" title="Tema 0: Presentación">0</a></li>
+    <li><a href="/tema1-introduccion/" title="Tema 1: Introducción">1</a></li>
+    <li><a href="/tema2-async/" title="Tema 2: Async">2</a></li>
+    <li><a href="/tema3-web/" title="Tema 3: Web">3</a></li>
+    <li><a href="/tema4-devops/" title="Tema 4: Devop">4</a></li>
+    
+    </li>
     </ul>
-    </nav>
+</nav>
 
     </div>
     <!-- end header -->
@@ -50,7 +53,7 @@
     <div class="wrapper">
 
         <section>
-           
+            
 <div id="title">
         <h1>Sistemas y Tecnologías Web: Servidor</h1>
         <p> Master de II. ULL. 1er cuatrimestre</p>
@@ -82,55 +85,43 @@
 </div>
 -->    
 
+            
+            
 
-           
+
+
             <h2 >Table of Contents</h2>
-           
+            
             <ul id="sytwstoc">
-  <li><a href="#intrucciones-para-mac-os-catalina">Intrucciones para Mac OS Catalina</a></li>
+  <li><a href="#lab-async-await">Lab: Async-Await</a></li>
+  <li><a href="#lab-github-cli">Lab: GitHub Cli</a></li>
 </ul>
-        
-            <h1> Intrucciones para Mac OS Catalina </h1>
-            <div class="container">
-                <h1 id="intrucciones-para-mac-os-catalina">Intrucciones para Mac OS Catalina</h1>
+          
 
-<p>La VPN de la ULL usa el protocolo IPSec Cisco y, como en linux, MacOS tiene soporte nativo.</p>
+            <div class="container"> 
+                <h1> Clase  del Lunes 25/10/2021 (Asíncrona, Semana A) </h1>
+                <h2 id="lab-async-await">Lab: Async-Await</h2>
 
-<p>Mac OSX de forma nativa soporta la creación de conexiones VPN y podemos
-utilizar esta característica para realizar la conexión VPN (Paso 1) sin
-necesidad de descargar, configurar y usar GlobalProtect.</p>
-
-<p>En el panel de control
-de Red pulse el signo + (destacado en un recuadro rojo en la imagen) para
-añadir una conexión y seleccione las opciones e introduzca los datos tal y como
-se muestra en la siguiente imagen, eligiendo como opción “Tipo de VPN” el tipo
-”Cisco IPSec”.</p>
-
-<p><img src="/assets/images/vpn-ull/14.06.58.png" alt="" /></p>
-
-<p>Pulse el botón “Crear” y a continuación “Ajustes de autenticación”. Introduzca los datos que se muestran a
-continuación, utilizando como Secr. compart. “preguntar al profesor”.</p>
-
-<p><img src="/assets/images/vpn-ull/14.08.55.png" alt="" /></p>
-
-<p>Una vez configurada la conexión de VPN de esta forma puede completar el Paso 2
-según se indica en el punto 4 de Preguntas Frecuentes. Importante recordar que
-en el campo Nombre de cuenta, hay que poner su nombre de usuario (No añadir
-@ull.edu.es ni @ull.es)</p>
-
-<p><img src="/assets/images/vpn-ull/14.09.49.png" alt="" /></p>
-
-<p><img src="/assets/images/vpn-ull/14.10.39.png" alt="" /></p>
+<p>Dentro de nuestro estudio de la asincronía te propongo la lectura y ejercicios en esta práctica:</p>
 
 <ul>
-  <li>See <a href="https://faq.oit.gatech.edu/content/how-do-i-configure-os-x-integrated-ipsec-vpn-client">How do I configure the OS X integrated IPSec VPN client?</a></li>
+  <li><a href="/tema2-async/practicas/p14-t2-async-await/">Async Await</a></li>
 </ul>
 
+<h2 id="lab-github-cli">Lab: GitHub Cli</h2>
+
+<ul>
+  <li><a href="/practicas/06p6-t1-gh-cli.html#extension">gh cli</a></li>
+</ul>
+
+<p>You have to write a <a href="/tema1-introduccion/gh#extension">gh extension</a> using Node.JS.</p>
+
+<p>Here is an example of how to do it: <a href="https://github.com/crguezl/gh-submodule-add">gh-submodule-add</a></p>
 
 
-                
             </div>
-  
+
+
                         
 <h2>Comment with GitHub Utterances</h2>
             
@@ -147,14 +138,9 @@ en el campo Nombre de cuenta, hay que poner su nombre de usuario (No añadir
 
 
  
-            <!-- -->
-            <!-- end bar -->
-
-            <!-- Mathjax Support  -->
-            <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
-
+            
         </section>
+    
     </div>
 
 
