@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=7637db5f0577c08039175d91e2dc802fcf8d57dc">
+    <link rel="stylesheet" href="/assets/css/style.css?v=5b622d678dfd03ccf3b4820eef42fabcc3ccdbbc">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -295,6 +295,26 @@ and a REST API. Resolvers can also return strings, ints, null, and other types.<
 
 <p>There is no exclamation <code class="language-plaintext highlighter-rouge">!</code> at the value returned in the declaration of the <code class="language-plaintext highlighter-rouge">setMarkDown</code> mutation.</p>
 
+<p><a href="https://medium.com/paypal-tech/graphql-resolvers-best-practices-cd36fdbcef55">Every GraphQL query goes through three phases</a>:</p>
+
+<ol>
+  <li>Queries are parsed into an abstract syntax tree (or AST). See <a href="https://astexplorer.net/">https://astexplorer.net/</a></li>
+  <li>Validated: Checks for  query  correctness and check if the fields exist.</li>
+  <li>Executed: The runtime walks through the AST,</li>
+  <li>Descending from the root of the tree,</li>
+  <li>Invoking resolvers,</li>
+  <li>Collecting up results, and</li>
+  <li>Emiting the final JSON</li>
+</ol>
+
+<p>A resolver is a function that resolves a value for a type or field in a schema.</p>
+<ul>
+  <li>Resolvers can return objects or scalars like Strings, Numbers, Booleans, etc.</li>
+  <li>If an Object is returned, execution continues to the next child field.</li>
+  <li>If a scalar is returned (typically at a leaf node), execution completes.</li>
+  <li>If <code class="language-plaintext highlighter-rouge">null</code> is returned, execution halts and does not continue.</li>
+</ul>
+
 <h2 id="starting-the-express-graphql-middleware">Starting the express-graphql middleware</h2>
 
 <p>Now what remains is to set the <code class="language-plaintext highlighter-rouge">graphqlHTTP</code>  the <strong><a href="/tema3-web/express">express middleware</a></strong> provided by the module <code class="language-plaintext highlighter-rouge">express-graphql</code> to work</p>
@@ -374,6 +394,7 @@ Para ello vea este video:</p>
   <li><a href="https://youtu.be/5BwmvekYCpY">Queries y GraphiQL con la API de Rick &amp; Morty (Curso express GraphQL)</a></li>
   <li><a href="https://defkey.com/graphiql-shortcuts">GraphiQL Shortcuts</a></li>
   <li><a href="https://blog.logrocket.com/graphql-fragments-explained/">GraphQL fragments explained</a></li>
+  <li><a href="https://medium.com/paypal-tech/graphql-resolvers-best-practices-cd36fdbcef55">GraphQL Resolvers: Best Practices</a> by Mark Stuart</li>
 </ul>
 
 <h2 id="footnotes">FootNotes</h2>
