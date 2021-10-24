@@ -25,7 +25,7 @@
     <div id="header">
             <nav>
     <ul>
-        <li><a href="https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io-source/tree/main//tema2-async-1920/exercises/promises/exception-inside-promise/executor.md" title="Edit this page at GitHub">🐙</a>
+        <li><a href="https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io-source/tree/main//tema3-web/express.md" title="Edit this page at GitHub">🐙</a>
         </li>
         <li><a href="/search" title="search">&#x1F50D;</a></li>
         <li><a href="/resources.html" title="resources">&#x2699</a></li>
@@ -87,40 +87,16 @@
             <h2 >Table of Contents</h2>
            
             <ul id="sytwstoc">
-  <li><a href="#new-promiseexecutor"><code class="language-plaintext highlighter-rouge">new Promise(executor);</code></a>
-    <ul>
-      <li><a href="#parameters">Parameters</a>
-        <ul>
-          <li><a href="#executor">executor</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
+  <li><a href="#middleware">Middleware</a></li>
 </ul>
         
-            <h1> new Promise(executor); </h1>
+            <h1> Express </h1>
             <div class="container">
-                <h1 id="new-promiseexecutor"><code class="language-plaintext highlighter-rouge">new Promise(executor);</code></h1>
+                <h2 id="middleware">Middleware</h2>
 
-<h2 id="parameters">Parameters</h2>
+<p><img src="/assets/images/express-middleware.jpeg" alt="express middleware" /></p>
 
-<h3 id="executor">executor</h3>
-
-<p>A function that is passed with the arguments <code class="language-plaintext highlighter-rouge">resolve</code> and <code class="language-plaintext highlighter-rouge">reject</code>.</p>
-
-<p>The <strong>executor</strong> function is executed immediately by the Promise implementation, 
-passing <code class="language-plaintext highlighter-rouge">resolve</code> and <code class="language-plaintext highlighter-rouge">reject</code> functions</p>
-
-<p>(the executor is called before the Promise constructor even returns the created object).</p>
-
-<p>The <code class="language-plaintext highlighter-rouge">resolve</code> and <code class="language-plaintext highlighter-rouge">reject</code> functions, when called, <strong>resolve</strong> or <strong>reject</strong> the promise, respectively.</p>
-
-<p><em>The executor normally initiates some asynchronous work</em>, and then, once that completes, either calls the <code class="language-plaintext highlighter-rouge">resolve</code> function to resolve the promise or else <code class="language-plaintext highlighter-rouge">rejects</code> it if an error occurred. 
-<em>If an error is thrown in the executor function, the promise is rejected</em>.</p>
-
-<p>To <a href="/tema2-async-1920/exercises/promises/exception-inside-promise/">Exercises Description</a></p>
-
-<p>The return value of the <strong>executor</strong> is ignored.</p>
+<p>See <a href="https://expressjs.com/en/guide/writing-middleware.html">Writing middleware for use in Express apps</a></p>
 
 
                 
