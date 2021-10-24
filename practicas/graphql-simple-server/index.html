@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=44342c3098e3bdfe349db0e8d67ba42439ff725b">
+    <link rel="stylesheet" href="/assets/css/style.css?v=87001ae9280755f3f1ff78d1d5d6fceec718e072">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -300,11 +300,14 @@ and a REST API. Resolvers can also return strings, ints, null, and other types.<
 <ol>
   <li>Queries are parsed into an abstract syntax tree (or AST). See <a href="https://astexplorer.net/">https://astexplorer.net/</a></li>
   <li>Validated: Checks for  query  correctness and check if the fields exist.</li>
-  <li>Executed: The runtime walks through the AST,</li>
-  <li>Descending from the root of the tree,</li>
-  <li>Invoking resolvers,</li>
-  <li>Collecting up results, and</li>
-  <li>Emiting the final JSON</li>
+  <li>Executed: The runtime walks through the AST,
+    <ol>
+      <li>Descending from the root of the tree,</li>
+      <li>Invoking resolvers,</li>
+      <li>Collecting up results, and</li>
+      <li>Emiting the final JSON</li>
+    </ol>
+  </li>
 </ol>
 
 <p>A resolver is a function that resolves a value for a type or field in a schema.</p>
@@ -315,6 +318,25 @@ and a REST API. Resolvers can also return strings, ints, null, and other types.<
   <li>If <code class="language-plaintext highlighter-rouge">null</code> is returned, execution halts and does not continue.</li>
 </ul>
 
+<p>it’s worth noting that a GraphQL server has built-in default resolvers, so you don’t have to specify a resolver function for every field. A default resolver will look in root to find a property with the same name as the field. An implementation likely looks like this:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+    <span class="na">Student</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">AluXXXX</span><span class="p">:</span> <span class="p">(</span><span class="nx">root</span><span class="p">,</span> <span class="nx">args</span><span class="p">,</span> <span class="nx">context</span><span class="p">,</span> <span class="nx">info</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">root</span><span class="p">.</span><span class="nx">AluXXXX</span><span class="p">,</span>
+        <span class="na">Nombre</span><span class="p">:</span> <span class="p">(</span><span class="nx">root</span><span class="p">,</span> <span class="nx">args</span><span class="p">,</span> <span class="nx">context</span><span class="p">,</span> <span class="nx">info</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">root</span><span class="p">.</span><span class="nx">Nombre</span><span class="p">,</span>
+        <span class="na">markdown</span><span class="p">:</span> <span class="p">(</span><span class="nx">root</span><span class="p">,</span> <span class="nx">args</span><span class="p">,</span> <span class="nx">context</span><span class="p">,</span> <span class="nx">info</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">root</span><span class="p">.</span><span class="nx">markdown</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 <h2 id="starting-the-express-graphql-middleware">Starting the express-graphql middleware</h2>
 
 <p>Now what remains is to set the <code class="language-plaintext highlighter-rouge">graphqlHTTP</code>  the <strong><a href="/tema3-web/express">express middleware</a></strong> provided by the module <code class="language-plaintext highlighter-rouge">express-graphql</code> to work</p>
