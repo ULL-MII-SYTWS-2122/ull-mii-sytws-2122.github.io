@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=180b0adc007c9556f963d1fecc79db756ec4b640">
+    <link rel="stylesheet" href="/assets/css/style.css?v=924ba79664f3960058bac4a8b0d6707f2fff37e9">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -175,6 +175,10 @@ the syntax for writing GraphQL Schemas. It is otherwise known as <strong>Interfa
       setMarkdown(AluXXXX: String!, markdown: String!): Student 
   }
 </code></pre>
+
+<p>In addition to queries and mutations, GraphQL supports a third operation type: <strong>subscriptions</strong></p>
+
+<p>Like queries, subscriptions enable you to fetch data. Unlike queries, subscriptions are long-lasting operations that can change their result over time. They can maintain an active connection to your GraphQL server (most commonly via <a href="/tema3-web/websockets">WebSocket</a>), enabling the server to push updates to the subscription’s result.</p>
 
 <p>GraphQL SDL is a typed language. Types can be <strong>Scalar</strong> or can be composed as the <code class="language-plaintext highlighter-rouge">Student</code> type in the former 
 example.</p>
