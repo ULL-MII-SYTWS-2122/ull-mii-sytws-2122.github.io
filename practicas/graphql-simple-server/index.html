@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=cb744fbb89705f642b553182d7070e51917efd5d">
+    <link rel="stylesheet" href="/assets/css/style.css?v=5988bde3919dce895cba341efaccaea6387e06c4">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -205,7 +205,7 @@ The schema will use default <strong>resolvers</strong><sup id="fnref:3" role="do
 <p>A <strong>resolver</strong> is a function that connects <strong>schema fields</strong> and <strong>types</strong> to various backends. 
 Resolvers provide the instructions for turning a GraphQL operation into data.</p>
 
-<p>A resolver can retrieve data from or write data to anywhere, including a SQL, No-SQL, or graph database, a micro-service, 
+<p>A resolver can retrieve data from or write data to anywhere, including a SQL, No-SQL, or graph database, a <a href="/tema2-async/message-queues.html">micro-service</a>, 
 and a REST API. Resolvers can also return strings, ints, null, and other types.</p>
 
 <p>To define our resolvers we create now the object <code class="language-plaintext highlighter-rouge">root</code> mapping the  schema fields (<code class="language-plaintext highlighter-rouge">students</code>, <code class="language-plaintext highlighter-rouge">student</code>, <code class="language-plaintext highlighter-rouge">addStudent</code>, <code class="language-plaintext highlighter-rouge">setMarkdown</code>) to their corresponding functions:</p>
