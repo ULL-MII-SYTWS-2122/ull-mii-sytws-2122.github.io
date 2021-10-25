@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=5988bde3919dce895cba341efaccaea6387e06c4">
+    <link rel="stylesheet" href="/assets/css/style.css?v=9004afee1a1e0c2466aae3439d77faf14281f7fd">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -314,15 +314,26 @@ and a REST API. Resolvers can also return strings, ints, null, and other types.<
   </li>
 </ol>
 
+<table>
+<tr>
+<td><img src="/assets/images/graphql-query.png" height="80%" /></td>
+<td><img src="/assets/images/graphql-ast.png" /></td>
+</tr>
+</table>
+
+<p>In this example, the root Query type is the entry point to the tree and contains our two root fields, user and album. The user and album resolvers are executed in parallel (which is typical among all runtimes). The tree is executed breadth-first, meaning user must be resolved before its children name and email are executed. If the user resolver is asynchronous, the user branch delays until its resolved. Once all leaf nodes, name, email, title, are resolved, execution is complete.</p>
+
+<p>Root Query fields, like user and album, are executed in parallel but in no particular order. Typically, fields are executed in the order they appear in the query, but it’s not safe to assume that. Because fields are executed in parallel, they are assumed to be atomic, idempotent, and side-effect free.</p>
+
 <p>A resolver is a function that resolves a value for a type or field in a schema.</p>
 <ul>
   <li>Resolvers can return objects or scalars like Strings, Numbers, Booleans, etc.</li>
-  <li>If an Object is returned, execution continues to the next child field.</li>
+  <li>If an Object is returned, execution <strong>continues to the next child field</strong>.</li>
   <li>If a scalar is returned (typically at a leaf node of the AST), execution completes.</li>
   <li>If <code class="language-plaintext highlighter-rouge">null</code> is returned, execution halts and does not continue.</li>
 </ul>
 
-<p>it’s worth noting that a GraphQL server has built-in default resolvers, so you don’t have to specify a resolver function for every field. A default resolver will look in root to find a property with the same name as the field. An implementation likely looks like this:</p>
+<p>It’s worth noting that a GraphQL server has built-in default resolvers, so you don’t have to specify a resolver function for every field. A default resolver will look in root to find a property with the same name as the field. An implementation likely looks like this:</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
