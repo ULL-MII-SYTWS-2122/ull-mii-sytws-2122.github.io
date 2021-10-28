@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=a6371454dfae427a709dab09178e2490e69d5c5f">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b85ea28f1e223164a6708ebbcd79617ea195a133">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -94,7 +94,7 @@
   <li><a href="#goal">Goal</a></li>
   <li><a href="#libraries">Libraries</a></li>
   <li><a href="#getting-familiar-with-the-graphql-explorer">Getting Familiar with the GraphQL Explorer</a></li>
-  <li><a href="#designing-the-query-to-obtain-the-published-gh-cli-extensions-sorted-by-stars">Designing the query to obtain the published GH Cli extensions sorted by stars</a></li>
+  <li><a href="#designing-the-search-query">Designing the <strong>search</strong> query</a></li>
   <li><a href="#searching-in-github">Searching in GitHub</a></li>
   <li><a href="#the-searchresultitemconnection-type">The SearchResultItemConnection Type</a>
       - {:.} <a href="#">Fields</a></li>
@@ -120,6 +120,8 @@
   <li><a href="#the-query">The query</a></li>
   <li><a href="#building-the-apollo-client">Building the Apollo Client</a></li>
   <li><a href="#caching">Caching</a></li>
+  <li><a href="#the-constructor-apolloclient">The constructor ApolloClient</a></li>
+  <li><a href="#pagination">Pagination</a></li>
   <li><a href="#references">References</a></li>
   <li><a href="#footnotes">Footnotes</a></li>
 </ul>
@@ -144,17 +146,76 @@ Use The GitHub GRaphQL API to get the data.</p>
 <span class="kd">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">node-fetch</span><span class="dl">'</span><span class="p">);</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<p>the <code class="language-plaintext highlighter-rouge">gql</code> function is a tagged template literal. <a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Template_literals">Tagged template literals</a> are literals delimited with backticks (`) that call a function (called the tag function) with</p>
+
+<ol>
+  <li>an array of any text segments from the literal followed by</li>
+  <li>arguments with the values of any substitutions</li>
+</ol>
+
+<p><code class="language-plaintext highlighter-rouge">gql</code> returns the AST of the query:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td><td class="rouge-code"><pre><span class="o">&gt;</span> <span class="kd">let</span> <span class="p">{</span> <span class="nx">ApolloClient</span><span class="p">,</span> <span class="nx">InMemoryCache</span><span class="p">,</span> <span class="nx">HttpLink</span><span class="p">,</span> <span class="nx">gql</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">@apollo/client</span><span class="dl">'</span><span class="p">);</span>
+<span class="kc">undefined</span>
+<span class="o">&gt;</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">gql</span><span class="s2">`
+... query GetDogs {
+...     dogs {
+.....       id
+.....   }
+... }
+... `</span>
+<span class="p">{</span>
+  <span class="nl">kind</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Document</span><span class="dl">'</span><span class="p">,</span>
+  <span class="nx">definitions</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="na">kind</span><span class="p">:</span> <span class="dl">'</span><span class="s1">OperationDefinition</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">operation</span><span class="p">:</span> <span class="dl">'</span><span class="s1">query</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">name</span><span class="p">:</span> <span class="p">[</span><span class="nb">Object</span><span class="p">],</span>
+      <span class="na">variableDefinitions</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="na">directives</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="na">selectionSet</span><span class="p">:</span> <span class="p">[</span><span class="nb">Object</span><span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nx">loc</span><span class="p">:</span> <span class="p">{</span> <span class="nl">start</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">end</span><span class="p">:</span> <span class="mi">43</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
 <h2 id="getting-familiar-with-the-graphql-explorer">Getting Familiar with the GraphQL Explorer</h2>
 
 <p>You can run queries on <strong>real GitHub data</strong> using the GraphQL Explorer, an integrated development environment in your browser that includes docs, syntax highlighting, and validation errors.</p>
 
 <p>Visit <a href="https://docs.github.com/en/graphql/overview/explorer">https://docs.github.com/en/graphql/overview/explorer</a></p>
 
-<h2 id="designing-the-query-to-obtain-the-published-gh-cli-extensions-sorted-by-stars">Designing the query to obtain the published GH Cli extensions sorted by stars</h2>
+<h2 id="designing-the-search-query">Designing the <strong>search</strong> query</h2>
 
 <p>Let us try to design a query to obtain the published GH Cli extensions sorted by stars.</p>
 
 <p>Let us go to the <a href="https://docs.github.com/en/graphql/reference/queries#searchresultitemconnection">documentation for <code class="language-plaintext highlighter-rouge">search</code></a> in the GraphQL API. It give us s.t. like:</p>
+
+<p><b>Type:</b> <a href="https://docs.github.com/en/graphql/reference/objects#searchresultitemconnection">SearchResultItemConnection!</a></p>
 
 <table class="fields width-full">
 <thead>
@@ -420,10 +481,9 @@ since we can alias them to different names <code class="language-plaintext highl
 
 <h2 id="the-query">The query</h2>
 
-<p>After what we have explained, we can make an attempt using this query in the <a href="https://docs.github.com/en/graphql/overview/explorer">explorer</a>:</p>
+<p>After what we have explained, we can make an attempt trying this query in the <a href="https://docs.github.com/en/graphql/overview/explorer">explorer</a>:</p>
 
-<pre><code class="language-gql">const firstQuery = gql`
-{
+<pre><code class="language-gql">{
   search(query: "topic:gh-extension sort:stars", type: REPOSITORY, first: 2 ) {
     repositoryCount
     edges {
@@ -441,7 +501,6 @@ since we can alias them to different names <code class="language-plaintext highl
     }
   }
 }
-`;
 </code></pre>
 
 <p>that give us the number of repositories corresponding to gh-extensions.</p>
@@ -509,6 +568,7 @@ since we can alias them to different names <code class="language-plaintext highl
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></div></div>
+
 <p>Now we can use the cursor of the last element to make the next request.</p>
 
 <h2 id="building-the-apollo-client">Building the Apollo Client</h2>
@@ -545,6 +605,62 @@ const client = new ApolloClient({
 
 <p>See the section <a href="https://www.apollographql.com/docs/react/caching/overview/">Caching in Apollo Client</a> for  details on how the Apollo Client
 stores the results of your GraphQL queries in a local, <a href="https://www.apollographql.com/docs/react/caching/overview/#data-normalization">normalized</a>, in-memory cache. This enables Apollo Client to respond immediately to queries for already-cached data, without  sending a network request.</p>
+
+<h2 id="the-constructor-apolloclient">The constructor ApolloClient</h2>
+
+<h2 id="pagination">Pagination</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre> <span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">client</span>
+    <span class="p">.</span><span class="nx">query</span><span class="p">({</span><span class="na">query</span><span class="p">:</span> <span class="nx">firstQuery</span><span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">queryRes</span> <span class="o">=&gt;</span> <span class="nx">handler</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="nx">queryRes</span><span class="p">))</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">))</span>
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">/next/:cursor</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">client</span>
+    <span class="p">.</span><span class="nx">query</span><span class="p">({</span> <span class="na">query</span><span class="p">:</span> <span class="nx">subsequentQueries</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">cursor</span><span class="p">)})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">queryRes</span> <span class="o">=&gt;</span> <span class="nx">handler</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span><span class="nx">queryRes</span><span class="p">))</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">))</span>
+<span class="p">});</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">handler</span> <span class="o">=</span> <span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="nx">queryRes</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">repos</span> <span class="o">=</span> <span class="nx">queryRes</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">search</span><span class="p">.</span><span class="nx">edges</span><span class="p">;</span>
+  <span class="kd">const</span> <span class="nx">repoCount</span> <span class="o">=</span> <span class="nx">queryRes</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">search</span><span class="p">.</span><span class="nx">repositoryCount</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">repos</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">lastCursor</span> <span class="o">=</span> <span class="nx">repos</span><span class="p">[</span><span class="nx">repos</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="nx">cursor</span><span class="p">;</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="dl">'</span><span class="s1">pages/index</span><span class="dl">'</span><span class="p">,{</span> <span class="na">repos</span><span class="p">:</span> <span class="nx">repos</span><span class="p">,</span> <span class="na">lastCursor</span><span class="p">:</span> <span class="nx">lastCursor</span> <span class="p">});</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">No more repos found!</span><span class="dl">'</span><span class="p">);</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Array came empty repoCount=</span><span class="p">${</span><span class="nx">repoCount</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="references">References</h2>
 
