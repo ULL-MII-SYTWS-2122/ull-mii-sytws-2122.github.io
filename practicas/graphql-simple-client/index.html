@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=b85ea28f1e223164a6708ebbcd79617ea195a133">
+    <link rel="stylesheet" href="/assets/css/style.css?v=f0603ae0c92d84e580145b0efdbffe28397f4b3d">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -593,6 +593,25 @@ const client = new ApolloClient({
 });
 </pre></td></tr></tbody></table></code></pre></div></div>
 
+<p><a href="https://www.apollographql.com/docs/react/api/link/apollo-link-http/">HttpLink</a> is a terminating link that sends a GraphQL operation to a remote endpoint over HTTP. Apollo Client uses HttpLink by default when you provide the uri option to the <a href="">ApolloClient constructor</a>.</p>
+
+<p>The HttpLink constructor takes an options object that can include:</p>
+
+<ul>
+  <li>
+    <p>The <code class="language-plaintext highlighter-rouge">uri</code>  parameter is the URL of the GraphQL endpoint to send requests to. 
+The default value is <code class="language-plaintext highlighter-rouge">/graphql</code>.</p>
+  </li>
+  <li>
+    <p>The <code class="language-plaintext highlighter-rouge">fetch</code> parameter is A function to use instead of calling the Fetch API directly when sending HTTP requests to your GraphQL endpoint. The function must conform to the signature of <code class="language-plaintext highlighter-rouge">fetch</code>.</p>
+  </li>
+  <li>
+    <p>The <code class="language-plaintext highlighter-rouge">headers</code> parameter is an object representing headers to include in every HTTP request.</p>
+  </li>
+</ul>
+
+<p>By default, the Fetch API is used unless it isn’t available in your runtime environment.</p>
+
 <h2 id="caching">Caching</h2>
 
 <p>In an endpoint-based API, clients can use HTTP caching to easily avoid refetching resources, and for identifying when two resources are the same. The URL in these APIs is a globally unique identifier that the client can leverage to build a cache.</p>
@@ -608,7 +627,13 @@ stores the results of your GraphQL queries in a local, <a href="https://www.apol
 
 <h2 id="the-constructor-apolloclient">The constructor ApolloClient</h2>
 
+<ul>
+  <li><a href="https://www.apollographql.com/docs/react/api/core/ApolloClient/#the-apolloclient-constructor"></a></li>
+</ul>
+
 <h2 id="pagination">Pagination</h2>
+
+<p>See <a href="https://www.apollographql.com/docs/react/pagination/overview/">Pagination in Apollo Client</a></p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
