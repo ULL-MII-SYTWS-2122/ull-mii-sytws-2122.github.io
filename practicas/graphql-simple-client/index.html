@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=171ac7bde88ae83539823fcc8efb273328fba713">
+    <link rel="stylesheet" href="/assets/css/style.css?v=80206898c79a37d8228672af633b98e65feb4421">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -647,25 +647,11 @@ stores the results of your GraphQL queries in a local, <a href="https://www.apol
 <span class="p">});</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>We make the GraphQL query using the <code class="language-plaintext highlighter-rouge">query</code> method of the ApolloClient <code class="language-plaintext highlighter-rouge">client</code>
+<p>We make the GraphQL query <code class="language-plaintext highlighter-rouge">firstQuery</code> using the <code class="language-plaintext highlighter-rouge">query</code> method of the ApolloClient <code class="language-plaintext highlighter-rouge">client</code>
 that it is sent to the GitHub GraphQL API endpoint. It returns a Promise. 
 When the promise is fulfilled, we get in the variable <code class="language-plaintext highlighter-rouge">queryRes</code> the response of the GitHub server.
-We pass both our object <code class="language-plaintext highlighter-rouge">res</code>to elaborate the response and the <code class="language-plaintext highlighter-rouge">queryRes</code> 
-object to our <code class="language-plaintext highlighter-rouge">handler</code> function that renders the results of the query.</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-</pre></td><td class="rouge-code"><pre><span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">/next/:cursor</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">client</span>
-    <span class="p">.</span><span class="nx">query</span><span class="p">({</span> <span class="na">query</span><span class="p">:</span> <span class="nx">subsequentQueries</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">cursor</span><span class="p">)})</span>
-    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">queryRes</span> <span class="o">=&gt;</span> <span class="nx">handler</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span><span class="nx">queryRes</span><span class="p">))</span>
-    <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">))</span>
-<span class="p">});</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+We pass both our object <code class="language-plaintext highlighter-rouge">res</code> to elaborate the response and the <code class="language-plaintext highlighter-rouge">queryRes</code> 
+object to our <code class="language-plaintext highlighter-rouge">handler</code> function that renders the results of the query:</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -689,6 +675,20 @@ object to our <code class="language-plaintext highlighter-rouge">handler</code> 
       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Array came empty repoCount=</span><span class="p">${</span><span class="nx">repoCount</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
   <span class="p">}</span>
 <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">/next/:cursor</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">client</span>
+    <span class="p">.</span><span class="nx">query</span><span class="p">({</span> <span class="na">query</span><span class="p">:</span> <span class="nx">subsequentQueries</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">cursor</span><span class="p">)})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">queryRes</span> <span class="o">=&gt;</span> <span class="nx">handler</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span><span class="nx">queryRes</span><span class="p">))</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">))</span>
+<span class="p">});</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="references">References</h2>
