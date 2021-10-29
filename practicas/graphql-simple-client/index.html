@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=f17bdf70eac0fa7844aee2dd58e7608e12bb7797">
+    <link rel="stylesheet" href="/assets/css/style.css?v=171ac7bde88ae83539823fcc8efb273328fba713">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -121,6 +121,7 @@
   <li><a href="#building-the-apollo-client">Building the Apollo Client</a></li>
   <li><a href="#caching">Caching</a></li>
   <li><a href="#pagination">Pagination</a></li>
+  <li><a href="#express-routes">Express Routes</a></li>
   <li><a href="#references">References</a></li>
   <li><a href="#footnotes">Footnotes</a></li>
 </ul>
@@ -628,7 +629,9 @@ stores the results of your GraphQL queries in a local, <a href="https://www.apol
 
 <p>See <a href="https://www.apollographql.com/docs/react/pagination/overview/">Pagination in Apollo Client</a></p>
 
-<p>Now the handler for requests to the <code class="language-plaintext highlighter-rouge">/</code> route is simple:</p>
+<h2 id="express-routes">Express Routes</h2>
+
+<p>Now the handler for requests to the main  <code class="language-plaintext highlighter-rouge">/</code> route is simple:</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -646,8 +649,9 @@ stores the results of your GraphQL queries in a local, <a href="https://www.apol
 
 <p>We make the GraphQL query using the <code class="language-plaintext highlighter-rouge">query</code> method of the ApolloClient <code class="language-plaintext highlighter-rouge">client</code>
 that it is sent to the GitHub GraphQL API endpoint. It returns a Promise. 
-When the promise is fulfilled with get in <code class="language-plaintext highlighter-rouge">queryRes</code> the response of the GitHub server.
-We pass both our <code class="language-plaintext highlighter-rouge">res</code>ponse object and the <code class="language-plaintext highlighter-rouge">queryRes</code>object to our <code class="language-plaintext highlighter-rouge">handler</code> function.</p>
+When the promise is fulfilled, we get in the variable <code class="language-plaintext highlighter-rouge">queryRes</code> the response of the GitHub server.
+We pass both our object <code class="language-plaintext highlighter-rouge">res</code>to elaborate the response and the <code class="language-plaintext highlighter-rouge">queryRes</code> 
+object to our <code class="language-plaintext highlighter-rouge">handler</code> function that renders the results of the query.</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
