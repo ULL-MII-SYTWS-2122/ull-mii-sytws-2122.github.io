@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=d50be6e34afa28099ddfedab0765326c366a5615">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ecd1004c303c94c403f19e4e092e49bc1f56b86c">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -93,6 +93,7 @@
             <ul id="sytwstoc">
   <li><a href="#goal">Goal</a></li>
   <li><a href="#libraries">Libraries</a></li>
+  <li><a href="#gql">gql</a></li>
   <li><a href="#getting-familiar-with-the-graphql-explorer">Getting Familiar with the GraphQL Explorer</a></li>
   <li><a href="#designing-the-search-query">Designing the <strong>search</strong> query</a></li>
   <li><a href="#searching-in-github">Searching in GitHub</a></li>
@@ -146,7 +147,9 @@ Use The GitHub GRaphQL API to get the data.</p>
 <span class="kd">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">node-fetch</span><span class="dl">'</span><span class="p">);</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>the <code class="language-plaintext highlighter-rouge">gql</code> function is a tagged template literal. <a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Template_literals">Tagged template literals</a> are literals delimited with backticks (`) that call a function (called the tag function) with</p>
+<h2 id="gql">gql</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">gql</code> function is a tagged template literal. <a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Template_literals">Tagged template literals</a> are literals delimited with backticks (`) that call a function (called the tag function) with</p>
 
 <ol>
   <li>an array of any text segments from the literal followed by</li>
