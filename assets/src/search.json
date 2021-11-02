@@ -301,7 +301,7 @@
   {
     "title": "GraphQL-Subscriptions",
     "excerpt": "\n",
-    "content": "\nReferences\n\n\n  Repo GitHub crguezl/graphql-chat-app Chat with Subscriptions\n  Tutorial Building live chat app with GraphQL subscriptions\n\n",
+    "content": "Goals\n\nFollow the Tutorial](https://pusher.com/tutorials/chat-graphql-subscriptions/) Building live chat app with GraphQL subscriptions and reproduce the steps.\n\nUse the corresponding repo GitHub crguezl/graphql-chat-app to see more details.\n\nReferences\n\n\n  Repo GitHub crguezl/graphql-chat-app Chat with Subscriptions\n  Tutorial Building live chat app with GraphQL subscriptions\n\n",
     "url": "/practicas/graphql-subscriptions/"
   },
   
