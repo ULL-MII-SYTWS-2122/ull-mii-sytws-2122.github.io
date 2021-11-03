@@ -1,6 +1,31 @@
 
     
     {
+      "title": "Clase  del Miércoles 03/11/2021 (Presencial, Semana B)",
+      "date": "November 03, 2021",
+
+      "excerpt": "<h2 id="exercises-on-asynchronous-js">Exercises on Asynchronous JS</h2>
+
+",
+       "categories"  : [
+         "Clases"
+        
+        
+        ],
+      
+      
+      "url": "/clases/2021/11/03/leccion.html",
+       "tags"  : [
+        
+        ]
+      
+      
+    }
+
+    ,
+
+    
+    {
       "title": "Clase  del Miércoles 27/10/2021 (Asíncrona, Semana A)",
       "date": "October 27, 2021",
 
@@ -215,44 +240,6 @@
       
       
       "url": "/clases/2021/09/29/leccion.html",
-       "tags"  : [
-        
-        ]
-      
-      
-    }
-
-    ,
-
-    
-    {
-      "title": "Clase del Lunes 27/09/2021",
-      "date": "September 27, 2021",
-
-      "excerpt": "
-<ul>
-  <li><a href="https://meet.google.com/bhv-togn-ynm">Meet de la clase</a></li>
-  <li><a href="https://ull-mii-sytws.github.io/">URL de los apuntes</a></li>
-  <li><a href="/covid19">Adaptación a la Docencia y Evaluación No Presencial</a></li>
-  <li><a href="/tema0-presentacion/">Presentación de la Asignatura SYTWS</a></li>
-  <li><a href="/practicas">Prácticas</a>
-    <ul>
-      <li><a href="/tema0-presentacion/practicas/pb-gh-campus-expert/">Práctica github campus expert</a></li>
-      <li><a href="/tema1-introduccion/practicas/p01-t1-iaas/">Práctica set-up</a></li>
-      <li><a href="/tema1-introduccion/practicas/p2-t1-vscode/">Práctica vscode y gitpod</a></li>
-    </ul>
-  </li>
-  <li><a href="/tema2-async/event-loop/index.html#unas-preguntas">Algunas Preguntas sobre como funciona el bucle de eventos JS</a></li>
-</ul>
-",
-       "categories"  : [
-         "Clases"
-        
-        
-        ],
-      
-      
-      "url": "/clases/2021/09/27/leccion.html",
        "tags"  : [
         
         ]
