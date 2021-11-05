@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang=" en-US ">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" href="/assets/css/style.css?v=87e1943a8646a20b742805894ab5f873ae258f2e">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="/assets/js/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="/assets/css/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+</head>
+
+<body>
+    <div id="header">
+        <nav>
+  <ul>
+    <li><a href="/search" title="search">&#x1F50D;</a></li>
+    <!--
+    <li><a href="#sytwstoc" title="Table of Contents">≡</a></li>
+    -->
+
+      
+    <li><a href="/practicas/async-await-is-generators-and-promises.html" title="Previous">&#x2190;</a></li>
+    
+    
+    <li><a href="/practicas/async-await-is-generators-and-promises/solution" title="Next">&#x2192;</a></li>
+    
+    <li><a href="https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io-source/tree/main//_practicas/18-npm-module.md" title="Edit this page at GitHub">🐙</a>
+    <li><a href="/references.html" title="Bibliografía">&#x1f4da</a></li>
+    <li><a href="/practicas.html" title="Prácticas">&#x270d</a></li>
+    <li><a href="/clases.html" title="Clases">👨‍🏫</a></li>
+    <li><a href="/" title="Home page">&#x1f3e0</a></li>
+    <li><a href="/tema0-presentacion/" title="Tema 0: Presentación">0</a></li>
+    <li><a href="/tema1-introduccion/" title="Tema 1: Introducción">1</a></li>
+    <li><a href="/tema2-async/" title="Tema 2: Async">2</a></li>
+    <li><a href="/tema3-web/" title="Tema 3: Web">3</a></li>
+    <li><a href="/tema4-devops/" title="Tema 4: Devop">4</a></li>
+    
+    </li>
+    </ul>
+</nav>
+
+    </div>
+    <!-- end header -->
+
+
+    <div class="wrapper">
+
+        <section>
+            
+<div id="title">
+        <h1>Sistemas y Tecnologías Web: Servidor</h1>
+        <p> Master de II. ULL. 1er cuatrimestre</p>
+        <hr>
+        <span class="credits left">Organization <a href="https://github.com/ULL-MII-SYTWS-2122" target="_blank">ULL-MII-SYTWS-2122</a></span>
+        <span class="credits left"> &nbsp; Classroom <a href="https://classroom.github.com/classrooms/90842007-ull-mii-sytws-2122" target="_blank">ULL-MII-SYTWS-2122</a></span>
+        <span class="credits left"> &nbsp; Campus Virtual <a href="https://campusdoctoradoyposgrado2122.ull.es/course/view.php?id=2122110810" target="_blank">SYTWS</a></span>
+        <span class="credits left"> &nbsp; Chat <a href="https://chat.google.com/u/1/room/AAAAp18fCE8" target="_blank">Chat</a></span>
+        <span class="credits left"> &nbsp; Profesor <a href="https://www.ull.es/apps/guias/guias/view_teacher_niu/837/crguezl/" target="_blank">Casiano</a></span>
+    </div>
+
+<!--
+
+<div id="title">
+    <h1>Sistemas y Tecnologías Web: Servidor</h1>
+    <p> Master de II. ULL. 1er cuatrimestre</p>
+    <hr>
+    <span class="credits left">Organization <a href="https://github.com/ULL-MII-SYTWS"
+            target="_blank">ULL-MII-SYTWS</a></span>
+    <span class="credits left"> &nbsp; Github Classroom <a
+            href="https://classroom.github.com/classrooms/55384072-master-de-ingenieria-informatica-sistemas-y-tecnologias-web-servidor-classroom"
+            target="_blank">SYTWS 19/20</a></span>
+    <span class="credits left"> &nbsp; Campus Virtual <a
+            href="https://campusvirtual.ull.es/1920/course/view.php?id=201913778" target="_blank">SYTWS
+            19/20</a></span>
+    <span class="credits left"> &nbsp; Profesor <a
+            href="https://www.ull.es/apps/guias/guias/view_teacher_niu/588/(%3FPcrguezl.*)/"" target="
+            _blank">Casiano</a></span>
+</div>
+-->    
+
+            
+            
+
+
+
+            <h2 >Table of Contents</h2>
+            
+            <ul id="sytwstoc">
+  <li><a href="#objetivos">Objetivos</a></li>
+  <li><a href="#ámbitos">Ámbitos</a></li>
+  <li><a href="#pruebas">Pruebas</a></li>
+  <li><a href="#integración-contínua-usando-github-actions">Integración Contínua usando GitHub Actions</a></li>
+  <li><a href="#documentación">Documentación</a></li>
+  <li><a href="#pruebas-de-producción">Pruebas de Producción</a></li>
+  <li><a href="#superproject-with-git-submodule">Superproject with Git Submodule</a></li>
+  <li><a href="#semantic-versioning">Semantic Versioning</a></li>
+  <li><a href="#references">References</a></li>
+  <li><a href="#rubrica">Rúbrica</a></li>
+</ul>
+          
+
+            <div class="container"> 
+                <h1> npm Module </h1>
+                <h2 id="objetivos">Objetivos</h2>
+
+<p>Partiendo de la gh extension escrita en la práctica <a href="/practicas/06p6-t1-gh-cli.html">gh-cli</a> construya un paquete npm y 
+publíquelo en <a href="https://www.npmjs.com/">npmjs</a> con ámbito <code class="language-plaintext highlighter-rouge">@aluXXX</code>.</p>
+
+<p>El módulo además de exportar las funciones que sean necesarias deberá proveer el ejecutable <code class="language-plaintext highlighter-rouge">gh-my-extension</code></p>
+
+<p>Reescriba la extensión gh-cli que escribió en la práctica anterior para que haga uso del módulo creado en esta práctica.</p>
+
+<p>La mayor parte de los conceptos y habilidades a adquirir con esta práctica se explican en la sección <a href="/tema1-introduccion/creating-and-publishing-npm-module">Creating and publishing a node.js module en GitHub y en NPM</a>. Léala con detenimiento antes de hacer esta práctica.</p>
+
+<p>El módulo lo puede publicar como CommonJS o ES</p>
+
+<h2 id="ámbitos">Ámbitos</h2>
+
+<p>Deberá publicar el paquete en <a href="https://www.npmjs.com/">npmjs</a> con ámbito <code class="language-plaintext highlighter-rouge">@aluXXX</code> y con nombre <code class="language-plaintext highlighter-rouge">addlogging</code>.</p>
+
+<p>Para saber sobre ámbitos, vea la sección <a href="/tema1-introduccion/creating-and-publishing-npm-module#scopes-and-registries">Scopes and Registries</a>.</p>
+
+<h2 id="pruebas">Pruebas</h2>
+
+<p>Deberá añadir pruebas usando <a href="/tema1-introduccion/creating-and-publishing-npm-module#testing-with-mocha-and-chai">Mocha y Chai</a> o <a href="/tema1-introduccion/jest">Jest</a>.
+Repase las secciones <a href="/tema1-introduccion/creating-and-publishing-npm-module##testing-with-mocha-and-chai">Testing with Mocha and Chai</a> y <a href="/tema1-introduccion/jest">Jest</a>.</p>
+
+<h2 id="integración-contínua-usando-github-actions">Integración Contínua usando GitHub Actions</h2>
+
+<p>Use <a href="/tema1-introduccion/github-actions">GitHub Actions</a> para la ejecución de las pruebas</p>
+
+<p>Compruebe que las pruebas pasan en los tres O.S: Linux, MacOS y Windows.</p>
+
+<h2 id="documentación">Documentación</h2>
+
+<p><a href="/tema1-introduccion/documentation">Documente</a>
+el módulo incorporando un <code class="language-plaintext highlighter-rouge">README.md</code> y la documentación de la función exportada.
+Repase la sección <a href="/tema1-introduccion/creating-and-publishing-npm-module#documenting-the-javascript-sources">Documenting the JavaScript Sources</a></p>
+
+<h2 id="pruebas-de-producción">Pruebas de Producción</h2>
+
+<p>En el repo asignado <code class="language-plaintext highlighter-rouge">testing-addlogging-aluXXX</code> añada las pruebas necesarias
+para comprobar que la última versión del paquete publicado se instala y puede ser usado.
+Repase la sección <a href="/tema1-introduccion/creating-and-publishing-npm-module#testing-in-production">Testing in Production</a></p>
+
+<p>Use <a href="/tema1-introduccion/github-actions">GitHub Actions</a> para la ejecución de las pruebas</p>
+
+<p>Compruebe que las pruebas pasan en los tres O.S: Linux, MacOS y Windows.</p>
+
+<h2 id="superproject-with-git-submodule">Superproject with Git Submodule</h2>
+
+<p>Usando <code class="language-plaintext highlighter-rouge">git submodule</code> configure como super-project el repo asignado <code class="language-plaintext highlighter-rouge">super-addloggin-aluXXX</code> para que contenga
+a a los dos repos: en el que ha desarrollado el módulo npm <code class="language-plaintext highlighter-rouge">addlogging-aluXXX</code> y el repo para las pruebas en tiempo de producción <code class="language-plaintext highlighter-rouge">testing-addlogging-aluXXX</code>.</p>
+
+<p>Repase la sección <a href="/tema1-introduccion/creating-and-publishing-npm-module#making-a-project-with-the-two-repos-git-submodule">Making a Project with the two repos: git submodule</a></p>
+
+<h2 id="semantic-versioning">Semantic Versioning</h2>
+
+<p>Publique alguna mejora en la funcionalidad del módulo.<br />
+Por poner algunos ejemplos</p>
+<ul>
+  <li>puede hacer que el ejecutable <code class="language-plaintext highlighter-rouge">add-logging</code> admita como especificación de patrón  una expresión regular,</li>
+  <li>que admita mas de un fichero de entrada,</li>
+  <li>que admita un directorio (en cuyo caso procesaría todos los ficheros <code class="language-plaintext highlighter-rouge">*.js</code> en el directorio),</li>
+  <li>etc.</li>
+</ul>
+
+<p>¿Como debe en tales casos cambiar el nº de versión?</p>
+
+<p>Repase la sección <a href="/tema1-introduccion/creating-and-publishing-npm-module#semantic-versioning">Semantic Versioning</a></p>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li><a href="/tema1-introduccion/creating-and-publishing-npm-module">Creating and Publishing a node.js Module in GitHub and NPM Registries</a></li>
+  <li><a href="/tema1-introduccion/jest">Jest</a></li>
+  <li><a href="/tema1-introduccion/modulos">Módulos</a></li>
+  <li><a href="/tema1-introduccion/nodejspackages">Node.js Packages</a></li>
+  <li><a href="/tema1-introduccion/documentation">Documentation</a></li>
+  <li><a href="/tema1-introduccion/nodejspackages.html#instalaci%C3%B3n-desde-github">Instalación de Módulos desde GitHub</a></li>
+  <li><a href="https://lenguajejs.com/automatizadores/introduccion/commonjs-vs-es-modules/">Introducción a los Módulos en JS</a> por Manz</li>
+  <li><a href="https://www.npmjs.com/package/@ull-esit-dsi-1617/scapegoat">@ull-esit-dsi-1617/scapegoat</a> en npm</li>
+  <li><a href="https://stackoverflow.com/questions/17509669/how-to-install-an-npm-package-from-github-directly">How to install an npm package from GitHub directly?</a> in StackOverflow</li>
+  <li><a href="https://docs.npmjs.com/getting-started/scoped-packages">Working with scoped packages</a></li>
+  <li><a href="https://docs.npmjs.com/misc/scope#publishing-public-scoped-packages-to-the-public-npm-registry">npm-scope manual: Scoped packages</a></li>
+  <li><a href="https://docs.npmjs.com/files/package.json">Package.json documentation en npm site</a></li>
+  <li>Semantic versioning and npm
+    <ul>
+      <li><a href="https://docs.npmjs.com/getting-started/semantic-versioning">Semantic versioning and npm</a></li>
+      <li><a href="https://www.sitepoint.com/semantic-versioning-why-you-should-using/">Semantic Versioning: Why You Should Be Using it</a> SitePoint</li>
+      <li><a href="https://youtu.be/kK4Meix58R4">YouTube Video: Semantic versioning and npm</a></li>
+      <li><a href="https://docs.npmjs.com/cli/version">El comando npm version</a></li>
+    </ul>
+  </li>
+</ul>
+
+
+
+
+ 
+<h2 id="rubrica">Rúbrica</h2>
+
+Incidencias para el Project Board para la práctica <i><p>npm Module</p>
+</i>
+<ul>
+    
+    <li><p>El paquete está publicado en npmjs con ámbito <code class="language-plaintext highlighter-rouge">aluXXX</code></p>
+</li> 
+    
+    
+    <li><p>Contiene un ejecutable que se ejecuta correctamente (<code class="language-plaintext highlighter-rouge">--help</code>, etc.)</p>
+</li> 
+    
+    
+    <li><p>El módulo exporta las funciones adecuadas</p>
+</li> 
+    
+    
+    <li><p>Contiene suficientes tests</p>
+</li> 
+    
+    
+    <li><p>Opcional: estudio de covering</p>
+</li> 
+    
+    
+    <li><p>Se ha hecho CI con GitHub Actions y se ejecuta en los tres O.S.</p>
+</li> 
+    
+    
+    <li><p>Los informes están bien presentados</p>
+</li> 
+    
+    
+    <li><p>La documentación es completa: API, ejecutable, instalación, etc.</p>
+</li> 
+    
+    
+    <li><p>Opcional: publicar la documentación de la API usando GitHub Pages en la carpeta <code class="language-plaintext highlighter-rouge">docs/</code></p>
+</li> 
+    
+    
+     <li> <p>Las <em>pruebas de producción</em> funcionan bien</p>
+
+      <ol>
+      
+      <li><p>Probar que la librería está accesible y funciona</p>
+</li>      
+      
+      <li><p>Probar que el ejecutable queda correctamente instalado, puede ser ejecutado con el nombre publicado y produce salidas correctas</p>
+</li>      
+      
+      </ol>
+    </li>
+    
+    
+    <li><p>El superproyecto está correctamente estructurado usando submódulos</p>
+</li> 
+    
+    
+    <li><p>Se ha hecho un buen uso del versionado semántico en la evolución del módulo</p>
+</li> 
+    
+    
+</ul>
+
+
+
+
+
+            </div>
+
+
+                        
+<h2>Comment with GitHub Utterances</h2>
+            
+<script src="https://utteranc.es/client.js"
+        repo="ULL-MII-SYTWS/ull-mii-sytws.github.io"
+        issue-term="pathname"
+        label="SYTWS"
+        theme="dark-blue"
+        crossorigin="anonymous"
+        async>
+</script>
+            
+
+
+
+ 
+            
+        </section>
+    
+    </div>
+
+
+    
+</body>
+
+</html>
