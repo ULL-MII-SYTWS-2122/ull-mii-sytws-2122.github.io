@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=75641f5b1c78c500a0d3fc9f6ce008e39abe4f69">
+    <link rel="stylesheet" href="/assets/css/style.css?v=0b961b5d659f7f31648fb9a66af25d68211c2d26">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -499,6 +499,10 @@ since we can alias them to different names <code class="language-plaintext highl
 <pre><code class="language-gql">{
   search(query: "topic:gh-extension sort:stars", type: REPOSITORY, first: 2 ) {
     repositoryCount
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
     edges {
       cursor
       node {
@@ -549,10 +553,18 @@ since we can alias them to different names <code class="language-plaintext highl
 29
 30
 31
+32
+33
+34
+35
 </pre></td><td class="rouge-code"><pre><span class="p">{</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"search"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"repositoryCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"repositoryCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">111</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"pageInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"hasNextPage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"endCursor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y3Vyc29yOjI="</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="nl">"edges"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nl">"cursor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y3Vyc29yOjE="</span><span class="p">,</span><span class="w">
@@ -572,7 +584,7 @@ since we can alias them to different names <code class="language-plaintext highl
             </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"full terminal animations"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/vilmibm/gh-screensaver"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"stargazers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"totalCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="w">
+              </span><span class="nl">"totalCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">63</span><span class="w">
             </span><span class="p">}</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -582,7 +594,7 @@ since we can alias them to different names <code class="language-plaintext highl
 </span><span class="p">}</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Now we can use the cursor of the last element to make the next request.</p>
+<p>Now we can use the <code class="language-plaintext highlighter-rouge">endCursor</code> to make the next request.</p>
 
 <h2 id="building-the-apollo-client">Building the Apollo Client</h2>
 
