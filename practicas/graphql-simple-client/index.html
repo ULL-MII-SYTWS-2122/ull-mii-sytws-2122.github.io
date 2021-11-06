@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=0b961b5d659f7f31648fb9a66af25d68211c2d26">
+    <link rel="stylesheet" href="/assets/css/style.css?v=176a105935afce4dcfaa9eee89892aa7cacffa8e">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -630,7 +630,7 @@ that sends a <strong>GraphQL operation</strong> to a remote endpoint over HTTP.<
 The default value is <code class="language-plaintext highlighter-rouge">/graphql</code>.</p>
   </li>
   <li>
-    <p>The <code class="language-plaintext highlighter-rouge">fetch</code> parameter is A function to use instead of calling the Fetch API directly when sending HTTP requests to your GraphQL endpoint. The function must conform to the signature of <code class="language-plaintext highlighter-rouge">fetch</code>.</p>
+    <p>The <code class="language-plaintext highlighter-rouge">fetch</code> parameter is a function to use instead of calling the Fetch API directly when sending HTTP requests to your GraphQL endpoint. The function must conform to the signature of <code class="language-plaintext highlighter-rouge">fetch</code>.</p>
   </li>
   <li>
     <p>The <code class="language-plaintext highlighter-rouge">headers</code> parameter is an object representing headers to include in every HTTP request.</p>
@@ -688,18 +688,16 @@ object to our <code class="language-plaintext highlighter-rouge">handler</code> 
 8
 9
 10
-11
-</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">handler</span> <span class="o">=</span> <span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="nx">queryRes</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="kd">const</span> <span class="nx">repos</span> <span class="o">=</span> <span class="nx">queryRes</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">search</span><span class="p">.</span><span class="nx">edges</span><span class="p">;</span>
-  <span class="kd">const</span> <span class="nx">repoCount</span> <span class="o">=</span> <span class="nx">queryRes</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">search</span><span class="p">.</span><span class="nx">repositoryCount</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">repos</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">lastCursor</span> <span class="o">=</span> <span class="nx">repos</span><span class="p">[</span><span class="nx">repos</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="nx">cursor</span><span class="p">;</span>
-    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="dl">'</span><span class="s1">pages/index</span><span class="dl">'</span><span class="p">,{</span> <span class="na">repos</span><span class="p">:</span> <span class="nx">repos</span><span class="p">,</span> <span class="na">lastCursor</span><span class="p">:</span> <span class="nx">lastCursor</span> <span class="p">});</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">No more repos found!</span><span class="dl">'</span><span class="p">);</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Array came empty repoCount=</span><span class="p">${</span><span class="nx">repoCount</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
-  <span class="p">}</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">handler</span> <span class="o">=</span> <span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">r</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">search</span><span class="p">;</span>
+  <span class="kd">const</span> <span class="nx">repos</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">edges</span><span class="p">;</span>
+  <span class="kd">const</span> <span class="nx">repoCount</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">repositoryCount</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">pageInfo</span><span class="p">.</span><span class="nx">hasNextPage</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">lastCursor</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">pageInfo</span><span class="p">.</span><span class="nx">endCursor</span><span class="p">;</span> 
+    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="dl">'</span><span class="s1">pages/index</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span> <span class="na">repos</span><span class="p">:</span> <span class="nx">repos</span><span class="p">,</span> <span class="na">lastCursor</span><span class="p">:</span> <span class="nx">lastCursor</span><span class="p">});</span>
+  <span class="p">}</span> 
 <span class="p">}</span>
+
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>The first call to <code class="language-plaintext highlighter-rouge">handler</code> gets from <code class="language-plaintext highlighter-rouge">queryRes</code> the array <code class="language-plaintext highlighter-rouge">repos</code> 
