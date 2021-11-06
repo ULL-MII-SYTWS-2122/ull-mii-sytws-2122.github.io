@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=176a105935afce4dcfaa9eee89892aa7cacffa8e">
+    <link rel="stylesheet" href="/assets/css/style.css?v=2a701f5b1de57f69ace5eebf8a0cda3d39e7cc72">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -700,7 +700,7 @@ object to our <code class="language-plaintext highlighter-rouge">handler</code> 
 
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>The first call to <code class="language-plaintext highlighter-rouge">handler</code> gets from <code class="language-plaintext highlighter-rouge">queryRes</code> the array <code class="language-plaintext highlighter-rouge">repos</code> 
+<p>The first call to <code class="language-plaintext highlighter-rouge">handler</code> gets the array <code class="language-plaintext highlighter-rouge">repos</code> 
 corresponding to the first page of json objects describing the matching repositories.
 Then it computes <code class="language-plaintext highlighter-rouge">lastCursor</code>, the cursor of the last item in the incoming page.
 Both the array <code class="language-plaintext highlighter-rouge">repos</code> and <code class="language-plaintext highlighter-rouge">lastCursor</code> are passed to the view in  <code class="language-plaintext highlighter-rouge">views/pages/index.ejs</code>:</p>
@@ -801,7 +801,23 @@ filled with the value of the last cursor of the previous page.</p>
 <span class="p">});</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>After we the <code class="language-plaintext highlighter-rouge">app</code> to listen for requests</p>
+<p>where <code class="language-plaintext highlighter-rouge">subsequentQueries</code> only differs from the first query in the <code class="language-plaintext highlighter-rouge">after: $cursor</code> argument:</p>
+
+<pre><code class="language-gql">{
+  search(query: "topic:gh-extension sort:stars", type: REPOSITORY, first: 2, after: $cursor) {
+    repositoryCount
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      ...
+    }
+  }
+}
+</code></pre>
+
+<p>After we set the <code class="language-plaintext highlighter-rouge">app</code> to listen for requests</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">7000</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`App listening on port 7000!`</span><span class="p">))</span>
