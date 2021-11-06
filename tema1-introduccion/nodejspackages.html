@@ -1,4 +1,123 @@
-<ul>
+<!doctype html>
+<html lang=" en-US ">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" href="/assets/css/style.css?v=75641f5b1c78c500a0d3fc9f6ce008e39abe4f69">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="/assets/js/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="/assets/css/ie.css">
+    <![endif]-->
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        
+    
+</head>
+
+<body>
+    <div id="header">
+            <nav>
+    <ul>
+        <li><a href="https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io-source/tree/main//tema1-introduccion/nodejspackages.md" title="Edit this page at GitHub">🐙</a>
+        </li>
+        <li><a href="/search" title="search">&#x1F50D;</a></li>
+        <li><a href="/resources.html" title="resources">&#x2699</a></li>
+        <li><a href="/timetables.html" title="horarios">&#x1f5d3</a></li>
+        <li><a href="/references.html" title="bibliografia">&#x1f4da</a></li>
+        <li><a href="/practicas.html" title="prácticas">&#x270d</a></li>
+        <li><a href="/clases.html" title="clases">👨‍🏫</a></li>
+        <li><a href="/index.html" title="Home page">&#x1f3e0</a></li>
+        <li><a href="/tema0-presentacion/" title="Tema 0: Presentación">0</a></li>
+        <li><a href="/tema1-introduccion/" title="Tema 1: introducción">1</a></li>
+        <li><a href="/tema2-async/" title="Tema 2: Async">2</a></li>
+        <li><a href="/tema3-web/" title="Tema 3: Web">3</a></li>
+        <li><a href="/tema4-devops/" title="Tema 4: Devops">4</a></li>
+        
+    </ul>
+    </nav>
+
+    </div>
+    <!-- end header -->
+
+
+    <div class="wrapper">
+
+        <section>
+           
+<div id="title">
+        <h1>Sistemas y Tecnologías Web: Servidor</h1>
+        <p> Master de II. ULL. 1er cuatrimestre</p>
+        <hr>
+        <span class="credits left">Organization <a href="https://github.com/ULL-MII-SYTWS-2122" target="_blank">ULL-MII-SYTWS-2122</a></span>
+        <span class="credits left"> &nbsp; Classroom <a href="https://classroom.github.com/classrooms/90842007-ull-mii-sytws-2122" target="_blank">ULL-MII-SYTWS-2122</a></span>
+        <span class="credits left"> &nbsp; Campus Virtual <a href="https://campusdoctoradoyposgrado2122.ull.es/course/view.php?id=2122110810" target="_blank">SYTWS</a></span>
+        <span class="credits left"> &nbsp; Chat <a href="https://chat.google.com/u/1/room/AAAAp18fCE8" target="_blank">Chat</a></span>
+        <span class="credits left"> &nbsp; Profesor <a href="https://www.ull.es/apps/guias/guias/view_teacher_niu/837/crguezl/" target="_blank">Casiano</a></span>
+    </div>
+
+<!--
+
+<div id="title">
+    <h1>Sistemas y Tecnologías Web: Servidor</h1>
+    <p> Master de II. ULL. 1er cuatrimestre</p>
+    <hr>
+    <span class="credits left">Organization <a href="https://github.com/ULL-MII-SYTWS"
+            target="_blank">ULL-MII-SYTWS</a></span>
+    <span class="credits left"> &nbsp; Github Classroom <a
+            href="https://classroom.github.com/classrooms/55384072-master-de-ingenieria-informatica-sistemas-y-tecnologias-web-servidor-classroom"
+            target="_blank">SYTWS 19/20</a></span>
+    <span class="credits left"> &nbsp; Campus Virtual <a
+            href="https://campusvirtual.ull.es/1920/course/view.php?id=201913778" target="_blank">SYTWS
+            19/20</a></span>
+    <span class="credits left"> &nbsp; Profesor <a
+            href="https://www.ull.es/apps/guias/guias/view_teacher_niu/588/(%3FPcrguezl.*)/"" target="
+            _blank">Casiano</a></span>
+</div>
+-->    
+
+
+           
+            <h2 >Table of Contents</h2>
+           
+            <ul id="sytwstoc">
+  <li><a href="#el-comando-npm">El comando npm</a></li>
+  <li><a href="#ejercicio-darse-de-alta-en-npm">Ejercicio: Darse de alta en NPM</a></li>
+  <li><a href="#creación-de-paquetes-y-módulos-en-nodejs">Creación de Paquetes y Módulos en NodeJS</a></li>
+  <li><a href="#instalación-desde-github">Instalación desde GitHub</a></li>
+  <li><a href="#publicación-con-ámbito-en-una-organización">Publicación con ámbito en una organización:</a>
+    <ul>
+      <li><a href="#scoped-packages">Scoped Packages</a></li>
+    </ul>
+  </li>
+  <li><a href="#packagejson">Package.json</a>
+    <ul>
+      <li><a href="#ejemplo-de-packagejson">Ejemplo de package.json</a></li>
+    </ul>
+  </li>
+  <li><a href="#semantic-versioning-and-npm">Semantic versioning and npm</a></li>
+  <li><a href="#npm-organizations-npm-organizaciones">npm Organizations /npm Organizaciones</a></li>
+  <li><a href="#npm-herramientas-de-ayuda-release-it">NPM: Herramientas de ayuda: release-it</a></li>
+  <li><a href="#references-tutorials">References: Tutorials</a>
+    <ul>
+      <li><a href="#npm-video-tutoriales">NPM: Video Tutoriales</a></li>
+      <li><a href="#links-to-npm-docs-getting-started">Links to NPM docs: Getting Started</a></li>
+    </ul>
+  </li>
+  <li><a href="#yarn">Yarn</a></li>
+  <li><a href="#creación-de-paquetes-en-el-navegadorcliente">Creación de Paquetes en el Navegador/Cliente</a></li>
+  <li><a href="#documentation"><a href="documentation">Documentation</a></a></li>
+</ul>
+        
+            <h1> CommonJS Modules. Importación y Exportación </h1>
+            <div class="container">
+                <ul>
   <li><a href="https://lenguajejs.com/automatizadores/introduccion/commonjs-vs-es-modules/">Introducción a los Módulos en JS</a> por Manz</li>
   <li>Talk <a href="https://darrenderidder.github.io/talks/ModulePatterns">NODE.JS module patterns using simple examples</a>. Trasparencias. Muestra ejemplos/patrones de exportación-importación (Reveal Slides)</li>
   <li><a href="http://know.cujojs.com/tutorials/modules/authoring-cjs-modules">Authoring CommonJS modules</a>  (CommonJS modules were conceived during the early days of server-side JavaScript environments such as node.js and Narwhal. As a result, CommonJS modules are optimized for these environments, not browser environments)</li>
@@ -380,3 +499,39 @@ release-it 0.8.3
 </ul>
 
 <h1 id="documentation"><a href="documentation">Documentation</a></h1>
+
+
+                
+            </div>
+  
+                        
+<h2>Comment with GitHub Utterances</h2>
+            
+<script src="https://utteranc.es/client.js"
+        repo="ULL-MII-SYTWS/ull-mii-sytws.github.io"
+        issue-term="pathname"
+        label="SYTWS"
+        theme="dark-blue"
+        crossorigin="anonymous"
+        async>
+</script>
+            
+
+
+
+ 
+            <!-- -->
+            <!-- end bar -->
+
+            <!-- Mathjax Support  -->
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+        </section>
+    </div>
+
+
+    
+</body>
+
+</html>
