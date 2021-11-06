@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=96d3959b505b21f72246ab0783904ef4b0368d55">
+    <link rel="stylesheet" href="/assets/css/style.css?v=0a956d230da5cface526eca6694b279f8564ef5d">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -112,7 +112,24 @@
 
 <h3 id="comparing-performances-sync-vs-async-and-rest-vs-graphql">Comparing Performances: Sync vs Async and REST vs GraphQL</h3>
 
-<p>Véase <a href="https://github.com/crguezl/gh-org-members/blob/main/gh-org-members.js">crguezl/gh-org-members</a>)</p>
+<p>Véase <a href="https://github.com/crguezl/gh-org-members/blob/main/gh-org-members.js">crguezl/gh-org-members/gh-org-members.js</a></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">REST Seq</th>
+      <th style="text-align: center">REST Parallel</th>
+      <th style="text-align: center">GraphQL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">12,754</td>
+      <td style="text-align: center">3,3</td>
+      <td style="text-align: center">1,5</td>
+    </tr>
+  </tbody>
+</table>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
