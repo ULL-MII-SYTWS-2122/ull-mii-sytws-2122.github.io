@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=0a956d230da5cface526eca6694b279f8564ef5d">
+    <link rel="stylesheet" href="/assets/css/style.css?v=23714a1b37a72c52d3a4bcb2c7d553c069bcbcd1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -150,23 +150,23 @@
 17
 18
 19
-</pre></td><td class="rouge-code"><pre>/ parallel console.log at the end. branch print-at-the-end
-// gh org-members ULL-MFP-AET-2122 -f  2,84s user 1,11s system 122% cpu 3,218 total
-// gh org-members ULL-MFP-AET-2122 -f  2,73s user 1,08s system 119% cpu 3,193 total
-
-// sequential branch: sequential
+</pre></td><td class="rouge-code"><pre>// rest sequential branch: sequential
 // gh org-members ULL-MFP-AET-2122 -f  3,31s user 1,16s system 35% cpu 12,754 total
 // gh org-members ULL-MFP-AET-2122 -f  3,36s user 1,18s system 35% cpu 12,784 total
 
-// parallel: print as soon as it is available. branch: main
+// REST parallel console.log at the end. branch print-at-the-end
+// gh org-members ULL-MFP-AET-2122 -f  2,84s user 1,11s system 122% cpu 3,218 total
+// gh org-members ULL-MFP-AET-2122 -f  2,73s user 1,08s system 119% cpu 3,193 total
+
+// REST parallel: print as soon as it is available. branch: main
 // gh org-members ULL-MFP-AET-2122 -f  2,92s user 1,18s system 119% cpu 3,445 total
 // gh org-members ULL-MFP-AET-2122 -f  2,81s user 1,14s system 120% cpu 3,289 total
 
-// graphql only for the username, parallel, print asap 
+// GraphQL only for the username, parallel, print asap 
 // gh org-members ULL-MFP-AET-2122 -f  2,89s user 1,24s system 127% cpu 3,244 total
 // gh org-members ULL-MFP-AET-2122 -f  3,01s user 1,34s system 129% cpu 3,352 total
 
-// GraphQl all 
+// GraphQL all 
 // gh org-members ULL-MFP-AET-2122 -f  0,32s user 0,17s system 32% cpu 1,505 total
 // gh org-members ULL-MFP-AET-2122 -f  0,34s user 0,18s system 35% cpu 1,499 total
 </pre></td></tr></tbody></table></code></pre></div></div>
