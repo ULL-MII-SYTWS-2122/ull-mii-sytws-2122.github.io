@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=72c95aa4d41c20939a90a9ea7b63261fdad6009d">
+    <link rel="stylesheet" href="/assets/css/style.css?v=96d3959b505b21f72246ab0783904ef4b0368d55">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -113,6 +113,46 @@
 <h3 id="comparing-performances-sync-vs-async-and-rest-vs-graphql">Comparing Performances: Sync vs Async and REST vs GraphQL</h3>
 
 <p>Véase <a href="https://github.com/crguezl/gh-org-members/blob/main/gh-org-members.js">crguezl/gh-org-members</a>)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="rouge-code"><pre>/ parallel console.log at the end. branch print-at-the-end
+// gh org-members ULL-MFP-AET-2122 -f  2,84s user 1,11s system 122% cpu 3,218 total
+// gh org-members ULL-MFP-AET-2122 -f  2,73s user 1,08s system 119% cpu 3,193 total
+
+// sequential branch: sequential
+// gh org-members ULL-MFP-AET-2122 -f  3,31s user 1,16s system 35% cpu 12,754 total
+// gh org-members ULL-MFP-AET-2122 -f  3,36s user 1,18s system 35% cpu 12,784 total
+
+// parallel: print as soon as it is available. branch: main
+// gh org-members ULL-MFP-AET-2122 -f  2,92s user 1,18s system 119% cpu 3,445 total
+// gh org-members ULL-MFP-AET-2122 -f  2,81s user 1,14s system 120% cpu 3,289 total
+
+// graphql only for the username, parallel, print asap 
+// gh org-members ULL-MFP-AET-2122 -f  2,89s user 1,24s system 127% cpu 3,244 total
+// gh org-members ULL-MFP-AET-2122 -f  3,01s user 1,34s system 129% cpu 3,352 total
+
+// GraphQl all 
+// gh org-members ULL-MFP-AET-2122 -f  0,32s user 0,17s system 32% cpu 1,505 total
+// gh org-members ULL-MFP-AET-2122 -f  0,34s user 0,18s system 35% cpu 1,499 total
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="notes-about-the-lab-github-cli">Notes about the Lab “GitHub Cli”</h2>
 
