@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=84fa0f7ff31596ca7c377157209dc00c819fef72">
+    <link rel="stylesheet" href="/assets/css/style.css?v=98fd3c8184f35c0c33f4cb7c8b2a98808eddb77a">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -141,7 +141,8 @@ we got rid of the need to use parallelism.</p>
 
 <h3 id="comparing-performances-in-the-gh-submodule-extension">Comparing Performances: In the gh-submodule extension</h3>
 
-<p>Improvement of the algorithm unifying in a single query all the queries to check when repos are empty. The first query is still an API REST query,</p>
+<p>Improvement of the algorithm unifying in a single query all the queries to check when repos are empty. 
+In the current version, the first query to make the search (option <code class="language-plaintext highlighter-rouge">-s</code>) is still an API REST query,</p>
 
 <p>Times for only queries to search for the repos and check what are empty:</p>
 
