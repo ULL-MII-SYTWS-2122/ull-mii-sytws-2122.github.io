@@ -216,8 +216,8 @@ committed next to the current project: the current project is termed the <em>sup
 <p>This is what <code class="language-plaintext highlighter-rouge">git submodule absorbgitdirs</code> does:</p>
 
 <blockquote>
-  <p>If a <code class="language-plaintext highlighter-rouge">.git</code> directory of a submodule is inside the submodule, move the <code class="language-plaintext highlighter-rouge">.git</code> directory of the submodule into its superproject’s <code class="language-plaintext highlighter-rouge">$GIT_DIR/modules</code> path and
-then connect the <code class="language-plaintext highlighter-rouge">.git</code> directory and its working directory by setting the <code class="language-plaintext highlighter-rouge">core.worktree</code> and adding a <code class="language-plaintext highlighter-rouge">.git</code> file pointing to the <code class="language-plaintext highlighter-rouge">.git</code> directory embedded
+  <p>If a <code class="language-plaintext highlighter-rouge">.git</code> directory of a submodule is inside the submodule, move the <code class="language-plaintext highlighter-rouge">.git</code> directory of the submodule into its superproject’s <code class="language-plaintext highlighter-rouge">.gitº/modules</code> path and
+then connect the <code class="language-plaintext highlighter-rouge">.git</code> directory and its working directory by setting the <strong><code class="language-plaintext highlighter-rouge">core.worktree</code></strong> and adding a <code class="language-plaintext highlighter-rouge">.git</code> file pointing to the <code class="language-plaintext highlighter-rouge">.git</code> directory embedded
 in the <em>superproject</em>s git directory.
 This command is recursive by default.</p>
 </blockquote>
