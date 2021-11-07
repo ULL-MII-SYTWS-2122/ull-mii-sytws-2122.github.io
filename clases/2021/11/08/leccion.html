@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=c1c9952f48ad22f52b10fafb6f75ad5ef7e246f6">
+    <link rel="stylesheet" href="/assets/css/style.css?v=77781cb3d93c0ca84b6c474a1bf5102670df2701">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -200,11 +200,8 @@ due to the race conditions that arise. Here is a capture of such kind of complai
 <p>Fortunately <code class="language-plaintext highlighter-rouge">git clone</code> can be done in parallel and so the idea was to make a parallel battery of  <code class="language-plaintext highlighter-rouge">git clone</code>s
 and later to sequentially perform the <code class="language-plaintext highlighter-rouge">git submodule add</code> commands.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre> git submodule [-f|--force] [--name &lt;name&gt;] [--depth &lt;depth&gt;] [--] &lt;repository&gt; [&lt;path&gt;]
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>Add the given repository as a submodule at the given path to the <em>changeset</em> to be committed next to the current project: the current project is termed the <em>superproject</em>.  directory is used instead.</p>
+<p><code class="language-plaintext highlighter-rouge">git submodule [-f|--force] [--name &lt;name&gt;] [--depth &lt;depth&gt;] [--] &lt;repository&gt; [&lt;path&gt;]</code>
+adds the given repository as a submodule at the given path to the <em>changeset</em> to be committed next to the current project: the current project is termed the <em>superproject</em>.</p>
 
 <p><strong>If <code class="language-plaintext highlighter-rouge">&lt;path&gt;</code> exists and is already a valid Git repository, then it is staged for commit without cloning</strong>. The <path> is also
 used as the submodule’s logical name in its configuration entries unless `--name` is used to specify a logical name.</path></p>
