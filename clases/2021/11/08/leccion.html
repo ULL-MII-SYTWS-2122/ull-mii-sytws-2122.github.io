@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=6c1accb7cac1f23b26ab2401176731d1f713be13">
+    <link rel="stylesheet" href="/assets/css/style.css?v=c1c9952f48ad22f52b10fafb6f75ad5ef7e246f6">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -199,6 +199,20 @@ due to the race conditions that arise. Here is a capture of such kind of complai
 
 <p>Fortunately <code class="language-plaintext highlighter-rouge">git clone</code> can be done in parallel and so the idea was to make a parallel battery of  <code class="language-plaintext highlighter-rouge">git clone</code>s
 and later to sequentially perform the <code class="language-plaintext highlighter-rouge">git submodule add</code> commands.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre> git submodule [-f|--force] [--name &lt;name&gt;] [--depth &lt;depth&gt;] [--] &lt;repository&gt; [&lt;path&gt;]
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Add the given repository as a submodule at the given path to the <em>changeset</em> to be committed next to the current project: the current project is termed the <em>superproject</em>.  directory is used instead.</p>
+
+<p><strong>If <code class="language-plaintext highlighter-rouge">&lt;path&gt;</code> exists and is already a valid Git repository, then it is staged for commit without cloning</strong>. The <path> is also
+used as the submodule’s logical name in its configuration entries unless `--name` is used to specify a logical name.</path></p>
+
+<p>The given URL is recorded into <code class="language-plaintext highlighter-rouge">.gitmodules</code> for use by subsequent users cloning the superproject. 
+If the URL is given relative to the superproject’s repository, the presumption is the
+superproject and submodule repositories will be kept together in the same relative location, and only the superproject’s URL needs to be provided. 
+<code class="language-plaintext highlighter-rouge">git-submodule</code> will correctly locate the submodule using the relative URL in .gitmodules.</p>
 
 <p>Here is a table  showing  the variation of the time in my laptop when the number of concurrent processes varies:</p>
 
