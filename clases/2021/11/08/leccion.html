@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=77781cb3d93c0ca84b6c474a1bf5102670df2701">
+    <link rel="stylesheet" href="/assets/css/style.css?v=92743e9ec96d90d2d2545b6b1d8e4d423051a4ef">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -200,16 +200,30 @@ due to the race conditions that arise. Here is a capture of such kind of complai
 <p>Fortunately <code class="language-plaintext highlighter-rouge">git clone</code> can be done in parallel and so the idea was to make a parallel battery of  <code class="language-plaintext highlighter-rouge">git clone</code>s
 and later to sequentially perform the <code class="language-plaintext highlighter-rouge">git submodule add</code> commands.</p>
 
-<p><code class="language-plaintext highlighter-rouge">git submodule [-f|--force] [--name &lt;name&gt;] [--depth &lt;depth&gt;] [--] &lt;repository&gt; [&lt;path&gt;]</code>
-adds the given repository as a submodule at the given path to the <em>changeset</em> to be committed next to the current project: the current project is termed the <em>superproject</em>.</p>
+<p>The man page says:</p>
 
-<p><strong>If <code class="language-plaintext highlighter-rouge">&lt;path&gt;</code> exists and is already a valid Git repository, then it is staged for commit without cloning</strong>. The <path> is also
-used as the submodule’s logical name in its configuration entries unless `--name` is used to specify a logical name.</path></p>
+<p><code class="language-plaintext highlighter-rouge">git submodule [-f|--force] [--name &lt;name&gt;] [--depth &lt;depth&gt;] [--] &lt;repository&gt; [&lt;path&gt;]</code></p>
 
-<p>The given URL is recorded into <code class="language-plaintext highlighter-rouge">.gitmodules</code> for use by subsequent users cloning the superproject. 
-If the URL is given relative to the superproject’s repository, the presumption is the
-superproject and submodule repositories will be kept together in the same relative location, and only the superproject’s URL needs to be provided. 
-<code class="language-plaintext highlighter-rouge">git-submodule</code> will correctly locate the submodule using the relative URL in .gitmodules.</p>
+<p>adds the given <code class="language-plaintext highlighter-rouge">&lt;repository&gt;</code> as a submodule at the given <code class="language-plaintext highlighter-rouge">&lt;path&gt;</code> to the <em>changeset</em> to be 
+committed next to the current project: the current project is termed the <em>superproject</em>.</p>
+
+<p><strong>If <code class="language-plaintext highlighter-rouge">&lt;path&gt;</code> exists and is already a valid Git repository, then it is staged for commit without cloning</strong>.</p>
+
+<p>Since the repositories were cloned independently and later added as submodules the old setups have the submodules <code class="language-plaintext highlighter-rouge">.git</code> directory inside the submodule instead of embedded into the superprojects git directory which is the way submodules work.</p>
+
+<p>This forces us to issue an additional <code class="language-plaintext highlighter-rouge">git submodule absorbgitdirs</code> commands per submodule folder.</p>
+
+<p>This is what <code class="language-plaintext highlighter-rouge">git submodule absorbgitdirs</code> does:</p>
+
+<blockquote>
+  <p>If a <code class="language-plaintext highlighter-rouge">.git</code> directory of a submodule is inside the submodule, move the <code class="language-plaintext highlighter-rouge">.git</code> directory of the submodule into its superproject’s <code class="language-plaintext highlighter-rouge">$GIT_DIR/modules</code> path and
+then connect the <code class="language-plaintext highlighter-rouge">.git</code> directory and its working directory by setting the <code class="language-plaintext highlighter-rouge">core.worktree</code> and adding a <code class="language-plaintext highlighter-rouge">.git</code> file pointing to the <code class="language-plaintext highlighter-rouge">.git</code> directory embedded
+in the <em>superproject</em>s git directory.</p>
+</blockquote>
+
+<p>This command is recursive by default.</p>
+
+<p>See also <a href="https://stackoverflow.com/questions/36386667/how-to-make-an-existing-directory-within-a-git-repository-a-git-submodule">https://stackoverflow.com/questions/36386667/how-to-make-an-existing-directory-within-a-git-repository-a-git-submodule</a></p>
 
 <p>Here is a table  showing  the variation of the time in my laptop when the number of concurrent processes varies:</p>
 
