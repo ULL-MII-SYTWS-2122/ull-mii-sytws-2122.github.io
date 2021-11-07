@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=697f713ada9fee968e353a86519d05d69357c5b7">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ab9374c6cfd9ec1a6a5f4a2afb725fcb6dd99d95">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
