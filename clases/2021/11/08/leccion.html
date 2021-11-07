@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=13f474cb57dd581a9f73efd7312a94d56f30a109">
+    <link rel="stylesheet" href="/assets/css/style.css?v=697f713ada9fee968e353a86519d05d69357c5b7">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -222,6 +222,23 @@ rest not unified request
 16 repos  downloaded  5,83s user 3,17s system 25% cpu 35,026 total
 
 </pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Can’t parallelize the downloads of submodules with <code class="language-plaintext highlighter-rouge">git submodule</code> due to race conditions. <code class="language-plaintext highlighter-rouge">git</code>complains:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>Otro proceso git parece estar corriendo en el repositorio, es decir
+un editor abierto con 'git commit'. Por favor asegúrese de que todos los procesos
+están terminados y vuelve a intentar. Si el fallo permanece, un proceso git
+puede haber roto el repositorio antes:
+borra el archivo manualmente para continuar.
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>However <code class="language-plaintext highlighter-rouge">git clone</code>can be done in parallel and so an idea to ecplore is to make a <code class="language-plaintext highlighter-rouge">git clone</code>
+and later a <code class="language-plaintext highlighter-rouge">git submodule add</code></p>
 
 <h2 id="notes-about-the-lab-github-cli">Notes about the Lab “GitHub Cli”</h2>
 
