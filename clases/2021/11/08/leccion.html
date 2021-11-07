@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=92743e9ec96d90d2d2545b6b1d8e4d423051a4ef">
+    <link rel="stylesheet" href="/assets/css/style.css?v=bad9e857c2b9f4fb16085b928fcb0a6407c66d5a">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -218,10 +218,9 @@ committed next to the current project: the current project is termed the <em>sup
 <blockquote>
   <p>If a <code class="language-plaintext highlighter-rouge">.git</code> directory of a submodule is inside the submodule, move the <code class="language-plaintext highlighter-rouge">.git</code> directory of the submodule into its superproject’s <code class="language-plaintext highlighter-rouge">$GIT_DIR/modules</code> path and
 then connect the <code class="language-plaintext highlighter-rouge">.git</code> directory and its working directory by setting the <code class="language-plaintext highlighter-rouge">core.worktree</code> and adding a <code class="language-plaintext highlighter-rouge">.git</code> file pointing to the <code class="language-plaintext highlighter-rouge">.git</code> directory embedded
-in the <em>superproject</em>s git directory.</p>
+in the <em>superproject</em>s git directory.
+This command is recursive by default.</p>
 </blockquote>
-
-<p>This command is recursive by default.</p>
 
 <p>See also <a href="https://stackoverflow.com/questions/36386667/how-to-make-an-existing-directory-within-a-git-repository-a-git-submodule">https://stackoverflow.com/questions/36386667/how-to-make-an-existing-directory-within-a-git-repository-a-git-submodule</a></p>
 
