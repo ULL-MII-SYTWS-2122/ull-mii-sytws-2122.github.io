@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=1206f0c2fb2869e565337a2b5e33973d6bc20c46">
+    <link rel="stylesheet" href="/assets/css/style.css?v=a108b5f1103f604a2b596630e6e6b27a87ea6021">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -133,46 +133,6 @@
   </tbody>
 </table>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-</pre></td><td class="rouge-code"><pre>// rest sequential branch: sequential
-// 3,31s user 1,16s system 35% cpu 12,754 total
-// 3,36s user 1,18s system 35% cpu 12,784 total
-
-// REST parallel console.log at the end. branch print-at-the-end
-// 2,84s user 1,11s system 122% cpu 3,218 total
-// 2,73s user 1,08s system 119% cpu 3,193 total
-
-// REST parallel: print as soon as it is available. branch: main
-// 2,92s user 1,18s system 119% cpu 3,445 total
-// 2,81s user 1,14s system 120% cpu 3,289 total
-
-// GraphQL only for the username, parallel, print asap 
-// 2,89s user 1,24s system 127% cpu 3,244 total
-// 3,01s user 1,34s system 129% cpu 3,352 total
-
-// GraphQL all 
-// 0,32s user 0,17s system 32% cpu 1,505 total
-// 0,34s user 0,18s system 35% cpu 1,499 total
-</pre></td></tr></tbody></table></code></pre></div></div>
-
 <h3 id="comparing-performances-in-the-gh-submodule-extension">Comparing Performances: In the gh-submodule extension</h3>
 
 <p>Improvement of the algorithm unifying in a single query all the queries to check when repos are empty. The first query is still an API REST query,</p>
@@ -215,7 +175,25 @@
 
 <h3 id="both-parallel-and-unified-graphql-queries">Both Parallel and unified GraphQL queries</h3>
 
-<p>Number of concurrent processes vs. time</p>
+<p>The proble with parallelizing the downloads of submodules is that when we put concurrent <code class="language-plaintext highlighter-rouge">git submodule</code>s to work, <code class="language-plaintext highlighter-rouge">git</code>complains 
+due to the race conditions that arise. here is a capture of such kind of complaints:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>    Otro proceso git parece estar corriendo en el repositorio, es decir
+    un editor abierto con 'git commit'. Por favor asegúrese de que todos los procesos
+    están terminados y vuelve a intentar. Si el fallo permanece, un proceso git
+    puede haber roto el repositorio antes:
+    borra el archivo manualmente para continuar.
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Fortunately <code class="language-plaintext highlighter-rouge">git clone</code> can be done in parallel and so the idea was to make a parallel battery of  <code class="language-plaintext highlighter-rouge">git clone</code>s
+and later to sequentially perform the <code class="language-plaintext highlighter-rouge">git submodule add</code> commands.</p>
+
+<p>Here is a table  showing  the time when the number of concurrent processes varies:</p>
 
 <table>
   <thead>
@@ -243,57 +221,6 @@
     </tr>
   </tbody>
 </table>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="rouge-code"><pre>graphql 
-
-with 1 download -o ULL-MII-SYTWS-2122  1,64s user 0,63s system 31% cpu 7,297 total
-with -n option nodownload -o ULL-MII-SYTWS-2122 0,39s user 0,15s system 26% cpu 2,040 total
-
-16 repos no downloads 0,39s user 0,16s system 22% cpu 2,495 total
-16 repos  downloaded 5,96s user 3,25s system 27% cpu 33,934 total
-
-rest not unified request 
-
-16 repos no download 2,33s user 0,83s system 26% cpu 11,815 total
-16 repos  downloaded  5,83s user 3,17s system 25% cpu 35,026 total
-
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>Can’t parallelize the downloads of submodules with <code class="language-plaintext highlighter-rouge">git submodule</code> due to race conditions. <code class="language-plaintext highlighter-rouge">git</code> complains:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-</pre></td><td class="rouge-code"><pre>Otro proceso git parece estar corriendo en el repositorio, es decir
-un editor abierto con 'git commit'. Por favor asegúrese de que todos los procesos
-están terminados y vuelve a intentar. Si el fallo permanece, un proceso git
-puede haber roto el repositorio antes:
-borra el archivo manualmente para continuar.
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<p>However <code class="language-plaintext highlighter-rouge">git clone</code>can be done in parallel and so an idea to explore is to make a parallel battery of all <code class="language-plaintext highlighter-rouge">git clone</code>s
-and later a <code class="language-plaintext highlighter-rouge">git submodule add</code></p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-</pre></td><td class="rouge-code"><pre>gh submodule-add -s aprender-markdown --org ULL-MFP-AET-2122  4,30s user 2,87s system 57% cpu 12,540 total 4 processes
-gh submodule-add -s aprender-markdown --org ULL-MFP-AET-2122  4,29s user 2,82s system 80% cpu 8,783 total  8 processes
-</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="notes-about-the-lab-github-cli">Notes about the Lab “GitHub Cli”</h2>
 
