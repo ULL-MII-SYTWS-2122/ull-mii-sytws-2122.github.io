@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=ab9374c6cfd9ec1a6a5f4a2afb725fcb6dd99d95">
+    <link rel="stylesheet" href="/assets/css/style.css?v=c4288f0a86218eb07f6fbf81d2189d4a462d099d">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -183,6 +183,7 @@
       <th style="text-align: center">GraphQL -n</th>
       <th style="text-align: center">REST</th>
       <th style="text-align: center">GraphQL</th>
+      <th style="text-align: center">Parallel</th>
     </tr>
   </thead>
   <tbody>
@@ -191,6 +192,7 @@
       <td style="text-align: center">2,1</td>
       <td style="text-align: center">33,9</td>
       <td style="text-align: center">24</td>
+      <td style="text-align: center">12,5</td>
     </tr>
   </tbody>
 </table>
@@ -239,6 +241,10 @@ borra el archivo manualmente para continuar.
 
 <p>However <code class="language-plaintext highlighter-rouge">git clone</code>can be done in parallel and so an idea to explore is to make a parallel battery of all <code class="language-plaintext highlighter-rouge">git clone</code>s
 and later a <code class="language-plaintext highlighter-rouge">git submodule add</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>gh submodule-add -s aprender-markdown --org ULL-MFP-AET-2122  4,30s user 2,87s system 57% cpu 12,540 total
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="notes-about-the-lab-github-cli">Notes about the Lab “GitHub Cli”</h2>
 
