@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=ea4563ef67b2f4d9b7192c19c4eb4a9d36a18ddf">
+    <link rel="stylesheet" href="/assets/css/style.css?v=13f474cb57dd581a9f73efd7312a94d56f30a109">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -176,6 +176,25 @@
 
 <p>Only unified the queries to check when the repo is empty</p>
 
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">REST -n</th>
+      <th style="text-align: center">GraphQL -n</th>
+      <th style="text-align: center">REST</th>
+      <th style="text-align: center">GraphQL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">11,8</td>
+      <td style="text-align: center">2,1</td>
+      <td style="text-align: center">33,9</td>
+      <td style="text-align: center">24</td>
+    </tr>
+  </tbody>
+</table>
+
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -189,20 +208,18 @@
 11
 12
 13
-14
-</pre></td><td class="rouge-code"><pre>
-graphql 
+</pre></td><td class="rouge-code"><pre>graphql 
 
 with 1 download -o ULL-MII-SYTWS-2122  1,64s user 0,63s system 31% cpu 7,297 total
 with -n option nodownload -o ULL-MII-SYTWS-2122 0,39s user 0,15s system 26% cpu 2,040 total
 
 16 repos no downloads 0,39s user 0,16s system 22% cpu 2,495 total
-16 repos  downloaded  5,83s user 3,17s system 25% cpu 35,026 total
+16 repos  downloaded 5,96s user 3,25s system 27% cpu 33,934 total
 
 rest not unified request 
 
 16 repos no download 2,33s user 0,83s system 26% cpu 11,815 total
-16 repos  downloaded 5,96s user 3,25s system 27% cpu 33,934 total
+16 repos  downloaded  5,83s user 3,17s system 25% cpu 35,026 total
 
 </pre></td></tr></tbody></table></code></pre></div></div>
 
