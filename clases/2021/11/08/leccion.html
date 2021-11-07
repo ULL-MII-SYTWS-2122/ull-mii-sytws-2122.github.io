@@ -116,6 +116,11 @@
 
 <p>Véase <a href="https://github.com/crguezl/gh-org-members/blob/main/gh-org-members.js">crguezl/gh-org-members/gh-org-members.js</a></p>
 
+<p>This is an extension that shows information about the people inside an organization.
+The initial version was written using the GitHub REST API. The performance was poor due to chaining of subsequent requests.
+Parallelizing the requests to the REST API gave quite an improvement but changing to GraphQL was much better and by reducin all requests  to a single one 
+we got rid of the need to use parallelism.</p>
+
 <table>
   <thead>
     <tr>
