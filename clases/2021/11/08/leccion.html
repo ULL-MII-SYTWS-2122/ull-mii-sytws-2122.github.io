@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=622957c626689aeedb1acd51ba048b4b9329ca2c">
+    <link rel="stylesheet" href="/assets/css/style.css?v=c7d16b6fb51e264ff7b157cc4cec0ecec0a10744">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -152,18 +152,8 @@ we got rid of the need to use parallelism.</p>
 <p>Forn the <code class="language-plaintext highlighter-rouge">gh help api</code>:</p>
 
 <blockquote>
-  <p>For GraphQL requests, all fields other than “<em>query</em>” and “<em><a href="https://graphql.org/learn/queries/#operation-name">operationName</a></em>” are
-interpreted as GraphQL variables.</p>
-</blockquote>
-
-<blockquote>
-  <p>Raw request body may be passed from the outside via a file specified by <code class="language-plaintext highlighter-rouge">--input</code>.
-Pass “<code class="language-plaintext highlighter-rouge">-</code>” to read from standard input. 
-In this mode, parameters specified via <code class="language-plaintext highlighter-rouge">--field</code> flags are serialized into URL query parameters.</p>
-</blockquote>
-
-<blockquote>
-  <p>In <code class="language-plaintext highlighter-rouge">--paginate</code> mode, all pages of results will sequentially be requested until
+  <p>For GraphQL requests, …
+In <code class="language-plaintext highlighter-rouge">--paginate</code> mode, all pages of results will sequentially be requested until
 there are no more pages of results. 
 For GraphQL requests, this requires that the original query accepts an <code class="language-plaintext highlighter-rouge">$endCursor: String</code> variable and that it fetches the
 <code class="language-plaintext highlighter-rouge">pageInfo{ hasNextPage, endCursor }</code> set of fields from a collection.</p>
