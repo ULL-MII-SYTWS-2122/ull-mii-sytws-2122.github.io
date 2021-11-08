@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=3e61c4881d2572bce29946fcd9a708a31ff98c75">
+    <link rel="stylesheet" href="/assets/css/style.css?v=622957c626689aeedb1acd51ba048b4b9329ca2c">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -96,6 +96,11 @@
   <li><a href="#exercises-on-asynchronous-js">Exercises on Asynchronous JS</a>
     <ul>
       <li><a href="#comparing-performances-sync-vs-async-and-rest-vs-graphql-in-the-gh-org-members-extension">Comparing Performances: Sync vs Async and REST vs GraphQL in the gh-org-members extension</a></li>
+      <li><a href="#pagination-with-gh-api-graphql">Pagination with gh api graphql</a>
+        <ul>
+          <li><a href="#working-with-git-worktree">Working with git worktree</a></li>
+        </ul>
+      </li>
       <li><a href="#comparing-performances-in-the-gh-submodule-extension">Comparing Performances: In the gh-submodule extension</a></li>
       <li><a href="#both-parallel-and-unified-graphql-queries">Both Parallel and unified GraphQL queries</a></li>
     </ul>
@@ -139,6 +144,40 @@ we got rid of the need to use parallelism.</p>
     </tr>
   </tbody>
 </table>
+
+<p>the sequential version is in the branch <code class="language-plaintext highlighter-rouge">sequential</code>:</p>
+
+<h3 id="pagination-with-gh-api-graphql">Pagination with gh api graphql</h3>
+
+<p>Forn the <code class="language-plaintext highlighter-rouge">gh help api</code>:</p>
+
+<blockquote>
+  <p>For GraphQL requests, all fields other than “<em>query</em>” and “<em><a href="https://graphql.org/learn/queries/#operation-name">operationName</a></em>” are
+interpreted as GraphQL variables.</p>
+</blockquote>
+
+<blockquote>
+  <p>Raw request body may be passed from the outside via a file specified by <code class="language-plaintext highlighter-rouge">--input</code>.
+Pass “<code class="language-plaintext highlighter-rouge">-</code>” to read from standard input. 
+In this mode, parameters specified via <code class="language-plaintext highlighter-rouge">--field</code> flags are serialized into URL query parameters.</p>
+</blockquote>
+
+<blockquote>
+  <p>In <code class="language-plaintext highlighter-rouge">--paginate</code> mode, all pages of results will sequentially be requested until
+there are no more pages of results. 
+For GraphQL requests, this requires that the original query accepts an <code class="language-plaintext highlighter-rouge">$endCursor: String</code> variable and that it fetches the
+<code class="language-plaintext highlighter-rouge">pageInfo{ hasNextPage, endCursor }</code> set of fields from a collection.</p>
+</blockquote>
+
+<h4 id="working-with-git-worktree">Working with git worktree</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>$ git worktree add ../gh-org-members-seq sequential
+$ code ../gh-org-members-seq
+$ git branch -a
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="comparing-performances-in-the-gh-submodule-extension">Comparing Performances: In the gh-submodule extension</h3>
 
@@ -248,7 +287,7 @@ This command is recursive by default.</p>
       <td style="text-align: center">16,</td>
       <td style="text-align: center">14,3</td>
       <td style="text-align: center">13,2</td>
-      <td style="text-align: center">11,6</td>
+      <td style="text-align: center">12,5</td>
       <td style="text-align: center">12,9</td>
       <td style="text-align: center">11,3</td>
       <td style="text-align: center">11,0</td>
