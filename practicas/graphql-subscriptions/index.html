@@ -92,6 +92,7 @@
             
             <ul id="sytwstoc">
   <li><a href="#goals">Goals</a></li>
+  <li><a href="#hello-subscriptions">Hello Subscriptions</a></li>
   <li><a href="#references">References</a></li>
 </ul>
           
@@ -106,12 +107,100 @@
 
 <p>Use the corresponding repo <a href="https://github.com/crguezl/graphql-chat-app">GitHub crguezl/graphql-chat-app</a> to see more details.</p>
 
+<h2 id="hello-subscriptions">Hello Subscriptions</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+</pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="p">{</span> <span class="nx">GraphQLServer</span><span class="p">,</span> <span class="nx">PubSub</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">graphql-yoga</span><span class="dl">'</span>
+
+<span class="kd">const</span> <span class="nx">typeDefs</span> <span class="o">=</span> <span class="s2">`
+  type Query {
+    hello: String!
+  }
+
+  type Counter {
+    count: Int!
+    countStr: String
+  }
+
+  type Subscription {
+    counter: Counter!
+  }
+`</span>
+
+<span class="kd">const</span> <span class="nx">resolvers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">Query</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">hello</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="s2">`Hello`</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="na">Counter</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">countStr</span><span class="p">:</span> <span class="nx">counter</span> <span class="o">=&gt;</span> <span class="s2">`Current count: </span><span class="p">${</span><span class="nx">counter</span><span class="p">.</span><span class="nx">count</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="na">Subscription</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">counter</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">subscribe</span><span class="p">:</span> <span class="p">(</span><span class="nx">parent</span><span class="p">,</span> <span class="nx">args</span><span class="p">,</span> <span class="p">{</span> <span class="nx">pubsub</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">channel</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">().</span><span class="nx">toString</span><span class="p">(</span><span class="mi">36</span><span class="p">).</span><span class="nx">substring</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span> <span class="c1">// random channel name</span>
+        <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="nx">setInterval</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">pubsub</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="nx">channel</span><span class="p">,</span> <span class="p">{</span> <span class="na">counter</span><span class="p">:</span> <span class="p">{</span> <span class="na">count</span><span class="p">:</span> <span class="nx">count</span><span class="o">++</span> <span class="p">}</span> <span class="p">}),</span> <span class="mi">2000</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nx">pubsub</span><span class="p">.</span><span class="nx">asyncIterator</span><span class="p">(</span><span class="nx">channel</span><span class="p">)</span>
+      <span class="p">},</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">pubsub</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PubSub</span><span class="p">()</span>
+<span class="kd">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GraphQLServer</span><span class="p">({</span> <span class="nx">typeDefs</span><span class="p">,</span> <span class="nx">resolvers</span><span class="p">,</span> <span class="na">context</span><span class="p">:</span> <span class="p">{</span> <span class="nx">pubsub</span> <span class="p">}</span> <span class="p">})</span>
+
+<span class="nx">server</span><span class="p">.</span><span class="nx">start</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Server is running on localhost:4000</span><span class="dl">'</span><span class="p">))</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><img src="/assets/images/graphql-hello-subscriptions.png" alt="" /></p>
+
 <h2 id="references">References</h2>
 
 <ul>
   <li><a href="https://github.com/crguezl/graphql-chat-app">Repo GitHub crguezl/graphql-chat-app</a> Chat with Subscriptions</li>
   <li><a href="https://pusher.com/tutorials/chat-graphql-subscriptions/">Tutorial</a> <em>Building live chat app with GraphQL subscriptions</em></li>
+  <li><a href="https://www.howtographql.com/graphql-js/7-subscriptions/">Realtime GraphQL Subscriptions</a> from GRAPHQL-NODE TUTORIAL. Written by Maira Bello: Build your own GraphQL server</li>
 </ul>
+
 
 
 
