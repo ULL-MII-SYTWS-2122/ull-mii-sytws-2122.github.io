@@ -107,6 +107,8 @@
           <li><a href="#google-calendar-api"><a href="https://developers.google.com/google-apps/calendar/">Google Calendar API</a></a></li>
         </ul>
       </li>
+      <li><a href="#jekyll-y-rest">Jekyll y Rest</a></li>
+      <li><a href="#example">Example</a></li>
       <li><a href="#prácticas">Prácticas</a></li>
     </ul>
   </li>
@@ -324,6 +326,60 @@ using the POST method
   <li><a href="https://github.com/google/google-api-javascript-client">Google APIs Client Library for JavaScript</a></li>
   <li><a href="https://developers.google.com/api-client-library/javascript/start/start-js">Google API Client Libraries JavaScript. Tutorial</a></li>
 </ol>
+
+<h2 id="jekyll-y-rest">Jekyll y Rest</h2>
+
+<ul>
+  <li><a href="https://gist.github.com/MichaelCurrin/f8d908596276bdbb2044f04c352cb7c7">Jekyll - how to build a REST API</a></li>
+</ul>
+
+<p>This is useful if you want to make your data available for another service or for others to consume (like GitHub, Twitter and Facebook make their data available on APIs). Or perhaps you have JavaScript single-page application that reads from your API backend to serve the app or build a search index.</p>
+
+<h2 id="example">Example</h2>
+
+<p>Given data in page frontmatter or a YAML data file:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="nn">---</span>
+<span class="na">my_data</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">a</span><span class="pi">:</span> <span class="m">1</span>
+    <span class="na">b</span><span class="pi">:</span> <span class="m">2</span>
+  <span class="pi">-</span> <span class="na">a</span><span class="pi">:</span> <span class="m">100</span>
+    <span class="na">b</span><span class="pi">:</span> <span class="m">200</span>
+<span class="nn">---</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Or CSV data as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>a,  b
+1,  2
+100,200
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The rendered JSON page will look like this:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">localhost:4000/foo.json</code>
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="w">  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w"> </span><span class="nl">"b"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nl">"a"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w"> </span><span class="nl">"b"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="w"> </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div>    </div>
+  </li>
+</ul>
 
 <h2 id="prácticas">Prácticas</h2>
 
