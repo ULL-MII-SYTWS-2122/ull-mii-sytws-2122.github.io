@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=6cbf3dd930b9a1f5d5bf36a1a7a24a137946c3c6">
+    <link rel="stylesheet" href="/assets/css/style.css?v=4224cdff1d7d28bf4c8faaefef38f55c87481e4d">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -109,6 +109,14 @@
 
 <h2 id="hello-subscriptions">Hello Subscriptions</h2>
 
+<p>GraphQL subscriptions enable you to subscribe to events under a source stream and receive notifications in real time via a response stream when a selected event executes.</p>
+
+<p>Once a GraphQL subscription is executed, a persistent function is created on the server that maps an underlying source stream to a returned response stream.</p>
+
+<p>GraphQL subscriptions differ from queries in the way the data is delivered to the client.</p>
+
+<p>Queries immediately returns a single response, while subscriptions return a result every time data is published on a topic the client has subscribed.</p>
+
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -190,6 +198,8 @@
 
 <span class="nx">server</span><span class="p">.</span><span class="nx">start</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Server is running on localhost:4000</span><span class="dl">'</span><span class="p">))</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Now when we visit <code class="language-plaintext highlighter-rouge">localhost:4000</code> and subscribe we can see the counters moving:</p>
 
 <p><img src="/assets/images/graphql-hello-subscriptions.png" alt="" /></p>
 
