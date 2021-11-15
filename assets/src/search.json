@@ -1461,9 +1461,9 @@
   },
   
   {
-    "title": "{{site.temas[2].title}}",
+    "title": "Asynchronous Programming in JS",
     "excerpt": "\n",
-    "content": "{{site.temas[2].title}}\n\nEvent Loop, Race Conditions y Web Workers\n\nThe Async module\n\nPromises\n\nGenerators and Iterators\n\nHandling Events\n\nNode.js EventEmitters\n\nSockets\n\nMessage Queues\n\nRPC\n\nMódulos en ECMA5\n\nReferencias\n\n\n  Vídeo Cómo funciona Async/Await en menos de 15 minutos YouTube Vídeo por Appdelante\n  Book Exploring ES6: 24. Asynchronous programming (background) \n  Book Understanding ECMAScript 6: Iterators and Generators\n  Book You Don’t Know JS: Chapter Async &amp; Performance\n  Book ASYNC JavaScript: Build More Responsive Apps with Less Code\n  Async examples in JS in GitHub\n  Writing Asynchronous Tasks In Modern JavaScript Smashing Magazine\n\n\n",
+    "content": "Asynchronous Programming in JS\n\nEvent Loop, Race Conditions y Web Workers\n\nThe Async module\n\nPromises\n\nGenerators and Iterators\n\nHandling Events\n\nNode.js EventEmitters\n\nSockets\n\nMessage Queues\n\nRPC\n\nMódulos en ECMA5\n\nReferencias\n\n\n  Vídeo Cómo funciona Async/Await en menos de 15 minutos YouTube Vídeo por Appdelante\n  Book Exploring ES6: 24. Asynchronous programming (background) \n  Book Understanding ECMAScript 6: Iterators and Generators\n  Book You Don’t Know JS: Chapter Async &amp; Performance\n  Book ASYNC JavaScript: Build More Responsive Apps with Less Code\n  Async examples in JS in GitHub\n  Writing Asynchronous Tasks In Modern JavaScript Smashing Magazine\n\n\n",
     "url": "/tema2-async/"
   },
   
