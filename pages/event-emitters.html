@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=efee41e2e348a7db15bb436138ea3051513ea9c0">
+    <link rel="stylesheet" href="/assets/css/style.css?v=725f582644cee7541f109f8936445851a51535a7">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -277,6 +277,8 @@
 
 <h2 id="listenercount-and-rawlisteners">listenerCount and rawListeners</h2>
 
+<p><code class="language-plaintext highlighter-rouge">emitter.rawListeners(eventName)</code> returns a copy of the array of listeners for the event named <code class="language-plaintext highlighter-rouge">eventName</code>, including any wrappers (such as those created by <code class="language-plaintext highlighter-rouge">.once()</code>).</p>
+
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -289,19 +291,30 @@
 
 <h1 id="ejercicio">Ejercicio</h1>
 
-<p>Vamos ahora a escribir una clase <code class="language-plaintext highlighter-rouge">WithTime</code> cuyos objetos disponen de un método <code class="language-plaintext highlighter-rouge">execute</code> que permite ejecutar 
-una función asíncrona <code class="language-plaintext highlighter-rouge">asyncfun</code> que acepta como último argumento una callback <code class="language-plaintext highlighter-rouge">cb</code>.</p>
+<p>Vamos ahora a escribir una clase <code class="language-plaintext highlighter-rouge">WithTime</code> cuyos objetos disponen de un método <code class="language-plaintext highlighter-rouge">execute</code> con una firma como esta:</p>
 
-<p>Como es habitual, se supone que la callback es llamada  <code class="language-plaintext highlighter-rouge">cb(err, data)</code> por <code class="language-plaintext highlighter-rouge">asyncfun</code> cuando esta termina su tarea asíncrona.</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">WithTime</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">./with-time.js</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">withTime</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WithTime</span><span class="p">();</span>
+<span class="nx">withTime</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="nx">readFile</span><span class="p">,</span> <span class="dl">'</span><span class="s1">https://jsonplaceholder.typicode.com/posts/3</span><span class="dl">'</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>El primer parámetro <code class="language-plaintext highlighter-rouge">err</code> indica el error si lo hubo y el segundo <code class="language-plaintext highlighter-rouge">data</code> con el resultado de la operación asíncrona:  <code class="language-plaintext highlighter-rouge">cb(err, data)</code>.</p>
+<p>Esto es, <code class="language-plaintext highlighter-rouge">execute</code> recibe como primer argumento una función asíncrona <code class="language-plaintext highlighter-rouge">asyncfun</code> cuyo último argumento es una callback</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nx">asyncfun</span><span class="p">(...,</span> <span class="nx">cb</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Como es el convenio habitual en JS, se supone que la callback será llamada  <code class="language-plaintext highlighter-rouge">cb(err, data)</code> por <code class="language-plaintext highlighter-rouge">asyncfun</code> cuando esta termina su tarea asíncrona. El primer parámetro <code class="language-plaintext highlighter-rouge">err</code> indica el error si lo hubo y el segundo <code class="language-plaintext highlighter-rouge">data</code> con el resultado de la operación asíncrona:  <code class="language-plaintext highlighter-rouge">cb(err, data)</code>.</p>
 
 <p>Se pide que:</p>
 
 <ol>
   <li>La función <code class="language-plaintext highlighter-rouge">execute</code> emita eventos <code class="language-plaintext highlighter-rouge">begin</code> y <code class="language-plaintext highlighter-rouge">end</code>  señalando el comienzo y final de la ejecución de <code class="language-plaintext highlighter-rouge">asyncfun</code></li>
   <li>Deberá así mismo emitir un evento <code class="language-plaintext highlighter-rouge">result</code> con el resultado de la operación asíncrona.</li>
-  <li>Deberá emitir un evento <code class="language-plaintext highlighter-rouge">time</code> indicando el tiempo que ha tomado la ejecución en nanosegundos (use <a href="https://nodejs.org/api/process.html#process_process_hrtime_bigint"><code class="language-plaintext highlighter-rouge">process.hrtime.bigint</code></a> para ello)</li>
+  <li>Deberá emitir un evento <code class="language-plaintext highlighter-rouge">time</code> indicando el tiempo que ha tomado la ejecución en nanosegundos (puede usar <a href="https://nodejs.org/api/process.html#process_process_hrtime_bigint"><code class="language-plaintext highlighter-rouge">process.hrtime.bigint</code></a> para ello)</li>
 </ol>
 
 <p>Por ejemplo, un código como:</p>
