@@ -92,7 +92,7 @@
       {
         "title": "Clase  del Miércoles 10/11/2021 (Semana C)",
         "excerpt": "Vamos a intentar ponernos al día con las prácticas anteriores.\n\n",
-        "content": "Vamos a intentar ponernos al día con las prácticas anteriores.\n\nTenemos una nueva práctica en camino sobre las subscripciones en GraphQL:\n\nLab: GraphQL Subscriptions\n\n\n  GraphQL Subscriptions\n\n\nSubscriptions are based on EventEmitter.  We will talk about them on next Monday class.\n\nReview the chapter on \nEventEmitters.\n\nIf you want to practice more with the event emitters you can ** optionally ** do the lab\nnetworking.\n\n",
+        "content": "Vamos a intentar ponernos al día con las prácticas anteriores.\n\nTenemos una nueva práctica en camino sobre las subscripciones en GraphQL:\n\nLab: GraphQL Subscriptions\n\n\n  GraphQL Subscriptions\n\n\nSubscriptions are based on EventEmitter.  We will talk about them on next Monday class.\n\nReview the chapter on \nEventEmitters.\n\nIf you want to practice more with the event emitters you can optionally do the lab\nnetworking.\n\n",
         "url": "/clases/2021/11/10/leccion.html"
       },
     
