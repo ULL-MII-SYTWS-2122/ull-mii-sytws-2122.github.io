@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=770a437572c87447e7622fd524d33d460418b4e7">
+    <link rel="stylesheet" href="/assets/css/style.css?v=c78b41ec7182ac11c179554497b8cb4fdae83236">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -312,8 +312,9 @@
 <p>Se pide que:</p>
 
 <ol>
-  <li>La función <code class="language-plaintext highlighter-rouge">execute</code> emita eventos <code class="language-plaintext highlighter-rouge">begin</code> y <code class="language-plaintext highlighter-rouge">end</code>  señalando el comienzo y final de la ejecución de <code class="language-plaintext highlighter-rouge">asyncfun</code></li>
-  <li>Deberá así mismo emitir un evento <code class="language-plaintext highlighter-rouge">result</code> con el resultado de la operación asíncrona.</li>
+  <li>La llamada <code class="language-plaintext highlighter-rouge">withTime.execute(asyncFun, ...args)</code> emita eventos <code class="language-plaintext highlighter-rouge">begin</code> y <code class="language-plaintext highlighter-rouge">end</code>  señalando 
+el comienzo y final de la ejecución de <code class="language-plaintext highlighter-rouge">asyncfun</code></li>
+  <li>Deberá así mismo emitir un evento <code class="language-plaintext highlighter-rouge">result</code> con el resultado de la operación asíncrona al final de la misma.</li>
   <li>Deberá emitir un evento <code class="language-plaintext highlighter-rouge">time</code> indicando el tiempo que ha tomado la ejecución en nanosegundos (puede usar <a href="https://nodejs.org/api/process.html#process_process_hrtime_bigint"><code class="language-plaintext highlighter-rouge">process.hrtime.bigint</code></a> para ello)</li>
 </ol>
 
