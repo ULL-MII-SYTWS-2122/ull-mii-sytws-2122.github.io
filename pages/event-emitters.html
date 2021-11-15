@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=0aaf31dcc57d76c9670aa89f17e8bb909c5218db">
+    <link rel="stylesheet" href="/assets/css/style.css?v=8deb44b26e103b3464485077f43445167bdcff19">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -418,61 +418,9 @@ Function readFile error:
 'Buf! TypeError: Only absolute URLs are supported'
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Esta es una Solución</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>[~/.../networking-with-sockets-chapter-3-crguezl/event-emitter-tutorial(master)]$ cat with-time.js 
-</pre></td></tr></tbody></table></code></pre></div></div>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="p">{</span> <span class="nx">EventEmitter</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">events</span><span class="dl">"</span><span class="p">);</span>
-
-<span class="kd">class</span> <span class="nx">WithTime</span> <span class="kd">extends</span> <span class="nx">EventEmitter</span> <span class="p">{</span>
-
-  <span class="c1">// This function executes asyncFunc(...args)</span>
-  <span class="nx">execute</span><span class="p">(</span><span class="nx">asyncFunc</span><span class="p">,</span> <span class="p">...</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">label</span> <span class="o">=</span> <span class="nx">asyncFunc</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
-
-    <span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">begin</span><span class="dl">'</span><span class="p">,</span> <span class="nx">label</span><span class="p">);</span>
-    <span class="kd">let</span> <span class="nx">old</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">hrtime</span><span class="p">.</span><span class="nx">bigint</span><span class="p">();</span>
-    <span class="nx">asyncFunc</span><span class="p">(...</span><span class="nx">args</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span> 
-        <span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">error</span><span class="dl">'</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span> 
-      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">result</span><span class="dl">'</span><span class="p">,</span> <span class="nx">label</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">time</span><span class="dl">'</span><span class="p">,</span> <span class="nx">label</span><span class="p">,</span> <span class="nx">process</span><span class="p">.</span><span class="nx">hrtime</span><span class="p">.</span><span class="nx">bigint</span><span class="p">()</span> <span class="o">-</span> <span class="nx">old</span><span class="p">);</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">end</span><span class="dl">'</span><span class="p">,</span> <span class="nx">label</span><span class="p">);</span>
-      <span class="p">}</span>
-    <span class="p">});</span>
-  <span class="p">}</span>
-
-<span class="p">}</span>
-
-<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">WithTime</span><span class="p">;</span>
-</pre></td></tr></tbody></table></code></pre></div></div>
+<ul>
+  <li><a href="/pages/solution-to-event-emitters-exercise.md">Esta es una Solución</a></li>
+</ul>
 
 <p>Si quieres prácticar mas con los event emitters puedes realizar <strong>opcionalmente</strong> la práctica 
 <a href="/tema2-async/practicas/networking/">networking</a>.</p>
