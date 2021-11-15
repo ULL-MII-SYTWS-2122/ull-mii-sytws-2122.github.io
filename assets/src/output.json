@@ -26,6 +26,31 @@
 
     
     {
+      "title": "Clase  del Miércoles 10/11/2021 (Semana C)",
+      "date": "November 10, 2021",
+
+      "excerpt": "<p>Vamos a intentar ponernos al día con las prácticas anteriores.</p>
+
+",
+       "categories"  : [
+         "Clases"
+        
+        
+        ],
+      
+      
+      "url": "/clases/2021/11/10/leccion.html",
+       "tags"  : [
+        
+        ]
+      
+      
+    }
+
+    ,
+
+    
+    {
       "title": "Clase  del Lunes 08/11/2021 (Semana C)",
       "date": "November 08, 2021",
 
@@ -215,31 +240,6 @@
       
       
       "url": "/clases/2021/10/11/leccion.html",
-       "tags"  : [
-        
-        ]
-      
-      
-    }
-
-    ,
-
-    
-    {
-      "title": "Clase Virtual del Miércoles 06/10/2021 (Semana A)",
-      "date": "October 06, 2021",
-
-      "excerpt": "<p>Esta clase es asíncrona.</p>
-
-",
-       "categories"  : [
-         "Clases"
-        
-        
-        ],
-      
-      
-      "url": "/clases/2021/10/06/leccion.html",
        "tags"  : [
         
         ]
