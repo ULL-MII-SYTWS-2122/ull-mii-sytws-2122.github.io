@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=510789d8d6325c253985ebb56733e82383742d8c">
+    <link rel="stylesheet" href="/assets/css/style.css?v=0aaf31dcc57d76c9670aa89f17e8bb909c5218db">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -298,10 +298,12 @@
 3
 </pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">WithTime</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">./with-time.js</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">const</span> <span class="nx">withTime</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WithTime</span><span class="p">();</span>
-<span class="nx">withTime</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="nx">readFile</span><span class="p">,</span> <span class="dl">'</span><span class="s1">https://jsonplaceholder.typicode.com/posts/3</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">withTime</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="nx">asyncFun</span><span class="p">,</span> <span class="p">...</span><span class="nx">args</span><span class="p">);</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Esto es, <code class="language-plaintext highlighter-rouge">execute</code> recibe como primer argumento una función asíncrona <code class="language-plaintext highlighter-rouge">asyncfun</code> cuyo último argumento es una callback</p>
+<p>Esto es, <code class="language-plaintext highlighter-rouge">execute</code> recibe como primer argumento una función asíncrona <code class="language-plaintext highlighter-rouge">asyncfun</code> y emite distintos tipos de eventos <code class="language-plaintext highlighter-rouge">begin</code>, <code class="language-plaintext highlighter-rouge">end</code>, <code class="language-plaintext highlighter-rouge">error</code>, etc, indicando los cambios de estado en la ejecución de  <code class="language-plaintext highlighter-rouge">asyncFun</code>.</p>
+
+<p>La firma de <code class="language-plaintext highlighter-rouge">asyncFun</code> es</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="nx">asyncfun</span><span class="p">(...,</span> <span class="nx">cb</span><span class="p">)</span>
