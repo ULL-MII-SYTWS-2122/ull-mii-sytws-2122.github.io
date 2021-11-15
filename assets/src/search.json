@@ -98,8 +98,8 @@
     
       {
         "title": "Clase  del Lunes 15/11/2021 (Semana A)",
-        "excerpt": "Lab: GraphQL-Simple-Server\n\n",
-        "content": "Lab: GraphQL-Simple-Server\n\nContinue studying the basics of express and GraphQL\n\n\n  GraphQL-Simple-Server\n\n\nSee the hello graphQL example at https://github.com/crguezl/learning-graphql-with-gh/tree/main/graphql-beginner-series\n\nLab: npm module\n\n\n  npm module\n\n\nLab: GraphQL-Simple-Client\n\n\n  GraphQL-Simple-Client\n\n\nLab: GraphQL Subscriptions\n\n\n  GraphQL Subscriptions\n\n\nReferences\n\n\n  GraphQL: Execution\n\n\n",
+        "excerpt": "Últimas Prácticas\n\n",
+        "content": "Últimas Prácticas\n\nVamos a intentar ponernos al día con las prácticas anteriores.\n\nLab: npm module\n\n\n  npm module\n\n\nLab: GraphQL-Simple-Server\n\nContinue studying the basics of express and GraphQL\n\n\n  GraphQL-Simple-Server\n\n\nSee the hello graphQL example at https://github.com/crguezl/learning-graphql-with-gh/tree/main/graphql-beginner-series\n\nLab: GraphQL-Simple-Client\n\n\n  GraphQL-Simple-Client\n\n\nLab: GraphQL Subscriptions\n\nTenemos una nueva práctica en camino sobre las subscripciones en GraphQL:\n\n\n  GraphQL Subscriptions\n\n\nSubscriptions are based on three technologies:\n\n\n  EventEmitter.\n    \n      Review the chapter on \nEventEmitters.\n      If you want to practice more with the event emitters you can optionally do the lab\nnetworking.\n    \n  \n  Another concept that you have to know before going to GraphQL subscriptions is Async Generators. You can optionally do the laAsync Generators\n  The third technoloy you need to know is websockets. You can optionally do the lab Websockets\n\n\nReferences\n\n\n  GraphQL: Execution\n\n\n",
         "url": "/clases/2021/11/15/leccion.html"
       },
     
