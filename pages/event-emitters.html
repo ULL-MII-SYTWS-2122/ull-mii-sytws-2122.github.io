@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=748a0b0dee4f4e5adc35905bc7e9d505161dc10f">
+    <link rel="stylesheet" href="/assets/css/style.css?v=0502f7b7a203cb77ee7ddad2ee0812542f2c1471">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -92,17 +92,16 @@
     <ul>
       <li><a href="#on">on</a></li>
       <li><a href="#once">once</a></li>
-      <li><a href="#argumentos">Argumentos</a></li>
-      <li><a href="#off">off</a></li>
-      <li><a href="#listenercount-and-rawlisteners">listenerCount and rawListeners</a></li>
     </ul>
   </li>
-  <li><a href="#ejercicio">Ejercicio</a></li>
+  <li><a href="#argumentos">Argumentos</a></li>
+  <li><a href="#off">off</a></li>
+  <li><a href="#listenercount-and-rawlisteners">listenerCount and rawListeners</a></li>
 </ul>
         
             <h1> The Observer Pattern </h1>
             <div class="container">
-                <h3 id="the-observer-pattern">The Observer Pattern</h3>
+                <h2 id="the-observer-pattern">The Observer Pattern</h2>
 
 <blockquote>
   <p>The <strong>observer pattern</strong> is a software design pattern in which an object, called the <strong>subject</strong>, maintains a list of its dependents, called <strong>observers</strong>, and notifies them automatically of any state changes, usually by calling one of their methods.</p>
@@ -116,7 +115,7 @@
   <li><a href="https://addyosmani.com/resources/essentialjsdesignpatterns/book/#observerpatternjavascript">Learning JavaScript Design Patterns. A book by Addy Osmani</a></li>
 </ul>
 
-<h3 id="la-clase-eventemitter">La Clase EventEmitter</h3>
+<h2 id="la-clase-eventemitter">La Clase EventEmitter</h2>
 
 <ul>
   <li>Algunos métodos de los objetos de la clase <a href="https://nodejs.org/api/events.html#events_class_eventemitter">EventEmitter</a>:</li>
@@ -124,7 +123,7 @@
 
 <p><img src="/assets/images/event-emitter-methods.png" alt="" /></p>
 
-<h4 id="on">on</h4>
+<h3 id="on">on</h3>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -185,7 +184,7 @@
 <span class="nx">yet</span> <span class="nx">another</span> <span class="nx">event</span> <span class="nx">occurred</span><span class="o">!</span>
 <span class="kc">true</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
-<h4 id="once">once</h4>
+<h3 id="once">once</h3>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -220,7 +219,7 @@
 <span class="o">&gt;</span> <span class="nx">myEmitter</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">eventOnce</span><span class="dl">'</span><span class="p">);</span>
 <span class="kc">false</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
-<h4 id="argumentos">Argumentos</h4>
+<h2 id="argumentos">Argumentos</h2>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -242,11 +241,11 @@
   <span class="nx">_eventsCount</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
   <span class="nx">_maxListeners</span><span class="p">:</span> <span class="kc">undefined</span>
 <span class="p">}</span>
-<span class="o">&gt;</span> <span class="nx">myEmitter</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">status</span><span class="dl">'</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ok</span><span class="dl">'</span><span class="p">);</span>
+<span class="o">&gt;</span> <span class="nx">myEmitter</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">status</span><span class="dl">'</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ok</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// Synchronously calls each of the listeners registered for the event named 'status', in the order they were registered, passing the supplied arguments to each</span>
 <span class="nx">Got</span> <span class="mi">200</span> <span class="nx">and</span> <span class="nx">ok</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<h4 id="off">off</h4>
+<h2 id="off">off</h2>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -274,7 +273,7 @@
 <span class="kc">true</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<h4 id="listenercount-and-rawlisteners">listenerCount and rawListeners</h4>
+<h2 id="listenercount-and-rawlisteners">listenerCount and rawListeners</h2>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -286,7 +285,7 @@
 <span class="p">[</span> <span class="p">[</span><span class="nb">Function</span><span class="p">:</span> <span class="nx">c2</span><span class="p">]</span> <span class="p">]</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<h3 id="ejercicio">Ejercicio</h3>
+<h1 id="ejercicio">Ejercicio</h1>
 
 <p>Vamos ahora a escribir una clase <code class="language-plaintext highlighter-rouge">WithTime</code> cuyos objetos disponen de un método <code class="language-plaintext highlighter-rouge">execute</code> que permite ejecutar 
 una función asíncrona <code class="language-plaintext highlighter-rouge">asyncfun</code> que acepta como último argumento una callback <code class="language-plaintext highlighter-rouge">cb</code>.</p>
