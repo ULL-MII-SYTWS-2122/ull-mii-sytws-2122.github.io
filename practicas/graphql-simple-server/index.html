@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=9de1735ec6fd0a891d241a293a2d84e5cb7e160b">
+    <link rel="stylesheet" href="/assets/css/style.css?v=d34907a9197a8293e131621b9b77294740efa53c">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -301,7 +301,8 @@ and a REST API. Resolvers can also return strings, ints, null, and other types.<
 
 <p>There is no exclamation <code class="language-plaintext highlighter-rouge">!</code> at the value returned in the declaration of the <code class="language-plaintext highlighter-rouge">setMarkDown</code> mutation.</p>
 
-<p><img src="/assets/images/graphql-stages.png" alt="" /></p>
+<p>BLAH!!!
+<img src="/assets/images/graphql-stages.png" alt="" /></p>
 
 <p><a href="https://medium.com/paypal-tech/graphql-resolvers-best-practices-cd36fdbcef55">Every GraphQL query goes through these phases</a>:</p>
 
@@ -330,6 +331,8 @@ and a REST API. Resolvers can also return strings, ints, null, and other types.<
 <p>The AST is traversed breadth-first, meaning <code class="language-plaintext highlighter-rouge">user</code> must be resolved before its children <code class="language-plaintext highlighter-rouge">name</code> and <code class="language-plaintext highlighter-rouge">email</code> are visited.</p>
 
 <p>If the user resolver is asynchronous, the user branch delays until its resolved. Once all leaf nodes, <code class="language-plaintext highlighter-rouge">name</code>, <code class="language-plaintext highlighter-rouge">email</code>, <code class="language-plaintext highlighter-rouge">title</code>, are resolved, execution is complete.</p>
+
+<p><img src="/assets/images/graphql-schema-vs-query.jpeg" alt="" /></p>
 
 <p>Typically, fields are executed in the order they appear in the query, but it’s not safe to assume that. Because fields can be executed in parallel, they are assumed to be atomic, idempotent, and side-effect free.</p>
 
@@ -434,9 +437,8 @@ Para ello vea este video:</p>
   <li>
     <p>See inside the repo <a href="https://github.com/crguezl/learning-graphql-with-gh/tree/main/simple-graphql-express-server-example">crguezl/learning-graphql-with-gh</a> the folder <code class="language-plaintext highlighter-rouge">simple-graphql-express-server-example/</code> with the example used in this description</p>
   </li>
-  <li>
-    <p>Youtube video <a href="https://youtu.be/atRadu-DKCE">GraphQL Tutorial. Nos montamos una API con Nodejs y Express</a></p>
-  </li>
+  <li>Youtube video <a href="https://youtu.be/atRadu-DKCE">GraphQL Tutorial. Nos montamos una API con Nodejs y Express</a></li>
+  <li><a href="https://medium.com/@cjoudrey/life-of-a-graphql-query-validation-18a8fb52f189">Life of a GraphQL Query — Validation</a> Christian Joudrey</li>
   <li><a href="https://github.com/graphql/express-graphql">GraphQL HTTP Server Middleware: GitHub repo graphql/express-graphql</a></li>
   <li>
     <p><a href="https://www.apollographql.com/docs/resources/graphql-glossary/">GRaphQL Glossary</a></p>
