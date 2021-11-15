@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=86479db31e687c2a2c8ed244f7d79911a5f41438">
+    <link rel="stylesheet" href="/assets/css/style.css?v=237d14e5a4c68265acafa246818ecf0aa1737cb9">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -152,11 +152,6 @@
 33
 34
 35
-36
-37
-38
-39
-40
 </pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="p">{</span> <span class="nx">GraphQLServer</span><span class="p">,</span> <span class="nx">PubSub</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">graphql-yoga</span><span class="dl">'</span>
 
 <span class="kd">const</span> <span class="nx">typeDefs</span> <span class="o">=</span> <span class="s2">`
@@ -192,11 +187,33 @@
     <span class="p">}</span>
   <span class="p">},</span>
 <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<span class="kd">const</span> <span class="nx">pubsub</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PubSub</span><span class="p">()</span>
-<span class="kd">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GraphQLServer</span><span class="p">({</span> <span class="nx">typeDefs</span><span class="p">,</span> <span class="nx">resolvers</span><span class="p">,</span> <span class="na">context</span><span class="p">:</span> <span class="p">{</span> <span class="nx">pubsub</span> <span class="p">}</span> <span class="p">})</span>
+<p>Now, let’s create a simple <strong>PubSub</strong> instance - it is a simple pubsub implementation, based on <a href="">EventEmitter</a>. Alternative <a href="/pages/event-emitters">EventEmitter</a> implementations can be passed by an options object to the PubSub constructor.</p>
 
-<span class="nx">server</span><span class="p">.</span><span class="nx">start</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Server is running on localhost:4000</span><span class="dl">'</span><span class="p">))</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">pubsub</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PubSub</span><span class="p">()</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Before to continue with the rest of the code let us review the</p>
+
+<ul>
+  <li><a href="/pages/event-emitters">EventEmitter</a> class</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GraphQLServer</span><span class="p">({</span> <span class="nx">typeDefs</span><span class="p">,</span> <span class="nx">resolvers</span><span class="p">,</span> <span class="na">context</span><span class="p">:</span> <span class="p">{</span> <span class="nx">pubsub</span> <span class="p">}</span> <span class="p">})</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p><a href="https://www.apollographql.com/docs/graphql-subscriptions/setup/">pubsub</a> is a class that exposes a simple <code class="language-plaintext highlighter-rouge">publish</code> and <code class="language-plaintext highlighter-rouge">subscribe</code> API.</p>
+
+<p>It sits between your application’s logic and the GraphQL subscriptions engine - it receives a <em>publish</em> command from your app logic and pushes it to your GraphQL execution engine.</p>
+
+<p>graphql-subscriptions exposes a default PubSub class you can use for a simple usage of data publication.</p>
+
+<p>The PubSub implementation also includes a mechanism that <strong>converts a specific PubSub event into a stream of AsyncIterator</strong>, which you can use with <em>graphql subscriptions resolver</em>.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nx">server</span><span class="p">.</span><span class="nx">start</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Server is running on localhost:4000</span><span class="dl">'</span><span class="p">))</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Now when we visit <code class="language-plaintext highlighter-rouge">localhost:4000</code> and subscribe we can see the counters moving:</p>
@@ -208,6 +225,7 @@
 <ul>
   <li><a href="https://github.com/crguezl/graphql-chat-app">Repo GitHub crguezl/graphql-chat-app</a> Chat with Subscriptions</li>
   <li><a href="https://pusher.com/tutorials/chat-graphql-subscriptions/">Tutorial</a> <em>Building live chat app with GraphQL subscriptions</em></li>
+  <li><a href="https://github.com/apollographql/graphql-subscriptions">apollographql/graphql-subscriptions)</a></li>
   <li><a href="https://www.howtographql.com/graphql-js/7-subscriptions/">Realtime GraphQL Subscriptions</a> from GRAPHQL-NODE TUTORIAL. Written by Maira Bello: Build your own GraphQL server</li>
 </ul>
 
