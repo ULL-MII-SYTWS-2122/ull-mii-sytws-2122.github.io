@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=152c29f9b8973aa007efbb6a397ec242a8fae9c7">
+    <link rel="stylesheet" href="/assets/css/style.css?v=397642206bc0d6c01fa2833e4ed1d0c8223664f9">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -95,15 +95,11 @@
             <h2 >Table of Contents</h2>
             
             <ul id="sytwstoc">
-  <li><a href="#descripción-de-la-práctica-async-generators-first-come-first-served-for-await">Descripción de la Práctica <em>Async Generators: First Come First Served For Await</em></a>
+  <li><a href="#error-management-example">Error Management Example</a></li>
+  <li><a href="#compare-the-performance-of-your-solution-with-the-performance-of--allsettled">Compare the Performance of your solution with the performance of  allSettled</a></li>
+  <li><a href="#see">See</a>
     <ul>
-      <li><a href="#error-management-example">Error Management Example</a></li>
-      <li><a href="#compare-the-performance-of-your-solution-with-the-performance-of--allsettled">Compare the Performance of your solution with the performance of  allSettled</a></li>
-      <li><a href="#see">See</a>
-        <ul>
-          <li><a href="#es6-modules-in-nodejs">ES6 Modules in Node.JS</a></li>
-        </ul>
-      </li>
+      <li><a href="#es6-modules-in-nodejs">ES6 Modules in Node.JS</a></li>
     </ul>
   </li>
 </ul>
@@ -111,8 +107,7 @@
 
             <div class="container"> 
                 <h1> Async Generators: First Come First Served For Await </h1>
-                <h1 id="descripción-de-la-práctica-async-generators-first-come-first-served-for-await">Descripción de la Práctica <em>Async Generators: First Come First Served For Await</em></h1>
-
+                
 <p>If you use for-await-of on an array of promises, you iterate over it in the specified order, doesn’t matter if the next promise in the given array is resolved before the previous one:</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
