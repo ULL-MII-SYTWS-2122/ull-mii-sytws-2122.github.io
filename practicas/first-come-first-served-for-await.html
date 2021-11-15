@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=3f3c3583ffbf009df3ea5fb06bbaab4cad25e145">
+    <link rel="stylesheet" href="/assets/css/style.css?v=152c29f9b8973aa007efbb6a397ec242a8fae9c7">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -337,6 +337,10 @@ item =  { reason: 'Ohhh:\n', index: 4, status: 'rejected' }
 
 <p>Write  a program to compare the performance of your solution with the performance of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled">Promise.allSettled</a>.</p>
 
+<p>You can find the full code in the npm package <a href="https://www.npmjs.com/package/frstcmfrstsvd">frstcmfrstsvd</a>.</p>
+
+<p>At first view, performance of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled">Promise.allSettled</a> seems to be a bit better:</p>
+
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -346,16 +350,30 @@ item =  { reason: 'Ohhh:\n', index: 4, status: 'rejected' }
 7
 8
 9
-</pre></td><td class="rouge-code"><pre> ➜  firstcomefirstserved git:(main) ✗ node examples/performance-reject-frstcmfrstsvd.mjs
-frstcmfrstsvd: 320.399ms
-allsettled: 329.469ms
-➜  firstcomefirstserved git:(main) ✗ node examples/performance-reject-frstcmfrstsvd.mjs
-frstcmfrstsvd: 323.915ms
-allsettled: 331.516ms
-➜  firstcomefirstserved git:(main) ✗ node examples/performance-reject-frstcmfrstsvd.mjs
-frstcmfrstsvd: 324.116ms
-allsettled: 331.935ms
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre>&gt; node examples/performance-reject-frstcmfrstsvd.mjs
+frstcmfrstsvd: 323.104ms
+allsettled: 317.319ms
+&gt; node examples/performance-reject-frstcmfrstsvd.mjs
+frstcmfrstsvd: 327.142ms
+allsettled: 315.415ms
+&gt; node examples/performance-reject-frstcmfrstsvd.mjs
+frstcmfrstsvd: 322.753ms
+allsettled: 318.955ms
+&gt; node examples/performance-reject-frstcmfrstsvd.mjs
+frstcmfrstsvd: 325.562ms
+allsettled: 317.375ms
+&gt; node examples/performance-reject-frstcmfrstsvd.mjs
+frstcmfrstsvd: 322.25ms
+allsettled: 318.09ms
 </pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>See file <a href="https://github.com/crguezl/frstcmfrstsvd/blob/HEAD/examples/performance-reject-frstcmfrstsvd.mjs">examples/performance-reject-frstcmfrstsvd.mjs</a></p>
 
 <h2 id="see">See</h2>
 
