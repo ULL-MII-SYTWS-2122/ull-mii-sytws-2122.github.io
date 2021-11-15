@@ -92,11 +92,12 @@
     <ul>
       <li><a href="#on">on</a></li>
       <li><a href="#once">once</a></li>
+      <li><a href="#argumentos">Argumentos</a></li>
+      <li><a href="#off--emitterremovelistenereventname-listener">off / emitter.removeListener(eventName, listener)</a></li>
+      <li><a href="#listenercount-and-rawlisteners">listenerCount and rawListeners</a></li>
     </ul>
   </li>
-  <li><a href="#argumentos">Argumentos</a></li>
-  <li><a href="#off--emitterremovelistenereventname-listener">off / emitter.removeListener(eventName, listener)</a></li>
-  <li><a href="#listenercount-and-rawlisteners">listenerCount and rawListeners</a></li>
+  <li><a href="#ejercicio">Ejercicio</a></li>
 </ul>
         
             <h1> Events </h1>
@@ -219,7 +220,7 @@
 <span class="o">&gt;</span> <span class="nx">myEmitter</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="dl">'</span><span class="s1">eventOnce</span><span class="dl">'</span><span class="p">);</span>
 <span class="kc">false</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
-<h2 id="argumentos">Argumentos</h2>
+<h3 id="argumentos">Argumentos</h3>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -245,7 +246,7 @@
 <span class="nx">Got</span> <span class="mi">200</span> <span class="nx">and</span> <span class="nx">ok</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<h2 id="off--emitterremovelistenereventname-listener">off / emitter.removeListener(eventName, listener)</h2>
+<h3 id="off--emitterremovelistenereventname-listener">off / emitter.removeListener(eventName, listener)</h3>
 
 <p>Removes the specified <code class="language-plaintext highlighter-rouge">listener</code> from the listener array for the event named <code class="language-plaintext highlighter-rouge">eventName</code>.</p>
 
@@ -275,7 +276,7 @@
 <span class="kc">true</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<h2 id="listenercount-and-rawlisteners">listenerCount and rawListeners</h2>
+<h3 id="listenercount-and-rawlisteners">listenerCount and rawListeners</h3>
 
 <p><code class="language-plaintext highlighter-rouge">emitter.rawListeners(eventName)</code> returns a copy of the array of listeners for the event named <code class="language-plaintext highlighter-rouge">eventName</code>, including any wrappers (such as those created by <code class="language-plaintext highlighter-rouge">.once()</code>).</p>
 
@@ -289,7 +290,7 @@
 <span class="p">[</span> <span class="p">[</span><span class="nb">Function</span><span class="p">:</span> <span class="nx">c2</span><span class="p">]</span> <span class="p">]</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<h1 id="ejercicio">Ejercicio</h1>
+<h2 id="ejercicio">Ejercicio</h2>
 
 <p>Escriba una clase <code class="language-plaintext highlighter-rouge">WithTime</code> que extienda la clase <a href="https://nodejs.org/api/events.html#class-eventemitter">EventEmitter</a> y cuyos objetos disponen de un método <code class="language-plaintext highlighter-rouge">(new WithTime()).execute</code> con una firma como esta:</p>
 
