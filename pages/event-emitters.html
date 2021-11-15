@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=c78b41ec7182ac11c179554497b8cb4fdae83236">
+    <link rel="stylesheet" href="/assets/css/style.css?v=fd9d99516da24050b432e1acc64c252e1410971f">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -345,6 +345,7 @@ el comienzo y final de la ejecución de <code class="language-plaintext highligh
 23
 24
 25
+26
 </pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">inspect</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">util</span><span class="dl">"</span><span class="p">).</span><span class="nx">inspect</span><span class="p">;</span>
 <span class="kd">const</span> <span class="nx">ins</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">inspect</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="p">{</span><span class="na">depth</span><span class="p">:</span> <span class="kc">Infinity</span><span class="p">,</span> <span class="na">colors</span><span class="p">:</span> <span class="kc">true</span><span class="p">});</span>
 <span class="kd">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">node-fetch</span><span class="dl">"</span><span class="p">);</span>
@@ -357,6 +358,7 @@ el comienzo y final de la ejecución de <code class="language-plaintext highligh
 <span class="nx">withTime</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">end</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">label</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Done with execution of </span><span class="dl">'</span><span class="o">+</span><span class="nx">label</span><span class="p">));</span>
 
 <span class="nx">withTime</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">result</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">label</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Function </span><span class="dl">'</span><span class="o">+</span><span class="nx">label</span><span class="o">+</span><span class="dl">'</span><span class="s1"> produced:</span><span class="se">\n</span><span class="dl">'</span><span class="o">+</span><span class="nx">ins</span><span class="p">(</span><span class="nx">data</span><span class="p">)));</span>
+<span class="nx">withTime</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">error</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">label</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Function </span><span class="dl">'</span><span class="o">+</span><span class="nx">label</span><span class="o">+</span><span class="dl">'</span><span class="s1"> error:</span><span class="se">\n</span><span class="dl">'</span><span class="o">+</span><span class="nx">ins</span><span class="p">(</span><span class="nx">error</span><span class="p">)));</span>
 
 <span class="nx">withTime</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">time</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">label</span><span class="p">,</span> <span class="nx">t</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Function </span><span class="dl">'</span><span class="o">+</span><span class="nx">label</span><span class="o">+</span><span class="dl">'</span><span class="s1"> took </span><span class="dl">'</span><span class="o">+</span><span class="nx">t</span><span class="o">+</span><span class="dl">'</span><span class="s1"> nanoseconds</span><span class="dl">'</span><span class="p">));</span>
 
@@ -366,10 +368,10 @@ el comienzo y final de la ejecución de <code class="language-plaintext highligh
     <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">cb</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
     <span class="p">})</span>
-    <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Buf!\n</span><span class="p">${</span><span class="nx">e</span><span class="p">}</span><span class="s2">`</span><span class="p">));</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span> <span class="o">=&gt;</span> <span class="nx">cb</span><span class="p">(</span><span class="s2">`Buf! </span><span class="p">${</span><span class="nx">e</span><span class="p">}</span><span class="s2">`</span><span class="p">));</span>
 <span class="p">}</span>
 
-<span class="nx">withTime</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="nx">readFile</span><span class="p">,</span> <span class="dl">'</span><span class="s1">https://jsonplaceholder.typicode.com/posts/3</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">withTime</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="nx">readFile</span><span class="p">,</span> <span class="nx">process</span><span class="p">.</span><span class="nx">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">||</span> <span class="dl">'</span><span class="s1">https://jsonplaceholder.typicode.com/posts/3</span><span class="dl">'</span><span class="p">);</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Debería producir una salida como está:</p>
@@ -400,6 +402,18 @@ Function readFile produced:
 }
 Function readFile took 331675217 nanoseconds
 Done with execution of readFile
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>y si se producen errores una salida como esta:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>➜  event-emitter-tutorial git:(master) ✗ node client.js no-existe
+About to execute readFile
+Function readFile error:
+'Buf! TypeError: Only absolute URLs are supported'
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Esta es una Solución</p>
