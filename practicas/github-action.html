@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang=" en-US ">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b90ec98f46a6c69c0c879cfe977ece103eb361e2">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="/assets/js/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="/assets/css/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+</head>
+
+<body>
+    <div id="header">
+        <nav>
+  <ul>
+    <li><a href="/search" title="search">&#x1F50D;</a></li>
+    <!--
+    <li><a href="#sytwstoc" title="Table of Contents">≡</a></li>
+    -->
+
+      
+    <li><a href="/practicas/websockets" title="Previous">&#x2190;</a></li>
+    
+    
+    <li><a href="/practicas/async-await-is-generators-and-promises/solution" title="Next">&#x2192;</a></li>
+    
+    <li><a href="https://github.com/ULL-MII-SYTWS/ull-mii-sytws.github.io-source/tree/main//_practicas/23-hello-github-action.md" title="Edit this page at GitHub">🐙</a>
+    <li><a href="/references.html" title="Bibliografía">&#x1f4da</a></li>
+    <li><a href="/practicas.html" title="Prácticas">&#x270d</a></li>
+    <li><a href="/clases.html" title="Clases">👨‍🏫</a></li>
+    <li><a href="/" title="Home page">&#x1f3e0</a></li>
+    <li><a href="/tema0-presentacion/" title="Tema 0: Presentación">0</a></li>
+    <li><a href="/tema1-introduccion/" title="Tema 1: Introducción">1</a></li>
+    <li><a href="/tema2-async/" title="Tema 2: Async">2</a></li>
+    <li><a href="/tema3-web/" title="Tema 3: Web">3</a></li>
+    <li><a href="/tema4-devops/" title="Tema 4: Devop">4</a></li>
+    
+    </li>
+    </ul>
+</nav>
+
+    </div>
+    <!-- end header -->
+
+
+    <div class="wrapper">
+
+        <section>
+            
+<div id="title">
+        <h1>Sistemas y Tecnologías Web: Servidor</h1>
+        <p> Master de II. ULL. 1er cuatrimestre</p>
+        <hr>
+        <span class="credits left">Organization <a href="https://github.com/ULL-MII-SYTWS-2122" target="_blank">ULL-MII-SYTWS-2122</a></span>
+        <span class="credits left"> &nbsp; Classroom <a href="https://classroom.github.com/classrooms/90842007-ull-mii-sytws-2122" target="_blank">ULL-MII-SYTWS-2122</a></span>
+        <span class="credits left"> &nbsp; Campus Virtual <a href="https://campusdoctoradoyposgrado2122.ull.es/course/view.php?id=2122110810" target="_blank">SYTWS</a></span>
+        <span class="credits left"> &nbsp; Chat <a href="https://chat.google.com/u/1/room/AAAAp18fCE8" target="_blank">Chat</a></span>
+        <span class="credits left"> &nbsp; Profesor <a href="https://www.ull.es/apps/guias/guias/view_teacher_niu/837/crguezl/" target="_blank">Casiano</a></span>
+    </div>
+
+<!--
+
+<div id="title">
+    <h1>Sistemas y Tecnologías Web: Servidor</h1>
+    <p> Master de II. ULL. 1er cuatrimestre</p>
+    <hr>
+    <span class="credits left">Organization <a href="https://github.com/ULL-MII-SYTWS"
+            target="_blank">ULL-MII-SYTWS</a></span>
+    <span class="credits left"> &nbsp; Github Classroom <a
+            href="https://classroom.github.com/classrooms/55384072-master-de-ingenieria-informatica-sistemas-y-tecnologias-web-servidor-classroom"
+            target="_blank">SYTWS 19/20</a></span>
+    <span class="credits left"> &nbsp; Campus Virtual <a
+            href="https://campusvirtual.ull.es/1920/course/view.php?id=201913778" target="_blank">SYTWS
+            19/20</a></span>
+    <span class="credits left"> &nbsp; Profesor <a
+            href="https://www.ull.es/apps/guias/guias/view_teacher_niu/588/(%3FPcrguezl.*)/"" target="
+            _blank">Casiano</a></span>
+</div>
+-->    
+
+            
+            
+
+
+
+            <h2 >Table of Contents</h2>
+            
+            <ul id="sytwstoc">
+  <li><a href="#goals">Goals</a></li>
+  <li><a href="#optional-step">Optional Step</a></li>
+  <li><a href="#videos-de-clases-relacionadas-con-las-gh-actions">Videos de clases relacionadas con las GH Actions</a></li>
+  <li><a href="#references">References</a></li>
+  <li><a href="#rubrica">Rúbrica</a></li>
+</ul>
+          
+
+            <div class="container"> 
+                <h1> GitHub Action Hello World </h1>
+                <!--
+  # - Hacer el ejercicio *Add another step to the former workflow to see the SECRETS context. What do you see?* <https://ull-esit-gradoii-pl.github.io/assets/temas/introduccion-a-javascript/github-actions#exercise>
+-->
+
+<h2 id="goals">Goals</h2>
+
+<p>Write a GitHub Action <em>Hello World</em> following the tutorial 
+at section <a href="/pages/creating-javascript-action">Hello Actions World!</a>.</p>
+
+<ol>
+  <li>Save the action code in repo <code class="language-plaintext highlighter-rouge">hello-js-action-aluXXX</code>,
+    <ul>
+      <li>Change the visibility of this repo to <code class="language-plaintext highlighter-rouge">public</code> (go to <code class="language-plaintext highlighter-rouge">settings/manage access</code>)</li>
+    </ul>
+  </li>
+  <li>Inside repo <code class="language-plaintext highlighter-rouge">use-hello-js-action-aluXXX</code> save the project using the action and</li>
+  <li>In repo <code class="language-plaintext highlighter-rouge">hello-js-action-super</code> build a  repo having the former two as submodules</li>
+  <li>Write your <code class="language-plaintext highlighter-rouge">README.md</code> report in the superproject repo.</li>
+  <li>Set <a href="https://guides.github.com/features/pages/">GitHub pages</a>
+    <ul>
+      <li>Set the <code class="language-plaintext highlighter-rouge">main</code> branch and the root of the superproject</li>
+      <li>Choose one of the <a href="https://pages.github.com/themes/">page supported themes</a> for the static generator <a href="https://jekyllrb.com/">Jekyll</a></li>
+      <li>Set the <code class="language-plaintext highlighter-rouge">github.io</code> URL in the <em>description</em> section of the superproject</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="optional-step">Optional Step</h2>
+
+<p>If you feel enthusiastic about GitHub Actions, continue 
+using the repo <a href="https://github.com/actions/javascript-action">actions/javascript-action</a>
+as a template and follow the instructions. 
+Save the action code in repo <code class="language-plaintext highlighter-rouge">hello-js-action-aluXXX</code> but in a branch with name <code class="language-plaintext highlighter-rouge">optional</code>.</p>
+
+<p>To use this new action, you have to reference it in the client repo like this:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="na">steps</span><span class="pi">:</span>    
+  <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">ULL-ESIT-PL-1920/hello-js-action-aluXXX@optional</span>  <span class="c1"># Reference a branch</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Pay special attention to how the tests were written in this example.</p>
+
+<h2 id="videos-de-clases-relacionadas-con-las-gh-actions">Videos de clases relacionadas con las GH Actions</h2>
+
+<!-- Warning duplicated code below-->
+
+<div class="responsive-video-container">
+    <iframe src="https://www.youtube-nocookie.com/embed/a3Ycya8S_0A" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="">
+    </iframe>
+</div>
+
+<div class="responsive-video-container">
+    <iframe src="https://www.youtube-nocookie.com/embed/qX88QdrlDqg" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="">
+    </iframe>
+</div>
+
+<div class="responsive-video-container">
+    <iframe src="https://www.youtube-nocookie.com/embed/FOlIeuTNkw8" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="">
+    </iframe>
+</div>
+
+<div class="responsive-video-container">
+    <iframe src="https://www.youtube-nocookie.com/embed/xeH67k2Vxl0" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="">
+    </iframe>
+</div>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li>Template repo for GitHub Actions <a href="https://github.com/actions/javascript-action">actions/javascript-action</a></li>
+  <li><a href="https://help.github.com/en/actions/building-actions/creating-a-javascript-action">Creating a JavaScript action</a></li>
+  <li>Repo <a href="https://github.com/ULL-ESIT-PL-1920/hello-world-javascript-action">ULL-ESIT-PL-1920/hello-world-javascript-action</a></li>
+  <li><a href="https://github.com/ULL-ESIT-PL-1920/use-hello-world-javascript-action">Repo ULL-ESIT-PL-1920/use-hello-world-javascript-action</a></li>
+  <li><a href="https://help.github.com/en/actions/building-actions/about-actions">About Actions</a>
+    <ul>
+      <li><a href="https://help.github.com/en/actions/building-actions#types-of-actions">Types of actions</a></li>
+      <li><a href="https://help.github.com/en/actions/building-actions#choosing-a-location-for-your-action">Choosing a location for your action</a></li>
+      <li><a href="https://help.github.com/en/actions/building-actions#versioning-your-action">Versioning your action</a></li>
+      <li><a href="https://help.github.com/en/actions/building-actions#creating-a-readme-file-for-your-action">Creating a README file for your action</a></li>
+      <li><a href="https://help.github.com/en/actions/building-actions#comparing-github-actions-to-github-apps">Comparing GitHub Actions to GitHub Apps</a></li>
+      <li><a href="https://help.github.com/en/actions/building-actions#further-reading">Further reading</a></li>
+    </ul>
+  </li>
+  <li><a href="https://help.github.com/en/actions/building-actions">Building actions</a></li>
+  <li><a href="https://help.github.com/en/actions/building-actions/metadata-syntax-for-github-actions">Metadata syntax for GitHub Actions</a> (The syntax of the action.yml file)</li>
+  <li><a href="https://help.github.com/en/actions/building-actions/setting-exit-codes-for-actions">Setting exit codes for actions</a></li>
+  <li>
+    <p><a href="https://help.github.com/en/actions/building-actions/publishing-actions-in-github-marketplace">Publishing actions in GitHub Marketplace</a></p>
+  </li>
+  <li><a href="https://github.com/actions/toolkit/blob/master/docs/action-versioning.md">Versioning Actions</a> (github toolkit)</li>
+</ul>
+
+
+
+
+
+ 
+<h2 id="rubrica">Rúbrica</h2>
+
+Incidencias para el Project Board para la práctica <i><p>GitHub Action Hello World</p>
+</i>
+<ul>
+    
+    <li><p>La acción está publicada y se usa correctamente</p>
+</li> 
+    
+    
+    <li><p>Las GitHub pages funcionan correctamente en el super repo</p>
+</li> 
+    
+    
+    <li><p>Se ha instalado Jekyll y puede ver las páginas generadas en local</p>
+</li> 
+    
+    
+    <li><p>Opcional: En la práctica anterior se ha extendido la CI para Mac OS y Windows</p>
+</li> 
+    
+    
+</ul>
+
+
+
+
+
+            </div>
+
+
+                        
+<h2>Comment with GitHub Utterances</h2>
+            
+<script src="https://utteranc.es/client.js"
+        repo="ULL-MII-SYTWS/ull-mii-sytws.github.io"
+        issue-term="pathname"
+        label="SYTWS"
+        theme="dark-blue"
+        crossorigin="anonymous"
+        async>
+</script>
+            
+
+
+
+ 
+            
+        </section>
+    
+    </div>
+
+
+    
+</body>
+
+</html>
