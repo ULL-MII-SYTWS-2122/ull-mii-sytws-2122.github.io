@@ -1,6 +1,31 @@
 
     
     {
+      "title": "Clase  del Lunes 26/11/2021 (Semana B)",
+      "date": "November 22, 2021",
+
+      "excerpt": "<h2 id="últimas-prácticas">Últimas Prácticas</h2>
+
+",
+       "categories"  : [
+         "Clases"
+        
+        
+        ],
+      
+      
+      "url": "/clases/2021/11/22/leccion.html",
+       "tags"  : [
+        
+        ]
+      
+      
+    }
+
+    ,
+
+    
+    {
       "title": "Clase  del Lunes 15/11/2021 (Semana A)",
       "date": "November 15, 2021",
 
@@ -215,31 +240,6 @@
       
       
       "url": "/clases/2021/10/13/leccion.html",
-       "tags"  : [
-        
-        ]
-      
-      
-    }
-
-    ,
-
-    
-    {
-      "title": "Clase  del Lunes 11/10/2021 (Semana B)",
-      "date": "October 11, 2021",
-
-      "excerpt": "<h2 id="prácticas-publicadas">Prácticas Publicadas</h2>
-
-",
-       "categories"  : [
-         "Clases"
-        
-        
-        ],
-      
-      
-      "url": "/clases/2021/10/11/leccion.html",
        "tags"  : [
         
         ]
