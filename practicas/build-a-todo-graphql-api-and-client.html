@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=59e9bae181b95379ed719b49e884c19b52b8b96e">
+    <link rel="stylesheet" href="/assets/css/style.css?v=5cf1b4cb92b8c9399744a4ccc2847bfedef95b29">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -126,13 +126,19 @@
 
 <p>Cuando llegue a esta parte vaya intentando los pasos especificados:</p>
 
-<ul class="task-list">
+<ol class="task-list">
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Create node app/install graphql-yoga</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Define Todo Type</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Define Query Type</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Get All Todos</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Define Query Resolver</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Get All Todos</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Define Query Type
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Get All Todos</li>
+    </ul>
+  </li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Define Query Resolver
+    <ul class="task-list">
+      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Get All Todos</li>
+    </ul>
+  </li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Define Create Mutation</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Define Create Resolver</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Define Delete Mutation</li>
@@ -140,7 +146,7 @@
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Build a simple TODO GraphQL Client</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Create client app/install nanographql</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Query for all on page load</li>
-</ul>
+</ol>
 
 <p>Puede plantearse como mejora usar una base de datos como SQLite o Mongo en vez del array</p>
 
