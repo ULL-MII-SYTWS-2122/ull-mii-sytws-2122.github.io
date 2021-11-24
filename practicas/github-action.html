@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=0093a361790efb55b416ee44dea49789a57315d1">
+    <link rel="stylesheet" href="/assets/css/style.css?v=aa975ea22fc1c3687e00cec31b836346ac774a19">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -97,6 +97,7 @@
             <ul id="sytwstoc">
   <li><a href="#goals">Goals</a></li>
   <li><a href="#optional-step">Optional Step</a></li>
+  <li><a href="#build-your-own-github-action">Build your own GitHub Action</a></li>
   <li><a href="#videos-de-clases-relacionadas-con-las-gh-actions">Videos de clases relacionadas con las GH Actions</a></li>
   <li><a href="#references">References</a></li>
   <li><a href="#rubrica">Rúbrica</a></li>
@@ -149,6 +150,16 @@ Save the action code in repo <code class="language-plaintext highlighter-rouge">
 
 <p>Pay special attention to how the tests were written in this example.</p>
 
+<h2 id="build-your-own-github-action">Build your own GitHub Action</h2>
+
+<p>Think of ideas to write your own GH Action.</p>
+
+<p>For example, this repo <a href="https://github.com/crguezl/pandoc-gitpod-template">crguezl/pandoc-gitpod-template</a> uses GitHub Actions  to convert some markdown files, producing the pdf as an artifact. <a href="https://github.com/crguezl/pandoc-gitpod-template/blob/main/.github/workflows/generate_pdf.yml">See the workflow file</a> and the <a href="https://github.com/crguezl/pandoc-gitpod-template/actions">actions running</a></p>
+
+<p>Here is an action <a href="https://github.com/BaileyJM02/markdown-to-pdf">BaileyJM02/markdown-to-pdf</a> that creates PDF and HTML files from Markdown using the GitHub (or custom) theme.</p>
+
+<p>There are actions to run MatLab, to deploy to different platforms, … here is the <a href="https://github.com/marketplace?category=&amp;query=&amp;type=actions&amp;verification=">github actions marketplace</a></p>
+
 <h2 id="videos-de-clases-relacionadas-con-las-gh-actions">Videos de clases relacionadas con las GH Actions</h2>
 
 <!-- Warning duplicated code below-->
@@ -177,7 +188,11 @@ Save the action code in repo <code class="language-plaintext highlighter-rouge">
 
 <ul>
   <li>Template repo for GitHub Actions <a href="https://github.com/actions/javascript-action">actions/javascript-action</a></li>
-  <li><a href="https://github.com/crguezl/pandoc-gitpod-template">Example of use of a GitHub Action crguezl/pandoc-gitpod-template</a> that allows you to convert your markdown files producing the pdf as an artifact. <a href="https://github.com/crguezl/pandoc-gitpod-template/blob/main/.github/workflows/generate_pdf.yml">See the workflow file</a></li>
+  <li><a href="https://github.com/crguezl/pandoc-gitpod-template">Example of use of a GitHub Action crguezl/pandoc-gitpod-template</a> that allows you to convert your markdown files producing the pdf as an artifact. <a href="https://github.com/crguezl/pandoc-gitpod-template/blob/main/.github/workflows/generate_pdf.yml">See the workflow file</a>
+    <ul>
+      <li>Here is an action <a href="https://github.com/BaileyJM02/markdown-to-pdf">BaileyJM02/markdown-to-pdf</a> that creates PDF and HTML files from Markdown using the GitHub (or custom) theme.</li>
+    </ul>
+  </li>
   <li><a href="https://help.github.com/en/actions/building-actions/creating-a-javascript-action">Creating a JavaScript action</a></li>
   <li>Repo <a href="https://github.com/ULL-ESIT-PL-1920/hello-world-javascript-action">ULL-ESIT-PL-1920/hello-world-javascript-action</a></li>
   <li><a href="https://github.com/ULL-ESIT-PL-1920/use-hello-world-javascript-action">Repo ULL-ESIT-PL-1920/use-hello-world-javascript-action</a></li>
