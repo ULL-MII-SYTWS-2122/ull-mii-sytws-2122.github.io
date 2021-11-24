@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=5097682f1f877654494668586e9b1e85987cf0e7">
+    <link rel="stylesheet" href="/assets/css/style.css?v=59e9bae181b95379ed719b49e884c19b52b8b96e">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -94,12 +94,17 @@
 
             <h2 >Table of Contents</h2>
             
-            
+            <ul id="sytwstoc">
+  <li><a href="#modo-de-trabajo">Modo de Trabajo</a></li>
+  <li><a href="#build-a-simple-todo-graphql-api-in-memory-array">Build a simple TODO GraphQL API (in memory array)</a></li>
+</ul>
           
 
             <div class="container"> 
                 <h1> Build a Todo GraphQL API and Client </h1>
-                <p>En este vídeo:</p>
+                <h2 id="modo-de-trabajo">Modo de Trabajo</h2>
+
+<p>En este vídeo:</p>
 
 <!-- Warning duplicated code below-->
 
@@ -110,11 +115,40 @@
 
 <p>Se construye una API GraphQL para una lista de TODOs y un cliente en Vanilla JS.</p>
 
-<p>Reproduzca los pasos,  haciendo un commit por cada tarea lograda en la lista de objetivos.</p>
+<ol>
+  <li>Cree una rama <code class="language-plaintext highlighter-rouge">solution</code>  a partir de la rama <code class="language-plaintext highlighter-rouge">master</code>. Si durante el visionado algo no le sale siempre podrá consultar esta rama.</li>
+  <li>En la rama master borre los contenidos de las carpetas <code class="language-plaintext highlighter-rouge">todo-client</code> y <code class="language-plaintext highlighter-rouge">todo-graphql</code></li>
+  <li>Ahora conforme va viendo el vídeo vaya siguiendo los pasos que se describen en el mismo.</li>
+  <li>Pause el vídeo cada vez que va a emprender una nueva tarea e itente hacerlo antes de ver la solución. Si no le sale mire como lo hace o consulte la rama <code class="language-plaintext highlighter-rouge">solucion</code></li>
+</ol>
+
+<h2 id="build-a-simple-todo-graphql-api-in-memory-array">Build a simple TODO GraphQL API (in memory array)</h2>
+
+<p>Cuando llegue a esta parte vaya intentando los pasos especificados:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Create node app/install graphql-yoga</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Define Todo Type</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Define Query Type</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Get All Todos</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Define Query Resolver</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Get All Todos</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Define Create Mutation</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Define Create Resolver</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Define Delete Mutation</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Define Delete Resolver</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Build a simple TODO GraphQL Client</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Create client app/install nanographql</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Query for all on page load</li>
+</ul>
+
+<p>Puede plantearse como mejora usar una base de datos como SQLite o Mongo en vez del array</p>
+
+<p>Procure  hacer un commit por cada tarea lograda en la lista de objetivos.</p>
 
 <p>Aseguremonos de entender cada uno de los pasos.</p>
 
-<p>El repo correspondiente está en <a href="https://github.com/CodingGarden/intro-graphql">CodingGarden/intro-graphql</a></p>
+<p>El repo original está en <a href="https://github.com/CodingGarden/intro-graphql">CodingGarden/intro-graphql</a></p>
 
 
 

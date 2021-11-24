@@ -283,8 +283,8 @@
     
       {
         "title": "Build a Todo GraphQL API and Client",
-        "excerpt": "En este vídeo:\n\n",
-        "content": "En este vídeo:\n\n\n\n\n    \n    \n\n\nSe construye una API GraphQL para una lista de TODOs y un cliente en Vanilla JS.\n\nReproduzca los pasos,  haciendo un commit por cada tarea lograda en la lista de objetivos.\n\nAseguremonos de entender cada uno de los pasos.\n\nEl repo correspondiente está en CodingGarden/intro-graphql\n\n",
+        "excerpt": "Modo de Trabajo\n\n",
+        "content": "Modo de Trabajo\n\nEn este vídeo:\n\n\n\n\n    \n    \n\n\nSe construye una API GraphQL para una lista de TODOs y un cliente en Vanilla JS.\n\n\n  Cree una rama solution  a partir de la rama master. Si durante el visionado algo no le sale siempre podrá consultar esta rama.\n  En la rama master borre los contenidos de las carpetas todo-client y todo-graphql\n  Ahora conforme va viendo el vídeo vaya siguiendo los pasos que se describen en el mismo.\n  Pause el vídeo cada vez que va a emprender una nueva tarea e itente hacerlo antes de ver la solución. Si no le sale mire como lo hace o consulte la rama solucion\n\n\nBuild a simple TODO GraphQL API (in memory array)\n\nCuando llegue a esta parte vaya intentando los pasos especificados:\n\n\n  Create node app/install graphql-yoga\n  Define Todo Type\n  Define Query Type\n  Get All Todos\n  Define Query Resolver\n  Get All Todos\n  Define Create Mutation\n  Define Create Resolver\n  Define Delete Mutation\n  Define Delete Resolver\n  Build a simple TODO GraphQL Client\n  Create client app/install nanographql\n  Query for all on page load\n\n\nPuede plantearse como mejora usar una base de datos como SQLite o Mongo en vez del array\n\nProcure  hacer un commit por cada tarea lograda en la lista de objetivos.\n\nAseguremonos de entender cada uno de los pasos.\n\nEl repo original está en CodingGarden/intro-graphql\n\n",
         "url": "/practicas/build-a-todo-graphql-api-and-client"
       },
     
