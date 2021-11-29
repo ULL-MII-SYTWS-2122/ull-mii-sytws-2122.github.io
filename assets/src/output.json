@@ -1,6 +1,31 @@
 
     
     {
+      "title": "Clase  del Lunes 29/11/2021 (Semana C)",
+      "date": "November 29, 2021",
+
+      "excerpt": "<h2 id="ponerse-al-día-con-las-prácticas">Ponerse al día con las prácticas</h2>
+
+",
+       "categories"  : [
+         "Clases"
+        
+        
+        ],
+      
+      
+      "url": "/clases/2021/11/29/leccion.html",
+       "tags"  : [
+        
+        ]
+      
+      
+    }
+
+    ,
+
+    
+    {
       "title": "Clase  del Miércoles 24/11/2021 (Semana B)",
       "date": "November 24, 2021",
 
@@ -215,31 +240,6 @@
       
       
       "url": "/clases/2021/10/25/leccion.html",
-       "tags"  : [
-        
-        ]
-      
-      
-    }
-
-    ,
-
-    
-    {
-      "title": "Clase  del Miércoles 20/10/2021 (Asíncrona, Semana C)",
-      "date": "October 20, 2021",
-
-      "excerpt": "<h2 id="async-await">Async-Await</h2>
-
-",
-       "categories"  : [
-         "Clases"
-        
-        
-        ],
-      
-      
-      "url": "/clases/2021/10/20/leccion.html",
        "tags"  : [
         
         ]
