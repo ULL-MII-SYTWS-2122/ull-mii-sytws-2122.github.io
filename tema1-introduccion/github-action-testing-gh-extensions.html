@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=c78d329d02fc174d31033f8e62e8cb4e98ebbe20">
+    <link rel="stylesheet" href="/assets/css/style.css?v=930c6d07a3a79a3c216a305881a9fe7f7c56f61a">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -387,13 +387,13 @@ Set to <code class="language-plaintext highlighter-rouge">true</code> to allow a
 
           <span class="s">echo 'NUM_OPEN_ISSUES='$numOpenIssues &gt;&gt; $GITHUB_ENV</span>
         <span class="na">env</span><span class="pi">:</span>
-          <span class="na">GITHUB_TOKEN</span><span class="pi">:</span> <span class="s">$</span>
-          <span class="na">OWNER</span><span class="pi">:</span> <span class="s">$</span>
-          <span class="na">REPO</span><span class="pi">:</span> <span class="s">$</span>
+          <span class="na">GITHUB_TOKEN</span><span class="pi">:</span> <span class="s">${{ secrets.GITHUB_TOKEN }}</span>
+          <span class="na">OWNER</span><span class="pi">:</span> <span class="s">${{ github.repository_owner }}</span>
+          <span class="na">REPO</span><span class="pi">:</span> <span class="s">${{ github.event.repository.name }}</span>
       <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
           <span class="s">gh issue create --title "Issue report" --body "$NUM_OPEN_ISSUES issues remaining" --repo $GITHUB_REPOSITORY</span>
         <span class="na">env</span><span class="pi">:</span>
-          <span class="na">GITHUB_TOKEN</span><span class="pi">:</span> <span class="s">$</span>
+          <span class="na">GITHUB_TOKEN</span><span class="pi">:</span> <span class="s">${{ secrets.GITHUB_TOKEN }}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 
