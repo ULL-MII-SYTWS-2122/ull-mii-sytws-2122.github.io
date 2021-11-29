@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=e82af35c6040c1e5ec00ecf422f11b6e7d629cac">
+    <link rel="stylesheet" href="/assets/css/style.css?v=3953363d33007fe55c9349d1a6d38ef84f593b15">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -87,12 +87,99 @@
             <h2 >Table of Contents</h2>
            
             <ul id="sytwstoc">
+  <li><a href="#testing-carlos-ull-mii-sytws-2122gh-repo-rename-in-production">Testing Carlos ULL-MII-SYTWS-2122/gh-repo-rename in production</a></li>
   <li><a href="#observaciones">Observaciones</a></li>
 </ul>
         
             <h1> Testing GitHub Cli Extensions with GitHub Actions </h1>
             <div class="container">
-                <p>Véase:</p>
+                <p>GitHub CLI is preinstalled on all GitHub-hosted runners. For each step that uses GitHub CLI, you must set an environment variable called <code class="language-plaintext highlighter-rouge">GITHUB_TOKEN</code> to a token with the required scopes.</p>
+
+<p>You can execute any GitHub CLI command.</p>
+
+<p>For example, this workflow uses the <code class="language-plaintext highlighter-rouge">gh issue comment</code> subcommand to add a comment when an issue is opened.</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="na">name</span><span class="pi">:</span> <span class="s">Comment when opened</span>
+<span class="na">on</span><span class="pi">:</span>
+  <span class="na">issues</span><span class="pi">:</span>
+    <span class="na">types</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">opened</span>
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">comment</span><span class="pi">:</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">gh issue comment $ISSUE --body "Thank you for opening this issue!"</span>
+        <span class="na">env</span><span class="pi">:</span>
+          <span class="na">GITHUB_TOKEN</span><span class="pi">:</span> <span class="s">$</span>
+          <span class="na">ISSUE</span><span class="pi">:</span> <span class="s">$</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>See <a href="https://docs.github.com/en/developers/webhooks-and-events/events/issue-event-types#event-object-properties-6">Event object properties</a>: the <code class="language-plaintext highlighter-rouge">htm_url</code> property is a string that contains the HTML URL of the issue comment.</p>
+
+<p>Here is the help of <code class="language-plaintext highlighter-rouge">gh issue comment</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+</pre></td><td class="rouge-code"><pre>➜  gh-repo-rename-testing git:(main) ✗ gh help issue comment
+Create a new issue comment
+
+USAGE
+  gh issue comment {&lt;number&gt; | &lt;url&gt;} [flags]
+
+FLAGS
+  -b, --body string      Supply a body. Will prompt for one otherwise.
+  -F, --body-file file   Read body text from file (use "-" to read from standard input)
+  -e, --editor           Add body using editor
+  -w, --web              Add body in browser
+
+INHERITED FLAGS
+      --help                     Show help for command
+  -R, --repo [HOST/]OWNER/REPO   Select another repository using the [HOST/]OWNER/REPO format
+
+EXAMPLES
+  $ gh issue comment 22 --body "I was able to reproduce this issue, lets fix it."
+
+LEARN MORE
+  Use 'gh &lt;command&gt; &lt;subcommand&gt; --help' for more information about a command.
+  Read the manual at https://cli.github.com/manual
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="testing-carlos-ull-mii-sytws-2122gh-repo-rename-in-production">Testing Carlos ULL-MII-SYTWS-2122/gh-repo-rename in production</h2>
+
+<p>Véase:</p>
 
 <ol>
   <li>GitHub Action en <a href="https://github.com/crguezl/gh-repo-rename-testing">crguezl/gh-repo-rename-testing</a> para testear la github cli  extensión 
