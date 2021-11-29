@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=d1bfc7c2f4c34537b6fe29a61f7993b406b6a93f">
+    <link rel="stylesheet" href="/assets/css/style.css?v=86636e07dff27e992c53843daaeca510ea0b8835">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -235,6 +235,8 @@ en el repo <a href="https://github.com/ULL-MII-SYTWS-2122/gh-repo-rename">ULL-MI
 36
 37
 38
+39
+40
 </pre></td><td class="rouge-code"><pre><span class="na">name</span><span class="pi">:</span> <span class="s">testing carlos extension</span>
 
 <span class="c1"># Controls when the workflow will run</span>
@@ -260,19 +262,21 @@ en el repo <a href="https://github.com/ULL-MII-SYTWS-2122/gh-repo-rename">ULL-MI
           <span class="na">run</span><span class="pi">:</span> <span class="s">gh extension install ULL-MII-SYTWS-2122/gh-repo-rename</span>  
 
         <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">create repo with user as owner</span>
-          <span class="na">run</span><span class="pi">:</span> <span class="s">gh api /user/repos -X POST --field name=prueba</span>   
-          <span class="na">continue-on-error</span><span class="pi">:</span> <span class="no">true</span>        
+          <span class="na">run</span><span class="pi">:</span> <span class="s">gh api /user/repos -X POST --field name=${OLDNAME}</span>           
 
         <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">probar a renombrarlo</span>
-          <span class="na">run</span><span class="pi">:</span> <span class="s">gh repo-rename ${OWNER}/prueba repoRenombrado</span>           
+          <span class="na">run</span><span class="pi">:</span> <span class="s">gh repo-rename ${OWNER}/${OLDNAME} ${NEWNAME}</span>           
 
         <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">delete repo</span>
-          <span class="na">run</span><span class="pi">:</span> <span class="s">gh api -X DELETE "/repos/${OWNER}/repoRenombrado"</span>           
+          <span class="na">run</span><span class="pi">:</span> <span class="s">gh api -X DELETE "/repos/${OWNER}/${NEWNAME}"</span>           
         
     <span class="na">env</span><span class="pi">:</span>
       <span class="na">GITHUB_TOKEN</span><span class="pi">:</span> <span class="s">${{secrets.ACCESS_TOKEN}}</span>
       <span class="c1"># Instead of crguezl. To make it more generic</span>
       <span class="na">OWNER</span><span class="pi">:</span> <span class="s">${{ github.repository_owner }}</span>
+      <span class="na">OLDNAME</span><span class="pi">:</span> <span class="s2">"</span><span class="s">prueba"</span>
+      <span class="na">NEWNAME</span><span class="pi">:</span> <span class="s2">"</span><span class="s">repoRenombrado"</span>
+
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="observaciones">Observaciones</h2>
