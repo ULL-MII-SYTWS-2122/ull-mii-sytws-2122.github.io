@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=3953363d33007fe55c9349d1a6d38ef84f593b15">
+    <link rel="stylesheet" href="/assets/css/style.css?v=16bf73329d00e8e89e4a96f65a73e9b4438eca3c">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -93,7 +93,9 @@
         
             <h1> Testing GitHub Cli Extensions with GitHub Actions </h1>
             <div class="container">
-                <p>GitHub CLI is preinstalled on all GitHub-hosted runners. For each step that uses GitHub CLI, you must set an environment variable called <code class="language-plaintext highlighter-rouge">GITHUB_TOKEN</code> to a token with the required scopes.</p>
+                <p>Read the article <a href="https://docs.github.com/en/actions/advanced-guides/using-github-cli-in-workflows">Using GitHub CLI in workflows</a>. You can script with GitHub CLI in GitHub Actions workflows.</p>
+
+<p>GitHub CLI is preinstalled on all GitHub-hosted runners. For each step that uses GitHub CLI, you must set an environment variable called <code class="language-plaintext highlighter-rouge">GITHUB_TOKEN</code> to a token with the required scopes.</p>
 
 <p>You can execute any GitHub CLI command.</p>
 
@@ -127,7 +129,11 @@
           <span class="na">ISSUE</span><span class="pi">:</span> <span class="s">$</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>See <a href="https://docs.github.com/en/developers/webhooks-and-events/events/issue-event-types#event-object-properties-6">Event object properties</a>: the <code class="language-plaintext highlighter-rouge">htm_url</code> property is a string that contains the HTML URL of the issue comment.</p>
+<p>See</p>
+<ul>
+  <li><a href="https://docs.github.com/en/developers/webhooks-and-events/events/issue-event-types#event-object-properties-6">Event object properties</a></li>
+  <li>and <a href="https://docs.github.com/en/developers/webhooks-and-events/events/issue-event-types#issue-event-object-common-properties">Issue event object common properties</a>]: the <code class="language-plaintext highlighter-rouge">htm_url</code> property is a string that contains the HTML URL of the issue comment.</li>
+</ul>
 
 <p>Here is the help of <code class="language-plaintext highlighter-rouge">gh issue comment</code>:</p>
 
@@ -276,6 +282,7 @@ en el repo <a href="https://github.com/ULL-MII-SYTWS-2122/gh-repo-rename">ULL-MI
   <li><code class="language-plaintext highlighter-rouge">jobs.&lt;job_id&gt;.steps[*].continue-on-error</code> Prevents a job from failing when a step fails. 
 Set to <code class="language-plaintext highlighter-rouge">true</code> to allow a job to pass when this step fails.</li>
 </ul>
+
 
 
                 
