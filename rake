@@ -88,10 +88,7 @@
 
 
 
-            <h2 >Table of Contents</h2>
             
-            
-          
 
             <div class="container"> 
                 <h1>  </h1>
