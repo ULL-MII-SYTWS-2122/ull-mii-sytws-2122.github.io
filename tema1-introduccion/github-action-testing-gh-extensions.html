@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=16bf73329d00e8e89e4a96f65a73e9b4438eca3c">
+    <link rel="stylesheet" href="/assets/css/style.css?v=781f32974b64c290313fb7a8b3793f07adc9ff13">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -125,8 +125,8 @@
     <span class="na">steps</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">gh issue comment $ISSUE --body "Thank you for opening this issue!"</span>
         <span class="na">env</span><span class="pi">:</span>
-          <span class="na">GITHUB_TOKEN</span><span class="pi">:</span> <span class="s">$</span>
-          <span class="na">ISSUE</span><span class="pi">:</span> <span class="s">$</span>
+          <span class="na">GITHUB_TOKEN</span><span class="pi">:</span> <span class="s">${{ secrets.ACCESS_TOKEN }}</span>
+          <span class="na">ISSUE</span><span class="pi">:</span> <span class="s">${{ github.event.issue.html_url }}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>See</p>
@@ -270,9 +270,9 @@ en el repo <a href="https://github.com/ULL-MII-SYTWS-2122/gh-repo-rename">ULL-MI
           <span class="na">run</span><span class="pi">:</span> <span class="s">gh api -X DELETE "/repos/${OWNER}/repoRenombrado"</span>           
         
     <span class="na">env</span><span class="pi">:</span>
-      <span class="na">GITHUB_TOKEN</span><span class="pi">:</span> <span class="s">$</span>
+      <span class="na">GITHUB_TOKEN</span><span class="pi">:</span> <span class="s">${{secrets.ACCESS_TOKEN}}</span>
       <span class="c1"># Instead of crguezl. To make it more generic</span>
-      <span class="na">OWNER</span><span class="pi">:</span> <span class="s">$</span>
+      <span class="na">OWNER</span><span class="pi">:</span> <span class="s">${{ github.repository_owner }}</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="observaciones">Observaciones</h2>
