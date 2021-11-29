@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=86636e07dff27e992c53843daaeca510ea0b8835">
+    <link rel="stylesheet" href="/assets/css/style.css?v=564e3ac7e566d0904586bd71bbe36fb7a3a47efd">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -194,8 +194,13 @@ en el repo <a href="https://github.com/ULL-MII-SYTWS-2122/gh-repo-rename">ULL-MI
       <li><a href="https://github.com/crguezl/gh-repo-rename-testing/actions">actions en crguezl/gh-repo-rename-testing</a></li>
     </ul>
   </li>
+  <li>The action at gh-extension <a href="https://github.com/ULL-ESIT-DMSI-1920/gh-cli-graphql-casiano-rodriguez-leon-alumnoudv5/tree/as-module">Repo ULL-ESIT-DMSI-1920/gh-cli-graphql-casiano-rodriguez-leon-alumnoudv5 branch as-module</a></li>
   <li><a href="https://docs.github.com/es/actions/learn-github-actions/workflow-syntax-for-github-actions#">Workflow syntax for GitHub Actions</a></li>
 </ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>➜  gh-cli-graphql-casiano-rodriguez-leon-alumnoudv5 git:(as-module) cat .github/workflows/npm-publish.yml 
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <div class="language-yml highlighter-rouge"><div class="highlight"><pre class="codehilite"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -237,16 +242,38 @@ en el repo <a href="https://github.com/ULL-MII-SYTWS-2122/gh-repo-rename">ULL-MI
 38
 39
 40
-</pre></td><td class="rouge-code"><pre><span class="na">name</span><span class="pi">:</span> <span class="s">testing carlos extension</span>
-
-<span class="c1"># Controls when the workflow will run</span>
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+</pre></td><td class="rouge-code"><pre><span class="na">name</span><span class="pi">:</span> <span class="s">Npm publish repo-rename</span>
 <span class="na">on</span><span class="pi">:</span>
   <span class="na">push</span><span class="pi">:</span>
-    <span class="na">branches</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">main</span><span class="pi">]</span>
+        <span class="na">branches</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">as-module</span><span class="pi">]</span>
 
-<span class="na">jobs</span><span class="pi">:</span>          
-  <span class="na">carlos</span><span class="pi">:</span>
-    <span class="c1"># Define the OS our workflow should run on</span>
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">publish-npm</span><span class="pi">:</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v2</span>
+      <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/setup-node@v2</span>
+        <span class="na">with</span><span class="pi">:</span>
+          <span class="na">node-version</span><span class="pi">:</span> <span class="m">16</span>
+          <span class="na">registry-url</span><span class="pi">:</span> <span class="s">https://registry.npmjs.org/</span>
+      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">npm ci</span>
+      <span class="pi">-</span> <span class="na">run</span><span class="pi">:</span> <span class="s">npm publish --access=public</span>
+        <span class="na">env</span><span class="pi">:</span>
+          <span class="na">NODE_AUTH_TOKEN</span><span class="pi">:</span> <span class="s">${{secrets.NPM_TOKEN}}</span>
+          
+  <span class="na">test-gh-rename-repo</span><span class="pi">:</span>
+    <span class="na">needs</span><span class="pi">:</span> <span class="s">publish-npm</span>
     <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
     <span class="na">steps</span><span class="pi">:</span> 
         <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v2</span> <span class="c1"># esta action descarga el repo en la máquina virtual</span>
@@ -259,13 +286,14 @@ en el repo <a href="https://github.com/ULL-MII-SYTWS-2122/gh-repo-rename">ULL-MI
           <span class="na">run</span><span class="pi">:</span> <span class="s">gh version</span>  
 
         <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install gh repo-rename extension. Repo  is now public</span>
-          <span class="na">run</span><span class="pi">:</span> <span class="s">gh extension install ULL-MII-SYTWS-2122/gh-repo-rename</span>  
+          <span class="na">run</span><span class="pi">:</span> <span class="s">gh extension install ${OWNER}/gh-repo-rename</span>  
 
         <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">create repo with user as owner</span>
-          <span class="na">run</span><span class="pi">:</span> <span class="s">gh api /user/repos -X POST --field name=${OLDNAME}</span>           
+          <span class="na">run</span><span class="pi">:</span> <span class="s">gh api /user/repos -X POST --field name=${OLDNAME}</span>        
+          <span class="na">continue-on-error</span><span class="pi">:</span> <span class="no">true</span>   
 
         <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">probar a renombrarlo</span>
-          <span class="na">run</span><span class="pi">:</span> <span class="s">gh repo-rename ${OWNER}/${OLDNAME} ${NEWNAME}</span>           
+          <span class="na">run</span><span class="pi">:</span> <span class="s">gh repo-rename -o ${OWNER} -r ${OLDNAME} -n ${NEWNAME}</span>         
 
         <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">delete repo</span>
           <span class="na">run</span><span class="pi">:</span> <span class="s">gh api -X DELETE "/repos/${OWNER}/${NEWNAME}"</span>           
@@ -275,8 +303,7 @@ en el repo <a href="https://github.com/ULL-MII-SYTWS-2122/gh-repo-rename">ULL-MI
       <span class="c1"># Instead of crguezl. To make it more generic</span>
       <span class="na">OWNER</span><span class="pi">:</span> <span class="s">${{ github.repository_owner }}</span>
       <span class="na">OLDNAME</span><span class="pi">:</span> <span class="s2">"</span><span class="s">prueba"</span>
-      <span class="na">NEWNAME</span><span class="pi">:</span> <span class="s2">"</span><span class="s">repoRenombrado"</span>
-
+      <span class="na">NEWNAME</span><span class="pi">:</span> <span class="s2">"</span><span class="s">pruebanuevo"</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <h2 id="observaciones">Observaciones</h2>
