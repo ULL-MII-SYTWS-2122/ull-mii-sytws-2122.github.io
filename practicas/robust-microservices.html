@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=23e3bf2f6e7a60b2f563eb4c6bbcddcb73b3103a">
+    <link rel="stylesheet" href="/assets/css/style.css?v=79ebd390c46da5b12f1581218b9aafe74ec37654">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
@@ -103,79 +103,79 @@
   </li>
   <li><em>Error Handling</em>,</li>
   <li><em>Robustness</em><code class="language-plaintext highlighter-rouge"> </code> y</li>
-  <li>
-    <p><em>Bidirectional Messaging</em>:</p>
-  </li>
-  <li><strong>Error Handling</strong>
+  <li><em>Bidirectional Messaging</em>:</li>
+</ul>
+
+<h2 id="error-handling">Error Handling</h2>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">zmq-filer-rep.js</code> program uses <code class="language-plaintext highlighter-rouge">fs.readfile()</code> to serve up file contents. However it doesn’t handle error cases.
     <ul>
-      <li>The <code class="language-plaintext highlighter-rouge">zmq-filer-rep.js</code> program uses <code class="language-plaintext highlighter-rouge">fs.readfile()</code> to serve up file contents. However it doesn’t handle error cases.
+      <li>What should the program do in the case of error?</li>
+      <li>How would you change the JSON object structure of messages to support  sending an error to the requester?</li>
+    </ul>
+  </li>
+  <li>Later in the same program we listen for the Unix signal <code class="language-plaintext highlighter-rouge">SIGINT</code> to detect the user’s <code class="language-plaintext highlighter-rouge">Ctrl-C</code> in the terminal
+    <ul>
+      <li>What happens if the program ends in some other way , like <code class="language-plaintext highlighter-rouge">SIGTERM</code> (the termination signal)?</li>
+      <li>What happens if there is an unhandled Node.js exception, and how should we deal with it?
         <ul>
-          <li>What should the program do in the case of error?</li>
-          <li>How would you change the JSON object structure of messages to support  sending an error to the requester?</li>
-        </ul>
-      </li>
-      <li>Later in the same program we listen for the Unix signal <code class="language-plaintext highlighter-rouge">SIGINT</code> to detect the user’s <code class="language-plaintext highlighter-rouge">Ctrl-C</code> in the terminal
-        <ul>
-          <li>What happens if the program ends in some other way , like <code class="language-plaintext highlighter-rouge">SIGTERM</code> (the termination signal)?</li>
-          <li>What happens if there is an unhandled Node.js exception, and how should we deal with it?
-            <ul>
-              <li><em>Hint</em>: you can listen for the <code class="language-plaintext highlighter-rouge">uncaughtException</code> event on the process object</li>
-            </ul>
-          </li>
+          <li><em>Hint</em>: you can listen for the <code class="language-plaintext highlighter-rouge">uncaughtException</code> event on the process object</li>
         </ul>
       </li>
     </ul>
   </li>
-  <li><strong>Robustness</strong>
+</ul>
+
+<h2 id="robustness">Robustness</h2>
+
+<ul>
+  <li>In <em>Building a Cluster</em> we created a Node.js cluster that spins up a pool of worker processes.</li>
+  <li>In the master process we listened for <code class="language-plaintext highlighter-rouge">online</code> events and logged a message when the workers came up.</li>
+  <li>But we didn’t specify what should happen when a worker ends.
     <ul>
-      <li>In <em>Building a Cluster</em> we created a Node.js cluster that spins up a pool of worker processes.</li>
-      <li>In the master process we listened for <code class="language-plaintext highlighter-rouge">online</code> events and logged a message when the workers came up.</li>
-      <li>But we didn’t specify what should happen when a worker ends.
+      <li>What happens when you kill a worker process from the command line?
         <ul>
-          <li>What happens when you kill a worker process from the command line?
-            <ul>
-              <li><em>Hint</em>: Use <code class="language-plaintext highlighter-rouge">kill [pid]</code>from the command line</li>
-            </ul>
-          </li>
-          <li>How would you change the <code class="language-plaintext highlighter-rouge">zmq-filer-rep-cluster.js</code> program to fork a new worker whenever one dies?</li>
+          <li><em>Hint</em>: Use <code class="language-plaintext highlighter-rouge">kill [pid]</code>from the command line</li>
         </ul>
       </li>
+      <li>How would you change the <code class="language-plaintext highlighter-rouge">zmq-filer-rep-cluster.js</code> program to fork a new worker whenever one dies?</li>
     </ul>
   </li>
-  <li><strong>Bidirectional Messaging</strong>
+</ul>
+
+<h2 id="bidirectional-messaging">Bidirectional Messaging</h2>
+
+<ul>
+  <li>For this project you’ll need to use 0MQ PUSH/PULL sockets and the Node.js clustering techniques.</li>
+  <li>Your clustered program will spin up a pool of workers and distribute 30 jobs.</li>
+  <li>The master process should:
     <ul>
-      <li>For this project you’ll need to use 0MQ PUSH/PULL sockets and the Node.js clustering techniques.</li>
-      <li>Your clustered program will spin up a pool of workers and distribute 30 jobs.</li>
-      <li>The master process should:
+      <li>Create a <code class="language-plaintext highlighter-rouge">PUSH</code> socket and bind it to an IPC endpoint. This socket will be for sending jobs to the workers</li>
+      <li>Create a <code class="language-plaintext highlighter-rouge">PULL</code> socket and bind it to a different IPC endpoint. This socket will receive messages from the workers</li>
+      <li>Keep a count of ready workers</li>
+      <li>Listen for messages on the PULL socket, and
         <ul>
-          <li>Create a <code class="language-plaintext highlighter-rouge">PUSH</code> socket and bind it to an IPC endpoint. This socket will be for sending jobs to the workers</li>
-          <li>Create a <code class="language-plaintext highlighter-rouge">PULL</code> socket and bind it to a different IPC endpoint. This socket will receive messages from the workers</li>
-          <li>Keep a count of ready workers</li>
-          <li>Listen for messages on the PULL socket, and
-            <ul>
-              <li>If the message is a <code class="language-plaintext highlighter-rouge">ready</code> message, increment the ready counter, or</li>
-              <li>If the message is a <code class="language-plaintext highlighter-rouge">result</code> message , output it to the console</li>
-            </ul>
-          </li>
-          <li>Spin up the worker processes</li>
-          <li>When the ready counter reaches 3 send 30 <code class="language-plaintext highlighter-rouge">job</code> messages out through the push socket</li>
+          <li>If the message is a <code class="language-plaintext highlighter-rouge">ready</code> message, increment the ready counter, or</li>
+          <li>If the message is a <code class="language-plaintext highlighter-rouge">result</code> message , output it to the console</li>
         </ul>
       </li>
-      <li>The worker process should:
-        <ul>
-          <li>Create a <code class="language-plaintext highlighter-rouge">PULL</code> socket and connect it to the master ‘s <code class="language-plaintext highlighter-rouge">PUSH</code> endpoint</li>
-          <li>Create a <code class="language-plaintext highlighter-rouge">PUSH</code> socket and connect it to the master ‘s <code class="language-plaintext highlighter-rouge">PULL</code> endpoint</li>
-          <li>Listen for <code class="language-plaintext highlighter-rouge">job</code> messages on the <code class="language-plaintext highlighter-rouge">PULL</code> socket, and respond by sending a <code class="language-plaintext highlighter-rouge">result</code> message out on the <code class="language-plaintext highlighter-rouge">PUSH</code> socket</li>
-          <li>Send a <code class="language-plaintext highlighter-rouge">ready</code> message out on the <code class="language-plaintext highlighter-rouge">PUSH</code> socket.</li>
-        </ul>
-      </li>
-      <li>Make sure your <code class="language-plaintext highlighter-rouge">result</code>  messages include at least the process ID of the worker. 
-  This way you can inspect the console output and confirm that the workload is being <em>balanced</em> among the worker processes.</li>
-      <li>See <a href="https://github.com/ULL-MII-CA-1819/nodejs-the-right-way/tree/master/connecting-robust-microservices-chapter-4/microservices/ventilator-worker-sink">the example in directory ventilator-worker-sink</a></li>
-      <li>See section PUSH-PULL in file <a href="https://github.com/ULL-MII-CA-1819/nodejs-the-right-way/blob/master/connecting-robust-microservices-chapter-4/microservices/README.md">Readme.md</a> in the folder <code class="language-plaintext highlighter-rouge">connecting-robust-microservices-chapter-4/microservices</code> in our repo <code class="language-plaintext highlighter-rouge">ULL-MII-CA-1819/nodejs-the-right-way</code></li>
+      <li>Spin up the worker processes</li>
+      <li>When the ready counter reaches 3 send 30 <code class="language-plaintext highlighter-rouge">job</code> messages out through the push socket</li>
     </ul>
   </li>
-  <li>Añada documentación</li>
+  <li>The worker process should:
+    <ul>
+      <li>Create a <code class="language-plaintext highlighter-rouge">PULL</code> socket and connect it to the master ‘s <code class="language-plaintext highlighter-rouge">PUSH</code> endpoint</li>
+      <li>Create a <code class="language-plaintext highlighter-rouge">PUSH</code> socket and connect it to the master ‘s <code class="language-plaintext highlighter-rouge">PULL</code> endpoint</li>
+      <li>Listen for <code class="language-plaintext highlighter-rouge">job</code> messages on the <code class="language-plaintext highlighter-rouge">PULL</code> socket, and respond by sending a <code class="language-plaintext highlighter-rouge">result</code> message out on the <code class="language-plaintext highlighter-rouge">PUSH</code> socket</li>
+      <li>Send a <code class="language-plaintext highlighter-rouge">ready</code> message out on the <code class="language-plaintext highlighter-rouge">PUSH</code> socket.</li>
+    </ul>
+  </li>
+  <li>Make sure your <code class="language-plaintext highlighter-rouge">result</code>  messages include at least the process ID of the worker. 
+This way you can inspect the console output and confirm that the workload is being <em>balanced</em> among the worker processes.</li>
+  <li>See <a href="https://github.com/ULL-MII-CA-1819/nodejs-the-right-way/tree/master/connecting-robust-microservices-chapter-4/microservices/ventilator-worker-sink">the example in directory ventilator-worker-sink</a></li>
+  <li>See section PUSH-PULL in file <a href="https://github.com/ULL-MII-CA-1819/nodejs-the-right-way/blob/master/connecting-robust-microservices-chapter-4/microservices/README.md">Readme.md</a> in the folder <code class="language-plaintext highlighter-rouge">connecting-robust-microservices-chapter-4/microservices</code> in our repo <code class="language-plaintext highlighter-rouge">ULL-MII-CA-1819/nodejs-the-right-way</code></li>
 </ul>
 
 <h2 id="reto-1-granja-de-trabajadores">Reto 1: Granja de Trabajadores</h2>
