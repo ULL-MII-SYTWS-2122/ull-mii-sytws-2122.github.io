@@ -1,7 +1,32 @@
 
     
     {
-      "title": "Clase  del Lunes 10/01/2022 (Semana C)",
+      "title": "Clase  del Lunes 17/01/2022 (Semana B)",
+      "date": "January 17, 2022",
+
+      "excerpt": "<h2 id="evaluación">Evaluación</h2>
+
+",
+       "categories"  : [
+         "Clases"
+        
+        
+        ],
+      
+      
+      "url": "/clases/2022/01/17/leccion.html",
+       "tags"  : [
+        
+        ]
+      
+      
+    }
+
+    ,
+
+    
+    {
+      "title": "Clase  del Lunes 10/01/2022 (Semana A)",
       "date": "January 10, 2022",
 
       "excerpt": "<h2 id="is-this-week--an-a-week-or-a-c-week">Is this week  an A week or a C week?</h2>
@@ -215,31 +240,6 @@
       
       
       "url": "/clases/2021/11/15/leccion.html",
-       "tags"  : [
-        
-        ]
-      
-      
-    }
-
-    ,
-
-    
-    {
-      "title": "Clase  del Miércoles 10/11/2021 (Semana C)",
-      "date": "November 10, 2021",
-
-      "excerpt": "<p>Vamos a intentar ponernos al día con las prácticas anteriores.</p>
-
-",
-       "categories"  : [
-         "Clases"
-        
-        
-        ],
-      
-      
-      "url": "/clases/2021/11/10/leccion.html",
        "tags"  : [
         
         ]
