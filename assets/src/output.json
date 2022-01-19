@@ -1,6 +1,31 @@
 
     
     {
+      "title": "Clase  del Miércoles 19/01/2022 (Semana B)",
+      "date": "January 19, 2022",
+
+      "excerpt": "<h2 id="evaluación">Evaluación</h2>
+
+",
+       "categories"  : [
+         "Clases"
+        
+        
+        ],
+      
+      
+      "url": "/clases/2022/01/19/leccion.html",
+       "tags"  : [
+        
+        ]
+      
+      
+    }
+
+    ,
+
+    
+    {
       "title": "Clase  del Lunes 17/01/2022 (Semana B)",
       "date": "January 17, 2022",
 
@@ -215,31 +240,6 @@
       
       
       "url": "/clases/2021/11/17/leccion.html",
-       "tags"  : [
-        
-        ]
-      
-      
-    }
-
-    ,
-
-    
-    {
-      "title": "Clase  del Lunes 15/11/2021 (Semana A)",
-      "date": "November 15, 2021",
-
-      "excerpt": "<h2 id="últimas-prácticas">Últimas Prácticas</h2>
-
-",
-       "categories"  : [
-         "Clases"
-        
-        
-        ],
-      
-      
-      "url": "/clases/2021/11/15/leccion.html",
        "tags"  : [
         
         ]
